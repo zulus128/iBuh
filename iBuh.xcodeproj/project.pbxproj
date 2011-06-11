@@ -1,0 +1,476 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
+		DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
+		DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
+		DDED16B913A3290D003E523C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDED16B713A3290D003E523C /* InfoPlist.strings */; };
+		DDED16BC13A3290D003E523C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16BB13A3290D003E523C /* main.m */; };
+		DDED16BF13A3290D003E523C /* iBuhAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */; };
+		DDED16C213A3290D003E523C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16C013A3290D003E523C /* MainWindow.xib */; };
+		DDED16C513A3290D003E523C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16C413A3290D003E523C /* FirstViewController.m */; };
+		DDED16C813A3290D003E523C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16C713A3290D003E523C /* SecondViewController.m */; };
+		DDED16CB13A3290D003E523C /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16C913A3290D003E523C /* FirstView.xib */; };
+		DDED16CE13A3290D003E523C /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16CC13A3290D003E523C /* SecondView.xib */; };
+		DDED16D513A3290E003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
+		DDED16D613A3290E003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
+		DDED16D713A3290E003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
+		DDED16DF13A3290E003E523C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDED16DD13A3290E003E523C /* InfoPlist.strings */; };
+		DDED16E213A3290E003E523C /* iBuhTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DDED16E113A3290E003E523C /* iBuhTests.h */; };
+		DDED16E413A3290E003E523C /* iBuhTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16E313A3290E003E523C /* iBuhTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DDED16D813A3290E003E523C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDED16A113A3290C003E523C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDED16A913A3290D003E523C;
+			remoteInfo = iBuh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DDED16AA13A3290D003E523C /* iBuh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBuh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DDED16B213A3290D003E523C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DDED16B613A3290D003E523C /* iBuh-Info.plist */ = {isa = PBXFileReference; path = "iBuh-Info.plist"; sourceTree = "<group>"; };
+		DDED16B813A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDED16BA13A3290D003E523C /* iBuh-Prefix.pch */ = {isa = PBXFileReference; path = "iBuh-Prefix.pch"; sourceTree = "<group>"; };
+		DDED16BB13A3290D003E523C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */ = {isa = PBXFileReference; path = iBuhAppDelegate.h; sourceTree = "<group>"; };
+		DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhAppDelegate.m; sourceTree = "<group>"; };
+		DDED16C113A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		DDED16C313A3290D003E523C /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		DDED16C413A3290D003E523C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		DDED16C613A3290D003E523C /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		DDED16C713A3290D003E523C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		DDED16CA13A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		DDED16CD13A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+		DDED16D413A3290E003E523C /* iBuhTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBuhTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDED16DC13A3290E003E523C /* iBuhTests-Info.plist */ = {isa = PBXFileReference; path = "iBuhTests-Info.plist"; sourceTree = "<group>"; };
+		DDED16DE13A3290E003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DDED16E013A3290E003E523C /* iBuhTests-Prefix.pch */ = {isa = PBXFileReference; path = "iBuhTests-Prefix.pch"; sourceTree = "<group>"; };
+		DDED16E113A3290E003E523C /* iBuhTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhTests.h; sourceTree = "<group>"; };
+		DDED16E313A3290E003E523C /* iBuhTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DDED16A713A3290D003E523C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */,
+				DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */,
+				DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDED16D013A3290E003E523C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16D513A3290E003E523C /* UIKit.framework in Frameworks */,
+				DDED16D613A3290E003E523C /* Foundation.framework in Frameworks */,
+				DDED16D713A3290E003E523C /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DDED169F13A3290C003E523C = {
+			isa = PBXGroup;
+			children = (
+				DDED16B413A3290D003E523C /* iBuh */,
+				DDED16DA13A3290E003E523C /* iBuhTests */,
+				DDED16AD13A3290D003E523C /* Frameworks */,
+				DDED16AB13A3290D003E523C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DDED16AB13A3290D003E523C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16AA13A3290D003E523C /* iBuh.app */,
+				DDED16D413A3290E003E523C /* iBuhTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DDED16AD13A3290D003E523C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16AE13A3290D003E523C /* UIKit.framework */,
+				DDED16B013A3290D003E523C /* Foundation.framework */,
+				DDED16B213A3290D003E523C /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDED16B413A3290D003E523C /* iBuh */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */,
+				DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */,
+				DDED16C013A3290D003E523C /* MainWindow.xib */,
+				DDED16C313A3290D003E523C /* FirstViewController.h */,
+				DDED16C413A3290D003E523C /* FirstViewController.m */,
+				DDED16C613A3290D003E523C /* SecondViewController.h */,
+				DDED16C713A3290D003E523C /* SecondViewController.m */,
+				DDED16C913A3290D003E523C /* FirstView.xib */,
+				DDED16CC13A3290D003E523C /* SecondView.xib */,
+				DDED16B513A3290D003E523C /* Supporting Files */,
+			);
+			path = iBuh;
+			sourceTree = "<group>";
+		};
+		DDED16B513A3290D003E523C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16B613A3290D003E523C /* iBuh-Info.plist */,
+				DDED16B713A3290D003E523C /* InfoPlist.strings */,
+				DDED16BA13A3290D003E523C /* iBuh-Prefix.pch */,
+				DDED16BB13A3290D003E523C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDED16DA13A3290E003E523C /* iBuhTests */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16E113A3290E003E523C /* iBuhTests.h */,
+				DDED16E313A3290E003E523C /* iBuhTests.m */,
+				DDED16DB13A3290E003E523C /* Supporting Files */,
+			);
+			path = iBuhTests;
+			sourceTree = "<group>";
+		};
+		DDED16DB13A3290E003E523C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16DC13A3290E003E523C /* iBuhTests-Info.plist */,
+				DDED16DD13A3290E003E523C /* InfoPlist.strings */,
+				DDED16E013A3290E003E523C /* iBuhTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DDED16A913A3290D003E523C /* iBuh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "iBuh" */;
+			buildPhases = (
+				DDED16A613A3290D003E523C /* Sources */,
+				DDED16A713A3290D003E523C /* Frameworks */,
+				DDED16A813A3290D003E523C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iBuh;
+			productName = iBuh;
+			productReference = DDED16AA13A3290D003E523C /* iBuh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DDED16D313A3290E003E523C /* iBuhTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "iBuhTests" */;
+			buildPhases = (
+				DDED16CF13A3290E003E523C /* Sources */,
+				DDED16D013A3290E003E523C /* Frameworks */,
+				DDED16D113A3290E003E523C /* Resources */,
+				DDED16D213A3290E003E523C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DDED16D913A3290E003E523C /* PBXTargetDependency */,
+			);
+			name = iBuhTests;
+			productName = iBuhTests;
+			productReference = DDED16D413A3290E003E523C /* iBuhTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DDED16A113A3290C003E523C /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = DDED16A413A3290C003E523C /* Build configuration list for PBXProject "iBuh" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DDED169F13A3290C003E523C;
+			productRefGroup = DDED16AB13A3290D003E523C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDED16A913A3290D003E523C /* iBuh */,
+				DDED16D313A3290E003E523C /* iBuhTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DDED16A813A3290D003E523C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16B913A3290D003E523C /* InfoPlist.strings in Resources */,
+				DDED16C213A3290D003E523C /* MainWindow.xib in Resources */,
+				DDED16CB13A3290D003E523C /* FirstView.xib in Resources */,
+				DDED16CE13A3290D003E523C /* SecondView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDED16D113A3290E003E523C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16DF13A3290E003E523C /* InfoPlist.strings in Resources */,
+				DDED16E213A3290E003E523C /* iBuhTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DDED16D213A3290E003E523C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DDED16A613A3290D003E523C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16BC13A3290D003E523C /* main.m in Sources */,
+				DDED16BF13A3290D003E523C /* iBuhAppDelegate.m in Sources */,
+				DDED16C513A3290D003E523C /* FirstViewController.m in Sources */,
+				DDED16C813A3290D003E523C /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDED16CF13A3290E003E523C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDED16E413A3290E003E523C /* iBuhTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DDED16D913A3290E003E523C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDED16A913A3290D003E523C /* iBuh */;
+			targetProxy = DDED16D813A3290E003E523C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DDED16B713A3290D003E523C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDED16B813A3290D003E523C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DDED16C013A3290D003E523C /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDED16C113A3290D003E523C /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		DDED16C913A3290D003E523C /* FirstView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDED16CA13A3290D003E523C /* en */,
+			);
+			name = FirstView.xib;
+			sourceTree = "<group>";
+		};
+		DDED16CC13A3290D003E523C /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDED16CD13A3290D003E523C /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+		DDED16DD13A3290E003E523C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DDED16DE13A3290E003E523C /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DDED16E513A3290E003E523C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DDED16E613A3290E003E523C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		DDED16E813A3290E003E523C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBuh/iBuh-Prefix.pch";
+				INFOPLIST_FILE = "iBuh/iBuh-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DDED16E913A3290E003E523C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBuh/iBuh-Prefix.pch";
+				INFOPLIST_FILE = "iBuh/iBuh-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DDED16EB13A3290E003E523C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iBuh.app/iBuh";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBuhTests/iBuhTests-Prefix.pch";
+				INFOPLIST_FILE = "iBuhTests/iBuhTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DDED16EC13A3290E003E523C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iBuh.app/iBuh";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iBuhTests/iBuhTests-Prefix.pch";
+				INFOPLIST_FILE = "iBuhTests/iBuhTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DDED16A413A3290C003E523C /* Build configuration list for PBXProject "iBuh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDED16E513A3290E003E523C /* Debug */,
+				DDED16E613A3290E003E523C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "iBuh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDED16E813A3290E003E523C /* Debug */,
+				DDED16E913A3290E003E523C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "iBuhTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DDED16EB13A3290E003E523C /* Debug */,
+				DDED16EC13A3290E003E523C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DDED16A113A3290C003E523C /* Project object */;
+}
