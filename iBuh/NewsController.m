@@ -7,7 +7,9 @@
 //
 
 #import "NewsController.h"
-
+#import "Common.h"
+#import "Reachability.h"
+#import "XMLParser.h"
 
 @implementation NewsController
 
@@ -44,6 +46,24 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    //-----------
+ /*   UILabel *titleView = (UILabel *)self.navigationItem.titleView;
+    if (!titleView) {
+        titleView = [[UILabel alloc] initWithFrame:CGRectZero];
+        titleView.backgroundColor = [UIColor clearColor];
+        titleView.font = [UIFont boldSystemFontOfSize:20.0];
+        titleView.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.0];
+        titleView.textColor = [UIColor blackColor];
+        self.navigationItem.titleView = titleView;
+        [titleView release];
+    }
+    titleView.text = self.navigationItem.title;
+    [titleView sizeToFit];*/
+    //-----------
+    
+    [self refresh];
+
 }
 
 - (void)viewDidUnload
@@ -160,6 +180,59 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+- (void)refresh {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == NotReachable) {
+		
+		UIAlertView* dialog = [[UIAlertView alloc] init];
+		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
+		[dialog setMessage:@"Невозможно загурзить новости."];
+		[dialog addButtonWithTitle:@"OK"];
+		[dialog show];
+		[dialog release];
+		
+	}else {
+        
+        
+/*        NSHTTPURLResponse* urlResponse = nil;
+        NSError *error = [[NSError alloc] init];
+        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+        [error release];
+        NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding] autorelease];
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[result dataUsingEncoding:NSWindowsCP1251StringEncoding]]; 
+  */      
+        NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
+        XMLParser* parser = [[XMLParser alloc] initXMLParser];
+        [xmlParser setDelegate:parser];
+        
+        [[Common instance] clearNews];
+        
+		for (int i = 0; i < 5; i++) {
+			
+			BOOL success = [xmlParser parse];	
+            
+            if(success) {
+                
+                NSLog(@"No Errors");
+                [self.tableView reloadData];
+                break;
+            }
+            else {
+            
+                //NSLog(@"Error! Possibly xml version is not new");
+                NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            }
+		}
+		
+	}
+    
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
 }
 
 @end

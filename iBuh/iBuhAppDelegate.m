@@ -8,6 +8,14 @@
 
 #import "iBuhAppDelegate.h"
 
+@implementation UINavigationBar (UINavigationBarCategory)
+
+- (void)drawRect:(CGRect)rect {
+    UIImage *image = [UIImage imageNamed: @"buhru-logo-title.png"];
+    [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+}
+@end
+
 @implementation iBuhAppDelegate
 
 

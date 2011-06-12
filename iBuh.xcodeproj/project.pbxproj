@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD251B9B13A48DF200DBA93B /* buhru-logo-title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD251B9A13A48DF200DBA93B /* buhru-logo-title.png */; };
+		DD251BA513A496A800DBA93B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA413A496A800DBA93B /* Reachability.m */; };
+		DD251BA813A4975D00DBA93B /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA713A4975D00DBA93B /* XMLParser.m */; };
+		DD251BAB13A497F300DBA93B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BAA13A497F200DBA93B /* Item.m */; };
+		DD251BC913A4F05800DBA93B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */; };
 		DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
 		DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
 		DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
@@ -33,6 +38,7 @@
 		DDED175D13A47FDA003E523C /* FavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED175B13A47FDA003E523C /* FavController.xib */; };
 		DDED177D13A48363003E523C /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED177B13A48362003E523C /* NewsController.m */; };
 		DDED177E13A48363003E523C /* NewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED177C13A48363003E523C /* NewsController.xib */; };
+		DDED179C13A48A42003E523C /* buhru-logo-title-only-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DDED179B13A48A42003E523C /* buhru-logo-title-only-logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD251B9A13A48DF200DBA93B /* buhru-logo-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buhru-logo-title.png"; sourceTree = "<group>"; };
+		DD251BA313A496A800DBA93B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		DD251BA413A496A800DBA93B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DD251BA613A4975D00DBA93B /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		DD251BA713A4975D00DBA93B /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		DD251BA913A497F200DBA93B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		DD251BAA13A497F200DBA93B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DDED16AA13A3290D003E523C /* iBuh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBuh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +96,7 @@
 		DDED177A13A48362003E523C /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsController.h; sourceTree = "<group>"; };
 		DDED177B13A48362003E523C /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
 		DDED177C13A48363003E523C /* NewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsController.xib; sourceTree = "<group>"; };
+		DDED179B13A48A42003E523C /* buhru-logo-title-only-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buhru-logo-title-only-logo.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD251BC913A4F05800DBA93B /* SystemConfiguration.framework in Frameworks */,
 				DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */,
 				DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */,
 				DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */,
@@ -111,6 +127,7 @@
 		DDED169F13A3290C003E523C = {
 			isa = PBXGroup;
 			children = (
+				DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */,
 				DDED16B413A3290D003E523C /* iBuh */,
 				DDED16DA13A3290E003E523C /* iBuhTests */,
 				DDED16AD13A3290D003E523C /* Frameworks */,
@@ -157,6 +174,12 @@
 				DDED175A13A47FD9003E523C /* FavController.m */,
 				DDED177A13A48362003E523C /* NewsController.h */,
 				DDED177B13A48362003E523C /* NewsController.m */,
+				DD251BA313A496A800DBA93B /* Reachability.h */,
+				DD251BA413A496A800DBA93B /* Reachability.m */,
+				DD251BA613A4975D00DBA93B /* XMLParser.h */,
+				DD251BA713A4975D00DBA93B /* XMLParser.m */,
+				DD251BA913A497F200DBA93B /* Item.h */,
+				DD251BAA13A497F200DBA93B /* Item.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -195,6 +218,8 @@
 		DDED16ED13A45576003E523C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DD251B9A13A48DF200DBA93B /* buhru-logo-title.png */,
+				DDED179B13A48A42003E523C /* buhru-logo-title-only-logo.png */,
 				DDED16F913A45B90003E523C /* Default.png */,
 				DDED16EE13A455C3003E523C /* start-bg-mail-input.png */,
 			);
@@ -290,6 +315,8 @@
 				DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */,
 				DDED175D13A47FDA003E523C /* FavController.xib in Resources */,
 				DDED177E13A48363003E523C /* NewsController.xib in Resources */,
+				DDED179C13A48A42003E523C /* buhru-logo-title-only-logo.png in Resources */,
+				DD251B9B13A48DF200DBA93B /* buhru-logo-title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +360,9 @@
 				DDED175713A47FB3003E523C /* QuesAnsController.m in Sources */,
 				DDED175C13A47FDA003E523C /* FavController.m in Sources */,
 				DDED177D13A48363003E523C /* NewsController.m in Sources */,
+				DD251BA513A496A800DBA93B /* Reachability.m in Sources */,
+				DD251BA813A4975D00DBA93B /* XMLParser.m in Sources */,
+				DD251BAB13A497F300DBA93B /* Item.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +551,7 @@
 				DDED16E913A3290E003E523C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "iBuhTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +560,7 @@
 				DDED16EC13A3290E003E523C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
