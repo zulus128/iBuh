@@ -24,6 +24,9 @@
 		DDED16DF13A3290E003E523C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DDED16DD13A3290E003E523C /* InfoPlist.strings */; };
 		DDED16E213A3290E003E523C /* iBuhTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DDED16E113A3290E003E523C /* iBuhTests.h */; };
 		DDED16E413A3290E003E523C /* iBuhTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16E313A3290E003E523C /* iBuhTests.m */; };
+		DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */ = {isa = PBXBuildFile; fileRef = DDED16EE13A455C3003E523C /* start-bg-mail-input.png */; };
+		DDED16F313A456A9003E523C /* StartMail.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16F113A456A9003E523C /* StartMail.m */; };
+		DDED16F413A456A9003E523C /* StartMail.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16F213A456A9003E523C /* StartMail.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,10 @@
 		DDED16E013A3290E003E523C /* iBuhTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iBuhTests-Prefix.pch"; sourceTree = "<group>"; };
 		DDED16E113A3290E003E523C /* iBuhTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhTests.h; sourceTree = "<group>"; };
 		DDED16E313A3290E003E523C /* iBuhTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhTests.m; sourceTree = "<group>"; };
+		DDED16EE13A455C3003E523C /* start-bg-mail-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg-mail-input.png"; sourceTree = "<group>"; };
+		DDED16F013A456A9003E523C /* StartMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartMail.h; path = iBuh.xcodeproj/StartMail.h; sourceTree = SOURCE_ROOT; };
+		DDED16F113A456A9003E523C /* StartMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartMail.m; path = iBuh.xcodeproj/StartMail.m; sourceTree = SOURCE_ROOT; };
+		DDED16F213A456A9003E523C /* StartMail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartMail.xib; path = iBuh.xcodeproj/StartMail.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +125,10 @@
 		DDED16B413A3290D003E523C /* iBuh */ = {
 			isa = PBXGroup;
 			children = (
+				DDED16ED13A45576003E523C /* Images */,
+				DDED16F013A456A9003E523C /* StartMail.h */,
+				DDED16F113A456A9003E523C /* StartMail.m */,
+				DDED16F213A456A9003E523C /* StartMail.xib */,
 				DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */,
 				DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */,
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
@@ -161,6 +172,14 @@
 				DDED16E013A3290E003E523C /* iBuhTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DDED16ED13A45576003E523C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DDED16EE13A455C3003E523C /* start-bg-mail-input.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +253,8 @@
 				DDED16C213A3290D003E523C /* MainWindow.xib in Resources */,
 				DDED16CB13A3290D003E523C /* FirstView.xib in Resources */,
 				DDED16CE13A3290D003E523C /* SecondView.xib in Resources */,
+				DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */,
+				DDED16F413A456A9003E523C /* StartMail.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +294,7 @@
 				DDED16BF13A3290D003E523C /* iBuhAppDelegate.m in Sources */,
 				DDED16C513A3290D003E523C /* FirstViewController.m in Sources */,
 				DDED16C813A3290D003E523C /* SecondViewController.m in Sources */,
+				DDED16F313A456A9003E523C /* StartMail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
