@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+//git push -u origin master
+
 #import <UIKit/UIKit.h>
 
 @interface iBuhAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {

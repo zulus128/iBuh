@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h_
+//  FirstViewController.h
 //  iBuh
 //
 //  Created by вадим on 6/11/11.
