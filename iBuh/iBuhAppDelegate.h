@@ -10,12 +10,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iBuhAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate> {
+#define kOFFSET_FOR_KEYBOARD 20.0
+
+@interface iBuhAppDelegate : NSObject <UIApplicationDelegate, UITabBarControllerDelegate, UITextFieldDelegate> {
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) IBOutlet UIViewController* startController;
+
+- (IBAction)up: (id)sender;
+- (IBAction)down: (id)sender;
+-(void)setViewMovedUp:(BOOL)movedUp;
 
 @end

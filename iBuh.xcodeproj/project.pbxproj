@@ -25,10 +25,14 @@
 		DDED16E213A3290E003E523C /* iBuhTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DDED16E113A3290E003E523C /* iBuhTests.h */; };
 		DDED16E413A3290E003E523C /* iBuhTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16E313A3290E003E523C /* iBuhTests.m */; };
 		DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */ = {isa = PBXBuildFile; fileRef = DDED16EE13A455C3003E523C /* start-bg-mail-input.png */; };
-		DDED16F313A456A9003E523C /* StartMail.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16F113A456A9003E523C /* StartMail.m */; };
-		DDED16F413A456A9003E523C /* StartMail.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16F213A456A9003E523C /* StartMail.xib */; };
 		DDED16F713A45835003E523C /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16F613A45835003E523C /* Common.m */; };
 		DDED16FA13A45B90003E523C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDED16F913A45B90003E523C /* Default.png */; };
+		DDED175713A47FB3003E523C /* QuesAnsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED175513A47FB2003E523C /* QuesAnsController.m */; };
+		DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED175613A47FB2003E523C /* QuesAnsController.xib */; };
+		DDED175C13A47FDA003E523C /* FavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED175A13A47FD9003E523C /* FavController.m */; };
+		DDED175D13A47FDA003E523C /* FavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED175B13A47FDA003E523C /* FavController.xib */; };
+		DDED177D13A48363003E523C /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED177B13A48362003E523C /* NewsController.m */; };
+		DDED177E13A48363003E523C /* NewsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED177C13A48363003E523C /* NewsController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,12 +70,18 @@
 		DDED16E113A3290E003E523C /* iBuhTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhTests.h; sourceTree = "<group>"; };
 		DDED16E313A3290E003E523C /* iBuhTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhTests.m; sourceTree = "<group>"; };
 		DDED16EE13A455C3003E523C /* start-bg-mail-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg-mail-input.png"; sourceTree = "<group>"; };
-		DDED16F013A456A9003E523C /* StartMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartMail.h; path = iBuh.xcodeproj/StartMail.h; sourceTree = SOURCE_ROOT; };
-		DDED16F113A456A9003E523C /* StartMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartMail.m; path = iBuh.xcodeproj/StartMail.m; sourceTree = SOURCE_ROOT; };
-		DDED16F213A456A9003E523C /* StartMail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StartMail.xib; path = iBuh.xcodeproj/StartMail.xib; sourceTree = SOURCE_ROOT; };
 		DDED16F513A45835003E523C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		DDED16F613A45835003E523C /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		DDED16F913A45B90003E523C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		DDED175413A47FB2003E523C /* QuesAnsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuesAnsController.h; sourceTree = "<group>"; };
+		DDED175513A47FB2003E523C /* QuesAnsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuesAnsController.m; sourceTree = "<group>"; };
+		DDED175613A47FB2003E523C /* QuesAnsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuesAnsController.xib; sourceTree = "<group>"; };
+		DDED175913A47FD9003E523C /* FavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavController.h; sourceTree = "<group>"; };
+		DDED175A13A47FD9003E523C /* FavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavController.m; sourceTree = "<group>"; };
+		DDED175B13A47FDA003E523C /* FavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavController.xib; sourceTree = "<group>"; };
+		DDED177A13A48362003E523C /* NewsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsController.h; sourceTree = "<group>"; };
+		DDED177B13A48362003E523C /* NewsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsController.m; sourceTree = "<group>"; };
+		DDED177C13A48363003E523C /* NewsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +143,6 @@
 				DDED16B513A3290D003E523C /* Supporting Files */,
 				DDED16F813A45852003E523C /* Xibs */,
 				DDED16ED13A45576003E523C /* Images */,
-				DDED16F013A456A9003E523C /* StartMail.h */,
-				DDED16F113A456A9003E523C /* StartMail.m */,
 				DDED16F513A45835003E523C /* Common.h */,
 				DDED16F613A45835003E523C /* Common.m */,
 				DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */,
@@ -143,6 +151,12 @@
 				DDED16C413A3290D003E523C /* FirstViewController.m */,
 				DDED16C613A3290D003E523C /* SecondViewController.h */,
 				DDED16C713A3290D003E523C /* SecondViewController.m */,
+				DDED175413A47FB2003E523C /* QuesAnsController.h */,
+				DDED175513A47FB2003E523C /* QuesAnsController.m */,
+				DDED175913A47FD9003E523C /* FavController.h */,
+				DDED175A13A47FD9003E523C /* FavController.m */,
+				DDED177A13A48362003E523C /* NewsController.h */,
+				DDED177B13A48362003E523C /* NewsController.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -190,10 +204,12 @@
 		DDED16F813A45852003E523C /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				DDED16F213A456A9003E523C /* StartMail.xib */,
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
 				DDED16C913A3290D003E523C /* FirstView.xib */,
 				DDED16CC13A3290D003E523C /* SecondView.xib */,
+				DDED175613A47FB2003E523C /* QuesAnsController.xib */,
+				DDED175B13A47FDA003E523C /* FavController.xib */,
+				DDED177C13A48363003E523C /* NewsController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -270,8 +286,10 @@
 				DDED16CB13A3290D003E523C /* FirstView.xib in Resources */,
 				DDED16CE13A3290D003E523C /* SecondView.xib in Resources */,
 				DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */,
-				DDED16F413A456A9003E523C /* StartMail.xib in Resources */,
 				DDED16FA13A45B90003E523C /* Default.png in Resources */,
+				DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */,
+				DDED175D13A47FDA003E523C /* FavController.xib in Resources */,
+				DDED177E13A48363003E523C /* NewsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,8 +329,10 @@
 				DDED16BF13A3290D003E523C /* iBuhAppDelegate.m in Sources */,
 				DDED16C513A3290D003E523C /* FirstViewController.m in Sources */,
 				DDED16C813A3290D003E523C /* SecondViewController.m in Sources */,
-				DDED16F313A456A9003E523C /* StartMail.m in Sources */,
 				DDED16F713A45835003E523C /* Common.m in Sources */,
+				DDED175713A47FB3003E523C /* QuesAnsController.m in Sources */,
+				DDED175C13A47FDA003E523C /* FavController.m in Sources */,
+				DDED177D13A48363003E523C /* NewsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

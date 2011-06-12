@@ -12,14 +12,15 @@
 
 
 @synthesize window=_window;
-
 @synthesize tabBarController=_tabBarController;
+@synthesize startController=_startController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
-    self.window.rootViewController = self.tabBarController;
+ //   self.window.rootViewController = self.tabBarController;
+    self.window.rootViewController = self.startController;
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -67,6 +68,8 @@
 {
     [_window release];
     [_tabBarController release];
+    [_startController release];
+    
     [super dealloc];
 }
 
@@ -83,5 +86,45 @@
 {
 }
 */
+- (IBAction)up: (id)sender {
+    
+	[self setViewMovedUp:YES];
+}
+
+- (IBAction)down: (id)sender {
+	
+	[self setViewMovedUp:NO];
+}
+
+-(void)setViewMovedUp:(BOOL)movedUp
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.5]; 
+	
+    CGRect rect = self.startController.view.frame;
+    if (movedUp) {
+        
+        rect.origin.y -= kOFFSET_FOR_KEYBOARD;
+        rect.size.height += kOFFSET_FOR_KEYBOARD;
+    }
+    else {
+
+        rect.origin.y += kOFFSET_FOR_KEYBOARD;
+        rect.size.height -= kOFFSET_FOR_KEYBOARD;
+    }
+    self.startController.view.frame = rect;
+	
+    [UIView commitAnimations];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+	[textField resignFirstResponder];
+    
+    self.window.rootViewController = self.tabBarController;
+    
+	return NO;
+    
+}
 
 @end
