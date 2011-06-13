@@ -190,23 +190,25 @@
 		
 		UIAlertView* dialog = [[UIAlertView alloc] init];
 		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
-		[dialog setMessage:@"Невозможно загурзить новости."];
+		[dialog setMessage:@"Невозможно загрузить новости."];
 		[dialog addButtonWithTitle:@"OK"];
 		[dialog show];
 		[dialog release];
 		
 	}else {
         
+        NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+        [request setURL:[NSURL URLWithString:MENU_URL]];
         
-/*        NSHTTPURLResponse* urlResponse = nil;
+        NSHTTPURLResponse* urlResponse = nil;
         NSError *error = [[NSError alloc] init];
         NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
         [error release];
-        NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSISOLatin1StringEncoding] autorelease];
+        NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding] autorelease];
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[result dataUsingEncoding:NSWindowsCP1251StringEncoding]]; 
-  */      
-        NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
-        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
+        
+  //      NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
+    //    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
         XMLParser* parser = [[XMLParser alloc] initXMLParser];
         [xmlParser setDelegate:parser];
         
