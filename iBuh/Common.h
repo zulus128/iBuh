@@ -29,5 +29,8 @@
 - (void)clearNews;
 
 - (void)addNews: (Item*)item;
+- (int) getNewsCount;
+- (Item*) getNewsAt: (int)num;
+
 
 @end

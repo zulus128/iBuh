@@ -11,6 +11,7 @@
 #import "Reachability.h"
 #import "XMLParser.h"
 #import "NewsCell.h"
+#import "Item.h"
 
 @implementation NewsController
 
@@ -126,7 +127,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 5;
+    return [[Common instance] getNewsCount];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -158,7 +159,24 @@
     }
     
     // Configure the cell...
-    cell.title.text = @"text";
+    Item* item = [[Common instance] getNewsAt:indexPath.row];
+    cell.title.text = item.title;
+    cell.rubric.text = item.rubric;
+    
+    NSLog(@"item.date = %@", item.date);
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    //[dateFormat setDateFormat:@"EEE, dd MMM yyyy, hh:mm:ss"];
+    [dateFormat setDateStyle:NSDateFormatterFullStyle];
+    NSDate *date = [dateFormat dateFromString:item.date];
+    [dateFormat release];
+    NSLog(@"date = %@", [date description]);
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"hh:mm"];
+    //Optionally for time zone converstions
+    //[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    cell.time.text = [formatter stringFromDate:date];
     
     return cell;
 }

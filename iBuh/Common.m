@@ -52,4 +52,14 @@
     NSLog(@"Item added, title: %@", item.title);
 }
 
+- (int) getNewsCount {
+
+    return [news count];
+}
+
+- (Item*) getNewsAt: (int)num {
+    
+    return [news objectAtIndex:num];
+}
+
 @end
