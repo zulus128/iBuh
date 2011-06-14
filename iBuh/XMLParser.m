@@ -23,7 +23,7 @@
   namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qualifiedName
 	attributes:(NSDictionary *)attributeDict {
 	
-    NSLog(@"Start Element");
+  //  NSLog(@"Start Element");
     
 	if([elementName isEqualToString:ITEM_TAG]) {
 

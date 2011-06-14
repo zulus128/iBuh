@@ -10,8 +10,11 @@
 #import "Common.h"
 #import "Reachability.h"
 #import "XMLParser.h"
+#import "NewsCell.h"
 
 @implementation NewsController
+
+@synthesize samplecell = _samplecell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -22,8 +25,10 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    
+    [_samplecell release];
+    
     [super dealloc];
 }
 
@@ -61,6 +66,15 @@
     titleView.text = self.navigationItem.title;
     [titleView sizeToFit];*/
     //-----------
+    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
+    for (id currentObject in topLevelObjects) {
+        
+        if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+            
+            self.samplecell = (NewsCell*) currentObject;
+            break;
+        }
+    }
     
     [self refresh];
 
@@ -115,16 +129,36 @@
     return 5;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //NSLog(@"heightForRowAtIndexPath");
+
+    return self.samplecell.frame.size.height;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"NewsCell";
+
+    //NSLog(@"cellForRowAtIndexPath");
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NewsCell* cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+  //      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                
+                cell = (NewsCell*) currentObject;
+                break;
+            }
+        }
     }
     
     // Configure the cell...
+    cell.title.text = @"text";
     
     return cell;
 }
@@ -204,10 +238,15 @@
         NSError *error = [[NSError alloc] init];
         NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
         [error release];
-        NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding] autorelease];
+ /*       NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding] autorelease];
         NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[result dataUsingEncoding:NSWindowsCP1251StringEncoding]]; 
+   */  
+        NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
+        myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
+        NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
         
-  //      NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
+    //    NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
     //    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
         XMLParser* parser = [[XMLParser alloc] initXMLParser];
         [xmlParser setDelegate:parser];

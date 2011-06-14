@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD10C1D513A6D6C1007E191D /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10C1D413A6D6C1007E191D /* NewsCell.m */; };
+		DD10C22A13A6DDA3007E191D /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD10C22913A6DDA3007E191D /* NewsCell.xib */; };
 		DD251B9B13A48DF200DBA93B /* buhru-logo-title.png in Resources */ = {isa = PBXBuildFile; fileRef = DD251B9A13A48DF200DBA93B /* buhru-logo-title.png */; };
 		DD251BA513A496A800DBA93B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA413A496A800DBA93B /* Reachability.m */; };
 		DD251BA813A4975D00DBA93B /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA713A4975D00DBA93B /* XMLParser.m */; };
@@ -52,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DD10C1D313A6D6C1007E191D /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		DD10C1D413A6D6C1007E191D /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		DD10C22913A6DDA3007E191D /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NewsCell.xib; path = ../NewsCell.xib; sourceTree = "<group>"; };
 		DD251B9A13A48DF200DBA93B /* buhru-logo-title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buhru-logo-title.png"; sourceTree = "<group>"; };
 		DD251BA313A496A800DBA93B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		DD251BA413A496A800DBA93B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -180,6 +185,8 @@
 				DD251BA713A4975D00DBA93B /* XMLParser.m */,
 				DD251BA913A497F200DBA93B /* Item.h */,
 				DD251BAA13A497F200DBA93B /* Item.m */,
+				DD10C1D313A6D6C1007E191D /* NewsCell.h */,
+				DD10C1D413A6D6C1007E191D /* NewsCell.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -235,6 +242,7 @@
 				DDED175613A47FB2003E523C /* QuesAnsController.xib */,
 				DDED175B13A47FDA003E523C /* FavController.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
+				DD10C22913A6DDA3007E191D /* NewsCell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 				DDED177E13A48363003E523C /* NewsController.xib in Resources */,
 				DDED179C13A48A42003E523C /* buhru-logo-title-only-logo.png in Resources */,
 				DD251B9B13A48DF200DBA93B /* buhru-logo-title.png in Resources */,
+				DD10C22A13A6DDA3007E191D /* NewsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +372,7 @@
 				DD251BA513A496A800DBA93B /* Reachability.m in Sources */,
 				DD251BA813A4975D00DBA93B /* XMLParser.m in Sources */,
 				DD251BAB13A497F300DBA93B /* Item.m in Sources */,
+				DD10C1D513A6D6C1007E191D /* NewsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,4 +15,6 @@
 
 - (void)refresh;
 
+@property (nonatomic, retain) UITableViewCell* samplecell;
+
 @end
