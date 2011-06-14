@@ -12,6 +12,7 @@
 #import "XMLParser.h"
 #import "NewsCell.h"
 #import "Item.h"
+#import "NewsDetailController.h"
 
 @implementation NewsController
 
@@ -163,11 +164,11 @@
     cell.title.text = item.title;
     cell.rubric.text = item.rubric;
     
-    NSLog(@"item.date = %@", item.date);
+   /* NSLog(@"item.date = %@", item.date);
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    //[dateFormat setDateFormat:@"EEE, dd MMM yyyy, hh:mm:ss"];
-    [dateFormat setDateStyle:NSDateFormatterFullStyle];
+    [dateFormat setDateFormat:@"a, dd mmm yyyy, HH:MM:SS"];
+    //[dateFormat setDateStyle:NSDateFormatterFullStyle];
     NSDate *date = [dateFormat dateFromString:item.date];
     [dateFormat release];
     NSLog(@"date = %@", [date description]);
@@ -177,7 +178,8 @@
     //Optionally for time zone converstions
     //[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
     cell.time.text = [formatter stringFromDate:date];
-    
+    */
+    cell.time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
     return cell;
 }
 
@@ -225,13 +227,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    
+     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
-     */
+     
 }
 
 - (void)refresh {
