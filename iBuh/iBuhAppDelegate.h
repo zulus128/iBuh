@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-//git push -u origin master
+//git push origin master
 //pass: vaddav123
 
 #import <UIKit/UIKit.h>
