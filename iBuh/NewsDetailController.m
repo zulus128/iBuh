@@ -11,6 +11,10 @@
 
 @implementation NewsDetailController
 
+@synthesize titl = _titl;
+@synthesize rubric = _rubric;
+@synthesize fulltext = _fulltext;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -20,8 +24,12 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+
+    [_titl release];
+    [_rubric release];
+    [_fulltext release];
+    
     [super dealloc];
 }
 

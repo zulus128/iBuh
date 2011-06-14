@@ -228,11 +228,15 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
+    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
+     
+    Item* item = [[Common instance] getNewsAt:indexPath.row];
+    detailViewController.titl.text = item.title;
+    detailViewController.rubric.text = item.rubric;
+    detailViewController.fulltext.text = item.full_text;
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
      
 }
 

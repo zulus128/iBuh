@@ -13,4 +13,8 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UILabel* titl;
+@property (nonatomic, retain) IBOutlet UILabel* rubric;
+@property (nonatomic, retain) IBOutlet UITextView* fulltext;
+
 @end
