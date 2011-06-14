@@ -231,11 +231,13 @@
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
      
     Item* item = [[Common instance] getNewsAt:indexPath.row];
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+
     detailViewController.titl.text = item.title;
     detailViewController.rubric.text = item.rubric;
     detailViewController.fulltext.text = item.full_text;
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+
     [detailViewController release];
      
 }
