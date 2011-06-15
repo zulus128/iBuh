@@ -7,6 +7,7 @@
 //
 
 #import "iBuhAppDelegate.h"
+#import "Common.h"
 
 @implementation UINavigationBar (UINavigationBarCategory)
 
@@ -29,7 +30,15 @@
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
  //   self.window.rootViewController = self.tabBarController;
-    self.window.rootViewController = self.startController;
+   
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+	NSString* cr = [userDefaults stringForKey:@"email"];
+    
+    if(!cr.length)
+        self.window.rootViewController = self.startController;
+    else
+        self.window.rootViewController = self.tabBarController;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -129,6 +138,18 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
 	[textField resignFirstResponder];
+    
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+    [userDefaults setObject:textField.text forKey:@"email"];  
+    
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:[NSURL URLWithString:EMAIL_URL]];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = [[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    [error release];
     
     self.window.rootViewController = self.tabBarController;
     

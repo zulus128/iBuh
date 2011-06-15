@@ -25,8 +25,6 @@
 		DDED16C213A3290D003E523C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16C013A3290D003E523C /* MainWindow.xib */; };
 		DDED16C513A3290D003E523C /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16C413A3290D003E523C /* FirstViewController.m */; };
 		DDED16C813A3290D003E523C /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16C713A3290D003E523C /* SecondViewController.m */; };
-		DDED16CB13A3290D003E523C /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16C913A3290D003E523C /* FirstView.xib */; };
-		DDED16CE13A3290D003E523C /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED16CC13A3290D003E523C /* SecondView.xib */; };
 		DDED16D513A3290E003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
 		DDED16D613A3290E003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
 		DDED16D713A3290E003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
@@ -85,8 +83,6 @@
 		DDED16C413A3290D003E523C /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		DDED16C613A3290D003E523C /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		DDED16C713A3290D003E523C /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
-		DDED16CA13A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
-		DDED16CD13A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
 		DDED16D413A3290E003E523C /* iBuhTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBuhTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16DC13A3290E003E523C /* iBuhTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iBuhTests-Info.plist"; sourceTree = "<group>"; };
 		DDED16DE13A3290E003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -244,8 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
-				DDED16C913A3290D003E523C /* FirstView.xib */,
-				DDED16CC13A3290D003E523C /* SecondView.xib */,
 				DDED175613A47FB2003E523C /* QuesAnsController.xib */,
 				DDED175B13A47FDA003E523C /* FavController.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
@@ -324,8 +318,6 @@
 			files = (
 				DDED16B913A3290D003E523C /* InfoPlist.strings in Resources */,
 				DDED16C213A3290D003E523C /* MainWindow.xib in Resources */,
-				DDED16CB13A3290D003E523C /* FirstView.xib in Resources */,
-				DDED16CE13A3290D003E523C /* SecondView.xib in Resources */,
 				DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */,
 				DDED16FA13A45B90003E523C /* Default.png in Resources */,
 				DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */,
@@ -419,22 +411,6 @@
 				DDED16C113A3290D003E523C /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		DDED16C913A3290D003E523C /* FirstView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDED16CA13A3290D003E523C /* en */,
-			);
-			name = FirstView.xib;
-			sourceTree = "<group>";
-		};
-		DDED16CC13A3290D003E523C /* SecondView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDED16CD13A3290D003E523C /* en */,
-			);
-			name = SecondView.xib;
 			sourceTree = "<group>";
 		};
 		DDED16DD13A3290E003E523C /* InfoPlist.strings */ = {
