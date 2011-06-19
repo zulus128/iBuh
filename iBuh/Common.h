@@ -11,7 +11,7 @@
 
 #define MENU_URL_FOR_REACH @"www.buhgalteria.ru"
 #define MENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonenews.php"
-#define EMAIL_URL @"www.buhgalteria.ru/iphoneapp/mailget.php?email="
+#define EMAIL_URL @"www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
 #define ITEM_TAG @"item"
 #define TITLE_TAG @"title"

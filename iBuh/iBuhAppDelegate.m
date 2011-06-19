@@ -12,7 +12,7 @@
 @implementation UINavigationBar (UINavigationBarCategory)
 
 - (void)drawRect:(CGRect)rect {
-    UIImage *image = [UIImage imageNamed: @"buhru-logo-title.png"];
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 }
 @end
@@ -144,12 +144,17 @@
     
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-    [request setURL:[NSURL URLWithString:EMAIL_URL]];
+    NSString* emailurl = [NSString stringWithFormat:EMAIL_URL,textField.text];
+    NSLog(@"email URL = %@", emailurl);
+    
+    [request setURL:[NSURL URLWithString:emailurl]];
     
     NSHTTPURLResponse* urlResponse = nil;
-    NSError *error = [[NSError alloc] init];
+    NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    [error release];
+//    [error release];
+    NSString *responseString = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"email sent responce = %@", responseString);
     
     self.window.rootViewController = self.tabBarController;
     
