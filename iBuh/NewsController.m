@@ -12,12 +12,14 @@
 #import "XMLParser.h"
 #import "NewsCell.h"
 #import "TopNewsCell.h"
+#import "DelimNewsCell.h"
 #import "Item.h"
 #import "NewsDetailController.h"
 
 @implementation NewsController
 
 @synthesize samplecell = _samplecell;
+@synthesize delimsamplecell = _delimsamplecell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -31,6 +33,7 @@
 - (void)dealloc {
     
     [_samplecell release];
+    [_delimsamplecell release];
     
     [super dealloc];
 }
@@ -72,9 +75,19 @@
     NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
     for (id currentObject in topLevelObjects) {
         
-        if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+        if ([currentObject isKindOfClass:[NewsCell class]]) {
             
             self.samplecell = (NewsCell*) currentObject;
+            break;
+        }
+    }
+
+    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DelimNewsCell" owner:nil options:nil];
+    for (id currentObject in topLevelObjects) {
+        
+        if ([currentObject isKindOfClass:[DelimNewsCell class]]) {
+            
+            self.delimsamplecell = (DelimNewsCell*) currentObject;
             break;
         }
     }
@@ -136,42 +149,69 @@
     
     //NSLog(@"heightForRowAtIndexPath");
 
+    if ((indexPath.row == 0) || (indexPath.row == 2))
+        return self.delimsamplecell.frame.size.height;
     return self.samplecell.frame.size.height;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier2 = @"DelimNewsCell";
     static NSString *CellIdentifier1 = @"TopNewsCell";
     static NSString *CellIdentifier = @"NewsCell";
-
-    //NSLog(@"cellForRowAtIndexPath");
-    if (indexPath.row == 0) {
-        TopNewsCell* cell = (TopNewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+    UITableViewCell* cell;
+    
+    if ((indexPath.row == 0) || (indexPath.row == 2)) {
+        
+        cell = (DelimNewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
         if (cell == nil) {
+            NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DelimNewsCell" owner:nil options:nil];
+            for (id currentObject in topLevelObjects) {
+                
+                if ([currentObject isKindOfClass:[DelimNewsCell class]]) {
+                    
+                    cell = (DelimNewsCell*) currentObject;
+                    break;
+                }
+            }
+            // Configure the cell...
+            if(indexPath.row == 0)
+                ((DelimNewsCell*)cell).title.text = @"Тема дня";
+            else
+                ((DelimNewsCell*)cell).title.text = @"Главное за сегодня";
+
+        }
+    }
+    else
+    if (indexPath.row == 1) {
+        
+        cell = (TopNewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        if (cell == nil) {
+           // NSLog(@"TopNewsCell is nil");
             NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TopNewsCell" owner:nil options:nil];
             for (id currentObject in topLevelObjects) {
                 
-                if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                if ([currentObject isKindOfClass:[TopNewsCell class]]) {
                     
                     cell = (TopNewsCell*) currentObject;
                     break;
                 }
             }
             // Configure the cell...
-            Item* item = [[Common instance] getNewsAt:indexPath.row];
-            cell.title.text = item.title;
-            cell.rubric.text = item.rubric;
-            cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
-            return cell;
+            Item* item = [[Common instance] getNewsAt:0];
+            ((TopNewsCell*)cell).title.text = item.title;
+            ((TopNewsCell*)cell).rubric.text = item.rubric;
+            ((TopNewsCell*)cell).image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
         }
     }else
         {
-            NewsCell* cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
+               // NSLog(@"NewsCell is nil");
                 NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
                 for (id currentObject in topLevelObjects) {
             
-                    if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                    if ([currentObject isKindOfClass:[NewsCell class]]) {
                 
                         cell = (NewsCell*) currentObject;
                         break;
@@ -179,12 +219,13 @@
                 }
             }
             // Configure the cell...
-            Item* item = [[Common instance] getNewsAt:indexPath.row /*- ROW_CORRECTION*/];
-            cell.title.text = item.title;
-            cell.rubric.text = item.rubric;
-            cell.time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-            return cell;
+            Item* item = [[Common instance] getNewsAt:(indexPath.row - ROW_CORRECTION)];
+            ((NewsCell*)cell).title.text = item.title;
+            ((NewsCell*)cell).rubric.text = item.rubric;
+            ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
         }
+
+    return cell;
     
 }
 
@@ -233,16 +274,19 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     
+     if ((indexPath.row == 0) || (indexPath.row == 2))
+         return;
+    
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
      
-    Item* item = [[Common instance] getNewsAt:indexPath.row];
+    int row = (indexPath.row == 1)?0:indexPath.row - ROW_CORRECTION;
+    Item* item = [[Common instance] getNewsAt:row];
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 
     detailViewController.titl.text = item.title;
     detailViewController.rubric.text = item.rubric;
-    detailViewController.fulltext.text = item.full_text;
-
+    [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
     [detailViewController release];
      
 }

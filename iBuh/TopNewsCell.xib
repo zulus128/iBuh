@@ -51,7 +51,7 @@
 							<object class="IBUIImageView" id="897582781">
 								<reference key="NSNextResponder" ref="322033701"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrameSize">{99, 99}</string>
+								<string key="NSFrameSize">{99, 80}</string>
 								<reference key="NSSuperview" ref="322033701"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="266617707"/>
@@ -86,7 +86,7 @@
 							<object class="IBUILabel" id="101295316">
 								<reference key="NSNextResponder" ref="322033701"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{107, 72}, {212, 21}}</string>
+								<string key="NSFrame">{{108, 58}, {212, 21}}</string>
 								<reference key="NSSuperview" ref="322033701"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -111,7 +111,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 							</object>
 						</object>
-						<string key="NSFrameSize">{320, 99}</string>
+						<string key="NSFrameSize">{320, 80}</string>
 						<reference key="NSSuperview" ref="1036748091"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="897582781"/>
@@ -126,7 +126,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
-				<string key="NSFrameSize">{320, 99}</string>
+				<string key="NSFrameSize">{320, 80}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="322033701"/>
@@ -194,8 +194,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="897582781"/>
-							<reference ref="101295316"/>
 							<reference ref="266617707"/>
+							<reference ref="101295316"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

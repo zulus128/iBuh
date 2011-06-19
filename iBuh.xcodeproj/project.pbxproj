@@ -21,6 +21,12 @@
 		DDC99BF513AD994F00958DF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF413AD994F00958DF2 /* Default@2x.png */; };
 		DDC99BF913AD9D3E00958DF2 /* TopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */; };
 		DDC99BFA13AD9D3E00958DF2 /* TopNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */; };
+		DDD0386813ADBD6B00BD246B /* DelimNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */; };
+		DDD0386913ADBD6B00BD246B /* DelimNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */; };
+		DDD0389E13ADD2A500BD246B /* QAController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0389C13ADD2A500BD246B /* QAController.m */; };
+		DDD0389F13ADD2A500BD246B /* QAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0389D13ADD2A500BD246B /* QAController.xib */; };
+		DDD038A313ADDBBD00BD246B /* QACell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD038A113ADDBBC00BD246B /* QACell.m */; };
+		DDD038A413ADDBBD00BD246B /* QACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD038A213ADDBBC00BD246B /* QACell.xib */; };
 		DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
 		DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
 		DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
@@ -36,8 +42,6 @@
 		DDED16E413A3290E003E523C /* iBuhTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16E313A3290E003E523C /* iBuhTests.m */; };
 		DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */ = {isa = PBXBuildFile; fileRef = DDED16EE13A455C3003E523C /* start-bg-mail-input.png */; };
 		DDED16F713A45835003E523C /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED16F613A45835003E523C /* Common.m */; };
-		DDED175713A47FB3003E523C /* QuesAnsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED175513A47FB2003E523C /* QuesAnsController.m */; };
-		DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED175613A47FB2003E523C /* QuesAnsController.xib */; };
 		DDED175C13A47FDA003E523C /* FavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED175A13A47FD9003E523C /* FavController.m */; };
 		DDED175D13A47FDA003E523C /* FavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDED175B13A47FDA003E523C /* FavController.xib */; };
 		DDED177D13A48363003E523C /* NewsController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDED177B13A48362003E523C /* NewsController.m */; };
@@ -75,6 +79,15 @@
 		DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNewsCell.h; sourceTree = "<group>"; };
 		DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNewsCell.m; sourceTree = "<group>"; };
 		DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopNewsCell.xib; sourceTree = "<group>"; };
+		DDD0386513ADBD6B00BD246B /* DelimNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelimNewsCell.h; sourceTree = "<group>"; };
+		DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelimNewsCell.m; sourceTree = "<group>"; };
+		DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelimNewsCell.xib; sourceTree = "<group>"; };
+		DDD0389B13ADD2A400BD246B /* QAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAController.h; sourceTree = "<group>"; };
+		DDD0389C13ADD2A500BD246B /* QAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAController.m; sourceTree = "<group>"; };
+		DDD0389D13ADD2A500BD246B /* QAController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QAController.xib; sourceTree = "<group>"; };
+		DDD038A013ADDBBB00BD246B /* QACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QACell.h; sourceTree = "<group>"; };
+		DDD038A113ADDBBC00BD246B /* QACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QACell.m; sourceTree = "<group>"; };
+		DDD038A213ADDBBC00BD246B /* QACell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QACell.xib; sourceTree = "<group>"; };
 		DDED16AA13A3290D003E523C /* iBuh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBuh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -95,9 +108,6 @@
 		DDED16EE13A455C3003E523C /* start-bg-mail-input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start-bg-mail-input.png"; sourceTree = "<group>"; };
 		DDED16F513A45835003E523C /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		DDED16F613A45835003E523C /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
-		DDED175413A47FB2003E523C /* QuesAnsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuesAnsController.h; sourceTree = "<group>"; };
-		DDED175513A47FB2003E523C /* QuesAnsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuesAnsController.m; sourceTree = "<group>"; };
-		DDED175613A47FB2003E523C /* QuesAnsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuesAnsController.xib; sourceTree = "<group>"; };
 		DDED175913A47FD9003E523C /* FavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavController.h; sourceTree = "<group>"; };
 		DDED175A13A47FD9003E523C /* FavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavController.m; sourceTree = "<group>"; };
 		DDED175B13A47FDA003E523C /* FavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavController.xib; sourceTree = "<group>"; };
@@ -171,24 +181,28 @@
 				DDED16F613A45835003E523C /* Common.m */,
 				DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */,
 				DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */,
-				DDED175413A47FB2003E523C /* QuesAnsController.h */,
-				DDED175513A47FB2003E523C /* QuesAnsController.m */,
 				DDED175913A47FD9003E523C /* FavController.h */,
 				DDED175A13A47FD9003E523C /* FavController.m */,
-				DDED177A13A48362003E523C /* NewsController.h */,
-				DDED177B13A48362003E523C /* NewsController.m */,
 				DD251BA313A496A800DBA93B /* Reachability.h */,
 				DD251BA413A496A800DBA93B /* Reachability.m */,
 				DD251BA613A4975D00DBA93B /* XMLParser.h */,
 				DD251BA713A4975D00DBA93B /* XMLParser.m */,
 				DD251BA913A497F200DBA93B /* Item.h */,
 				DD251BAA13A497F200DBA93B /* Item.m */,
-				DD10C1D313A6D6C1007E191D /* NewsCell.h */,
-				DD10C1D413A6D6C1007E191D /* NewsCell.m */,
+				DDED177A13A48362003E523C /* NewsController.h */,
+				DDED177B13A48362003E523C /* NewsController.m */,
+				DDD0389B13ADD2A400BD246B /* QAController.h */,
+				DDD0389C13ADD2A500BD246B /* QAController.m */,
 				8C87437F13A76A2E00588B05 /* NewsDetailController.h */,
 				8C87438013A76A2E00588B05 /* NewsDetailController.m */,
+				DD10C1D313A6D6C1007E191D /* NewsCell.h */,
+				DD10C1D413A6D6C1007E191D /* NewsCell.m */,
 				DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */,
 				DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */,
+				DDD0386513ADBD6B00BD246B /* DelimNewsCell.h */,
+				DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */,
+				DDD038A013ADDBBB00BD246B /* QACell.h */,
+				DDD038A113ADDBBC00BD246B /* QACell.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -240,12 +254,14 @@
 			isa = PBXGroup;
 			children = (
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
-				DDED175613A47FB2003E523C /* QuesAnsController.xib */,
 				DDED175B13A47FDA003E523C /* FavController.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
 				DD10C22913A6DDA3007E191D /* NewsCell.xib */,
 				DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */,
 				8C87438113A76A2E00588B05 /* NewsDetailController.xib */,
+				DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */,
+				DDD0389D13ADD2A500BD246B /* QAController.xib */,
+				DDD038A213ADDBBC00BD246B /* QACell.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -320,7 +336,6 @@
 				DDED16B913A3290D003E523C /* InfoPlist.strings in Resources */,
 				DDED16C213A3290D003E523C /* MainWindow.xib in Resources */,
 				DDED16EF13A455C3003E523C /* start-bg-mail-input.png in Resources */,
-				DDED175813A47FB3003E523C /* QuesAnsController.xib in Resources */,
 				DDED175D13A47FDA003E523C /* FavController.xib in Resources */,
 				DDED177E13A48363003E523C /* NewsController.xib in Resources */,
 				DD10C22A13A6DDA3007E191D /* NewsCell.xib in Resources */,
@@ -330,6 +345,9 @@
 				DDC99BF313AD993E00958DF2 /* Default.png in Resources */,
 				DDC99BF513AD994F00958DF2 /* Default@2x.png in Resources */,
 				DDC99BFA13AD9D3E00958DF2 /* TopNewsCell.xib in Resources */,
+				DDD0386913ADBD6B00BD246B /* DelimNewsCell.xib in Resources */,
+				DDD0389F13ADD2A500BD246B /* QAController.xib in Resources */,
+				DDD038A413ADDBBD00BD246B /* QACell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +386,6 @@
 				DDED16BC13A3290D003E523C /* main.m in Sources */,
 				DDED16BF13A3290D003E523C /* iBuhAppDelegate.m in Sources */,
 				DDED16F713A45835003E523C /* Common.m in Sources */,
-				DDED175713A47FB3003E523C /* QuesAnsController.m in Sources */,
 				DDED175C13A47FDA003E523C /* FavController.m in Sources */,
 				DDED177D13A48363003E523C /* NewsController.m in Sources */,
 				DD251BA513A496A800DBA93B /* Reachability.m in Sources */,
@@ -377,6 +394,9 @@
 				DD10C1D513A6D6C1007E191D /* NewsCell.m in Sources */,
 				8C87438213A76A2E00588B05 /* NewsDetailController.m in Sources */,
 				DDC99BF913AD9D3E00958DF2 /* TopNewsCell.m in Sources */,
+				DDD0386813ADBD6B00BD246B /* DelimNewsCell.m in Sources */,
+				DDD0389E13ADD2A500BD246B /* QAController.m in Sources */,
+				DDD038A313ADDBBD00BD246B /* QACell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
