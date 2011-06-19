@@ -11,6 +11,7 @@
 #import "Reachability.h"
 #import "XMLParser.h"
 #import "NewsCell.h"
+#import "TopNewsCell.h"
 #import "Item.h"
 #import "NewsDetailController.h"
 
@@ -140,47 +141,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSString *CellIdentifier1 = @"TopNewsCell";
     static NSString *CellIdentifier = @"NewsCell";
 
     //NSLog(@"cellForRowAtIndexPath");
-    
-    NewsCell* cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-  //      cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
-        for (id currentObject in topLevelObjects) {
-            
-            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+    if (indexPath.row == 0) {
+        TopNewsCell* cell = (TopNewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        if (cell == nil) {
+            NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TopNewsCell" owner:nil options:nil];
+            for (id currentObject in topLevelObjects) {
                 
-                cell = (NewsCell*) currentObject;
-                break;
+                if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                    
+                    cell = (TopNewsCell*) currentObject;
+                    break;
+                }
             }
+            // Configure the cell...
+            Item* item = [[Common instance] getNewsAt:indexPath.row];
+            cell.title.text = item.title;
+            cell.rubric.text = item.rubric;
+            cell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+            return cell;
         }
-    }
+    }else
+        {
+            NewsCell* cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
+                for (id currentObject in topLevelObjects) {
+            
+                    if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                
+                        cell = (NewsCell*) currentObject;
+                        break;
+                    }
+                }
+            }
+            // Configure the cell...
+            Item* item = [[Common instance] getNewsAt:indexPath.row /*- ROW_CORRECTION*/];
+            cell.title.text = item.title;
+            cell.rubric.text = item.rubric;
+            cell.time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
+            return cell;
+        }
     
-    // Configure the cell...
-    Item* item = [[Common instance] getNewsAt:indexPath.row];
-    cell.title.text = item.title;
-    cell.rubric.text = item.rubric;
-    
-   /* NSLog(@"item.date = %@", item.date);
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"a, dd mmm yyyy, HH:MM:SS"];
-    //[dateFormat setDateStyle:NSDateFormatterFullStyle];
-    NSDate *date = [dateFormat dateFromString:item.date];
-    [dateFormat release];
-    NSLog(@"date = %@", [date description]);
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"hh:mm"];
-    //Optionally for time zone converstions
-    //[formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
-    cell.time.text = [formatter stringFromDate:date];
-    */
-    cell.time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-    return cell;
 }
 
 /*
@@ -257,49 +262,49 @@
 		
 	}else {
         
-        NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-        [request setURL:[NSURL URLWithString:MENU_URL]];
-        
-        NSHTTPURLResponse* urlResponse = nil;
-        NSError *error = [[NSError alloc] init];
-        NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-        [error release];
- /*       NSString *result = [[[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding] autorelease];
-        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:[result dataUsingEncoding:NSWindowsCP1251StringEncoding]]; 
-   */  
-        NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
-        myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
-        NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
-        
-    //    NSURL *url = [[[NSURL alloc] initWithString:MENU_URL]autorelease];
-    //    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithContentsOfURL:url];	
-        XMLParser* parser = [[XMLParser alloc] initXMLParser];
-        [xmlParser setDelegate:parser];
-        
         [[Common instance] clearNews];
-        
-		for (int i = 0; i < 5; i++) {
-			
-			BOOL success = [xmlParser parse];	
-            
-            if(success) {
-                
-                NSLog(@"No Errors");
-                [self.tableView reloadData];
-                break;
-            }
-            else {
-            
-                //NSLog(@"Error! Possibly xml version is not new");
-                NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
-            }
-		}
+        [self addNews:TOPMENU_URL];
+        [self addNews:MENU_URL];
 		
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
+}
+
+- (void)addNews: (NSString*) url {
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = nil;//[[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    //        [error release];
+    NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
+    myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
+    NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
+    XMLParser* parser = [[XMLParser alloc] initXMLParser];
+    [xmlParser setDelegate:parser];    
+    
+    for (int i = 0; i < 5; i++) {
+        
+        BOOL success = [xmlParser parse];	
+        
+        if(success) {
+            
+            NSLog(@"No Errors");
+            [self.tableView reloadData];
+            break;
+        }
+        else {
+            
+            //NSLog(@"Error! Possibly xml version is not new");
+            NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+        }
+    }
+
 }
 
 @end

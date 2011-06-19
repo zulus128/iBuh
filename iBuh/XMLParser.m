@@ -31,6 +31,8 @@
 	//	NSLog(@"Item alloc");
 	}
 	
+    if ([elementName isEqualToString:IMAGE_TAG])
+        item.image = [attributeDict objectForKey:@"url"];
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {

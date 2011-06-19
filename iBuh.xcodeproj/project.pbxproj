@@ -19,6 +19,8 @@
 		DDC99BED13AD956600958DF2 /* top-logo-sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BEB13AD956600958DF2 /* top-logo-sample@2x.png */; };
 		DDC99BF313AD993E00958DF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF213AD993E00958DF2 /* Default.png */; };
 		DDC99BF513AD994F00958DF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF413AD994F00958DF2 /* Default@2x.png */; };
+		DDC99BF913AD9D3E00958DF2 /* TopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */; };
+		DDC99BFA13AD9D3E00958DF2 /* TopNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */; };
 		DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
 		DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
 		DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
@@ -70,6 +72,9 @@
 		DDC99BEB13AD956600958DF2 /* top-logo-sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-logo-sample@2x.png"; sourceTree = "<group>"; };
 		DDC99BF213AD993E00958DF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		DDC99BF413AD994F00958DF2 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNewsCell.h; sourceTree = "<group>"; };
+		DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNewsCell.m; sourceTree = "<group>"; };
+		DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopNewsCell.xib; sourceTree = "<group>"; };
 		DDED16AA13A3290D003E523C /* iBuh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBuh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +187,8 @@
 				DD10C1D413A6D6C1007E191D /* NewsCell.m */,
 				8C87437F13A76A2E00588B05 /* NewsDetailController.h */,
 				8C87438013A76A2E00588B05 /* NewsDetailController.m */,
+				DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */,
+				DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -237,6 +244,7 @@
 				DDED175B13A47FDA003E523C /* FavController.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
 				DD10C22913A6DDA3007E191D /* NewsCell.xib */,
+				DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */,
 				8C87438113A76A2E00588B05 /* NewsDetailController.xib */,
 			);
 			name = Xibs;
@@ -321,6 +329,7 @@
 				DDC99BED13AD956600958DF2 /* top-logo-sample@2x.png in Resources */,
 				DDC99BF313AD993E00958DF2 /* Default.png in Resources */,
 				DDC99BF513AD994F00958DF2 /* Default@2x.png in Resources */,
+				DDC99BFA13AD9D3E00958DF2 /* TopNewsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +376,7 @@
 				DD251BAB13A497F300DBA93B /* Item.m in Sources */,
 				DD10C1D513A6D6C1007E191D /* NewsCell.m in Sources */,
 				8C87438213A76A2E00588B05 /* NewsDetailController.m in Sources */,
+				DDC99BF913AD9D3E00958DF2 /* TopNewsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

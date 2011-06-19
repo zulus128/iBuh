@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#define ROW_CORRECTION 1
 
 @interface NewsController : UITableViewController {
     
 }
 
 - (void)refresh;
+- (void)addNews: (NSString*) url;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
 
