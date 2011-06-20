@@ -15,6 +15,7 @@
 
 - (void)addQAs: (NSString*) url;
 - (void)refresh;
+- (void)addQuestion:(NSObject*)sender;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
 

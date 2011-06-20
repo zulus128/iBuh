@@ -62,7 +62,17 @@
         }
     }
     
-     [self refresh];
+    [self refresh];
+    
+    
+    //self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(addQuestion:)] autorelease];
+    
+}
+
+- (void)addQuestion:(NSObject*)sender {
+
+    NSLog(@"addQuestion");
 }
 
 - (void)viewDidUnload
