@@ -58,7 +58,6 @@
 				<object class="NSPSMatrix" key="NSFrameMatrix"/>
 				<string key="NSFrameSize">{320, 480}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -106,6 +105,11 @@
 							<string key="IBUITitle">Вопрос-ответ</string>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="749537997">
 								<string key="IBUITitle"/>
+								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="943564331">
+									<string key="IBUITitle">Назад</string>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIStyle">1</int>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 							<reference key="IBUIParentViewController" ref="277404453"/>
@@ -292,7 +296,6 @@
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 431}, {320, 49}}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSNextKeyView"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MCAwAA</bytes>
@@ -325,7 +328,6 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{49, 228}, {223, 31}}</string>
 							<reference key="NSSuperview" ref="135094880"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="IBUIOpaque">NO</bool>
 							<bool key="IBUIClipsSubviews">YES</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -716,6 +718,10 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">166</int>
 						<reference key="object" ref="749537997"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="943564331"/>
+						</object>
 						<reference key="parent" ref="1015225123"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -727,6 +733,11 @@
 						<int key="objectID">168</int>
 						<reference key="object" ref="917210166"/>
 						<reference key="parent" ref="52642817"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">169</int>
+						<reference key="object" ref="943564331"/>
+						<reference key="parent" ref="749537997"/>
 					</object>
 				</object>
 			</object>
@@ -829,7 +840,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">168</int>
+			<int key="maxID">169</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

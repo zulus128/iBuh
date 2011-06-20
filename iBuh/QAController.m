@@ -11,6 +11,7 @@
 #import "XMLParser.h"
 #import "Common.h"
 #import "Reachability.h"
+#import "SendQController.h"
 
 @implementation QAController
 
@@ -73,6 +74,11 @@
 - (void)addQuestion:(NSObject*)sender {
 
     NSLog(@"addQuestion");
+    SendQController *detailViewController = [[SendQController alloc] initWithNibName:@"SendQController" bundle:nil];
+    // ...
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    [detailViewController release];
 }
 
 - (void)viewDidUnload
@@ -117,7 +123,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [[Common instance] getQAsCount];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -13,6 +13,7 @@
 #define MENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonenews.php"
 #define TOPMENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphoneday.php"
 #define QAMENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonefaq.php"
+#define SENDQ_URL @"http://www.buhgalteria.ru/addq/iphone.php"
 
 #define EMAIL_URL @"www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
