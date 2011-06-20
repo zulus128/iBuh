@@ -11,7 +11,7 @@
 
 @implementation Item
 
-@synthesize title, link, rubric, full_text, date, image;
+@synthesize title, link, rubric, full_text, date, image, description;
 
 - (void) dealloc {
 	
@@ -22,6 +22,7 @@
 	self.full_text = nil;
 	self.date = nil;
     self.image = nil;
+    self.description = nil;
 	
 	[super dealloc];
 }

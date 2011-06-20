@@ -18,5 +18,6 @@
 @property (nonatomic, retain) NSString* full_text;
 @property (nonatomic, retain) NSString* date;
 @property (nonatomic, retain) NSString* image;
+@property (nonatomic, retain) NSString* description;
 
 @end

@@ -12,6 +12,7 @@
 #define MENU_URL_FOR_REACH @"www.buhgalteria.ru"
 #define MENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonenews.php"
 #define TOPMENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphoneday.php"
+#define QAMENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonefaq.php"
 
 #define EMAIL_URL @"www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
@@ -22,19 +23,25 @@
 #define FULLTEXT_TAG @"full-text"
 #define DATE_TAG @"pubDate"
 #define IMAGE_TAG @"enclosure"
+#define DESCRIPTION_TAG @"description"
 
 @interface Common : NSObject {
  
     NSMutableArray* news;
+    NSMutableArray* qas;
 }
 
 + (Common*)instance;
 
 - (void)clearNews;
-
 - (void)addNews: (Item*)item;
 - (int) getNewsCount;
 - (Item*) getNewsAt: (int)num;
+
+- (void)clearQAs;
+- (void)addQA: (Item*)item;
+- (int) getQAsCount;
+- (Item*) getQAAt: (int)num;
 
 
 @end

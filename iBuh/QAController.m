@@ -8,6 +8,9 @@
 
 #import "QAController.h"
 #import "QACell.h"
+#import "XMLParser.h"
+#import "Common.h"
+#import "Reachability.h"
 
 @implementation QAController
 
@@ -58,6 +61,8 @@
             break;
         }
     }
+    
+     [self refresh];
 }
 
 - (void)viewDidUnload
@@ -128,6 +133,9 @@
             }
         }
         // Configure the cell...
+        Item* item = [[Common instance] getQAAt:indexPath.row];
+        ((QACell*)cell).title.text = item.title;
+        ((QACell*)cell).quest.text = item.description;
     }
     
     return cell;
@@ -184,6 +192,64 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+- (void)refresh {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == NotReachable) {
+		
+		UIAlertView* dialog = [[UIAlertView alloc] init];
+		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
+		[dialog setMessage:@"Невозможно загрузить новости."];
+		[dialog addButtonWithTitle:@"OK"];
+		[dialog show];
+		[dialog release];
+		
+	}else {
+        
+        [[Common instance] clearQAs];
+        [self addQAs:QAMENU_URL];
+		
+	}
+    
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)addQAs: (NSString*) url {
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = nil;//[[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    //        [error release];
+    NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
+    myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
+    NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
+    XMLParser* parser = [[XMLParser alloc] initXMLParser:TYPE_QAS];
+    [xmlParser setDelegate:parser];    
+    
+    for (int i = 0; i < 5; i++) {
+        
+        BOOL success = [xmlParser parse];	
+        
+        if(success) {
+            
+            NSLog(@"QA No Errors");
+            [self.tableView reloadData];
+            break;
+        }
+        else {
+            
+            //NSLog(@"Error! Possibly xml version is not new");
+            NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+        }
+    }
+    
 }
 
 @end

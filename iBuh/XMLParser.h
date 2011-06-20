@@ -9,12 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
+enum item_types {
+    
+    TYPE_NEWS,
+    TYPE_QAS
+};
+
 @interface XMLParser : NSObject <NSXMLParserDelegate> {
 
 	NSMutableString* currentElementValue;
+    int itype;
 }
 
-- (XMLParser *) initXMLParser;
+- (XMLParser *) initXMLParser: (int) type;
 
 @property (nonatomic, retain) Item* item;
 

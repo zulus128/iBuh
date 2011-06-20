@@ -13,9 +13,12 @@
 
 @synthesize item;
 
-- (XMLParser *) initXMLParser {
+- (XMLParser *) initXMLParser: (int) type {
 	
 	[super init];
+    
+    itype = type;
+    
 	return self;
 }
 
@@ -55,7 +58,17 @@
 
     if([elementName isEqualToString:ITEM_TAG]) {
 			
-        [[Common instance] addNews:item];
+        switch (itype) {
+            case TYPE_NEWS:
+                [[Common instance] addNews:item];                
+                break;
+            case TYPE_QAS:
+                [[Common instance] addQA:item];                
+                break;
+                
+            default:
+                break;
+        }
         [item release];
     }
     else
@@ -73,6 +86,9 @@
                                     else
                                         if([elementName isEqualToString:DATE_TAG])
                                             item.date = trimedStr;
+                                            else
+                                                if([elementName isEqualToString:DESCRIPTION_TAG])
+                                                    item.description = trimedStr;
 	
 	[currentElementValue release];
 	currentElementValue = nil;

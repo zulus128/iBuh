@@ -13,6 +13,9 @@
     
 }
 
+- (void)addQAs: (NSString*) url;
+- (void)refresh;
+
 @property (nonatomic, retain) UITableViewCell* samplecell;
 
 @end

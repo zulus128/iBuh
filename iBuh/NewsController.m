@@ -329,7 +329,7 @@
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
-    XMLParser* parser = [[XMLParser alloc] initXMLParser];
+    XMLParser* parser = [[XMLParser alloc] initXMLParser:TYPE_NEWS];
     [xmlParser setDelegate:parser];    
     
     for (int i = 0; i < 5; i++) {

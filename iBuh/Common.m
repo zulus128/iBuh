@@ -30,6 +30,7 @@
 	if(self !=nil) {
 
         news = [[NSMutableArray alloc] init];
+        qas = [[NSMutableArray alloc] init];
 	}
 	return self;	
 }
@@ -37,6 +38,7 @@
 - (void) dealloc {
     
 	[news release];
+    [qas release];
     
 	[super dealloc];
 }
@@ -60,6 +62,27 @@
 - (Item*) getNewsAt: (int)num {
     
     return [news objectAtIndex:num];
+}
+
+- (void)clearQAs {
+    
+    [qas removeAllObjects];
+}
+
+- (void)addQA: (Item*)item {
+    
+    [qas addObject:item];
+    NSLog(@"QA Item added, title: %@", item.title);
+}
+
+- (int) getQAsCount {
+    
+    return [qas count];
+}
+
+- (Item*) getQAAt: (int)num {
+    
+    return [qas objectAtIndex:num];
 }
 
 @end
