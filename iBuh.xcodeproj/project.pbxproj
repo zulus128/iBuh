@@ -11,6 +11,8 @@
 		8C87438313A76A2E00588B05 /* NewsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C87438113A76A2E00588B05 /* NewsDetailController.xib */; };
 		8C92548113AF53AF00374063 /* SendQController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C92547F13AF53AF00374063 /* SendQController.m */; };
 		8C92548213AF53AF00374063 /* SendQController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C92548013AF53AF00374063 /* SendQController.xib */; };
+		8C92548613AF635200374063 /* 53-house.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C92548413AF635200374063 /* 53-house.png */; };
+		8C92548713AF635200374063 /* 53-house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C92548513AF635200374063 /* 53-house@2x.png */; };
 		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
 		8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */; };
 		8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */; };
@@ -68,6 +70,8 @@
 		8C92547E13AF53AF00374063 /* SendQController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendQController.h; sourceTree = "<group>"; };
 		8C92547F13AF53AF00374063 /* SendQController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendQController.m; sourceTree = "<group>"; };
 		8C92548013AF53AF00374063 /* SendQController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendQController.xib; sourceTree = "<group>"; };
+		8C92548413AF635200374063 /* 53-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house.png"; sourceTree = "<group>"; };
+		8C92548513AF635200374063 /* 53-house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house@2x.png"; sourceTree = "<group>"; };
 		8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok.png"; sourceTree = "<group>"; };
 		8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok@2x.png"; sourceTree = "<group>"; };
 		8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
@@ -256,6 +260,8 @@
 				DDC99BE213AD8EB800958DF2 /* top-logo-sample.png */,
 				DDC99BF413AD994F00958DF2 /* Default@2x.png */,
 				DDC99BF213AD993E00958DF2 /* Default.png */,
+				8C92548413AF635200374063 /* 53-house.png */,
+				8C92548513AF635200374063 /* 53-house@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -361,6 +367,8 @@
 				8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */,
 				8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */,
 				8C92548213AF53AF00374063 /* SendQController.xib in Resources */,
+				8C92548613AF635200374063 /* 53-house.png in Resources */,
+				8C92548713AF635200374063 /* 53-house@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
