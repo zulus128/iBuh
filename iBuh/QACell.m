@@ -11,6 +11,10 @@
 
 @implementation QACell
 
+@synthesize time = _time;
+@synthesize title = _title;
+@synthesize quest = _quest;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -29,6 +33,9 @@
 
 - (void)dealloc {
     
+    [_time release];
+    [_title release];
+    [_quest release];
     
     [super dealloc];
 }

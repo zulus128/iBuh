@@ -13,4 +13,8 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UILabel* time;
+@property (nonatomic, retain) IBOutlet UILabel* title;
+@property (nonatomic, retain) IBOutlet UILabel* quest;
+
 @end
