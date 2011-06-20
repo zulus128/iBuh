@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8C87438213A76A2E00588B05 /* NewsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C87438013A76A2E00588B05 /* NewsDetailController.m */; };
 		8C87438313A76A2E00588B05 /* NewsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C87438113A76A2E00588B05 /* NewsDetailController.xib */; };
+		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
+		8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */; };
 		8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */; };
 		DD10C1D513A6D6C1007E191D /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD10C1D413A6D6C1007E191D /* NewsCell.m */; };
 		DD251BA513A496A800DBA93B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA413A496A800DBA93B /* Reachability.m */; };
@@ -62,6 +64,8 @@
 		8C87437F13A76A2E00588B05 /* NewsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailController.h; sourceTree = "<group>"; };
 		8C87438013A76A2E00588B05 /* NewsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailController.m; sourceTree = "<group>"; };
 		8C87438113A76A2E00588B05 /* NewsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsDetailController.xib; sourceTree = "<group>"; };
+		8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok.png"; sourceTree = "<group>"; };
+		8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok@2x.png"; sourceTree = "<group>"; };
 		8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		DD10C1D313A6D6C1007E191D /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		DD10C1D413A6D6C1007E191D /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
@@ -242,6 +246,8 @@
 			isa = PBXGroup;
 			children = (
 				DDED16EE13A455C3003E523C /* start-bg-mail-input.png */,
+				8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */,
+				8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */,
 				DDC99BEB13AD956600958DF2 /* top-logo-sample@2x.png */,
 				DDC99BE213AD8EB800958DF2 /* top-logo-sample.png */,
 				DDC99BF413AD994F00958DF2 /* Default@2x.png */,
@@ -348,6 +354,8 @@
 				DDD0389F13ADD2A500BD246B /* QAController.xib in Resources */,
 				DDD038A413ADDBBD00BD246B /* QACell.xib in Resources */,
 				8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */,
+				8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */,
+				8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
