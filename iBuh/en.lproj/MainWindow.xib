@@ -111,7 +111,7 @@
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="52642817">
 								<string key="IBUITitle"/>
 								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="917210166">
-									<string key="IBUITitle">Назад</string>
+									<string key="IBUITitle">Item</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 									<int key="IBUIStyle">1</int>
 								</object>
