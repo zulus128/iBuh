@@ -67,7 +67,7 @@
     
     
     //self.navigationItem.rightBarButtonItem.enabled = YES;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStyleDone target:self action:@selector(addQuestion:)] autorelease];
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addQuestion:)] autorelease];
     
 }
 

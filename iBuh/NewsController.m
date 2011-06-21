@@ -92,6 +92,8 @@
         }
     }
     
+    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStylePlain target:self action:@selector(refresh)] autorelease];
+    
     [self refresh];
 
 }
@@ -293,6 +295,8 @@
 
 - (void)refresh {
     
+    NSLog(@"refresh");
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
 	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == NotReachable) {
@@ -309,7 +313,8 @@
         [[Common instance] clearNews];
         [self addNews:TOPMENU_URL];
         [self addNews:MENU_URL];
-		
+        [self.tableView reloadData];
+
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -339,7 +344,7 @@
         if(success) {
             
             NSLog(@"No Errors");
-            [self.tableView reloadData];
+//            [self.tableView reloadData];
             break;
         }
         else {

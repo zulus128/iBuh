@@ -6,6 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+///Users/YOURUSER/Library/Developer/Xcode/DerivedData/YOURPROJECTNAME_SOMETHINGSOMETHING/Build/Products
+
+
 //git push origin master
 //pass: vaddav123
 
