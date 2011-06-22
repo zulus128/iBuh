@@ -92,7 +92,13 @@
         }
     }
     
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStylePlain target:self action:@selector(refresh)] autorelease];
+    UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStylePlain target:self action:@selector(refresh)] autorelease];
+    
+  //  self.navigationItem.rightBarButtonItem.customView.frame = CGRectMake(0,0,15,15);
+    
+    self.navigationItem.rightBarButtonItem = bbi;
+   
+    
     
     [self refresh];
 

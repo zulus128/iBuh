@@ -67,8 +67,13 @@
     
     
     //self.navigationItem.rightBarButtonItem.enabled = YES;
-    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addQuestion:)] autorelease];
+//    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addQuestion:)] autorelease];
     
+    UIButton *btnAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];  
+    [btnAdd addTarget:self action:@selector(addQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithCustomView:btnAdd] autorelease];  
+    self.navigationItem.rightBarButtonItem = btnItemAdd; 
+
 }
 
 - (void)addQuestion:(NSObject*)sender {
