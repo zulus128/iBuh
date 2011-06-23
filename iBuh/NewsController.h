@@ -17,9 +17,6 @@
 - (void)refresh;
 - (void)addNews: (NSString*) url;
 
-- (IBAction)fontplus: (id)sender;
-- (IBAction)fontminus: (id)sender;
-
 @property (nonatomic, retain) UITableViewCell* samplecell;
 @property (nonatomic, retain) UITableViewCell* delimsamplecell;
 

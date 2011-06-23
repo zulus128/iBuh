@@ -7,13 +7,15 @@
 //
 
 #import "NewsDetailController.h"
-
+#import "Common.h"
 
 @implementation NewsDetailController
 
 @synthesize titl = _titl;
 @synthesize rubric = _rubric;
 @synthesize fulltext = _fulltext;
+//@synthesize fontplusButton = _fontplusButton;
+@synthesize citem = _citem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +31,8 @@
     [_titl release];
     [_rubric release];
     [_fulltext release];
+//    [_fontplusButton release];
+    [_citem release];
     
     [super dealloc];
 }
@@ -48,7 +52,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.hidesBackButton = NO;
-
+    self.titl.text = self.citem.title;
+    self.rubric.text = self.citem.rubric;
+    [self.fulltext loadHTMLString:self.citem.full_text baseURL:nil];
 //    self.hidesBottomBarWhenPushed = YES;
 
 }
@@ -65,5 +71,31 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (IBAction)fontplus: (id)sender {
+    
+    NSLog(@"fontplus");
+}
+
+- (IBAction)fontminus: (id)sender {
+    
+    NSLog(@"fontminus");
+    
+}
+
+- (IBAction)share: (id)sender {
+    
+    NSLog(@"share");
+
+}
+
+- (IBAction)fav: (id)sender {
+    
+    NSLog(@"fav");
+    
+    [[Common instance] saveFav:self.citem];
+
+}
+
 
 @end

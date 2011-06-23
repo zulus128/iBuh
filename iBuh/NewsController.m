@@ -299,13 +299,15 @@
     self.hidesBottomBarWhenPushed = YES;
     
     // Pass the selected object to the new view controller.
+    detailViewController.citem = item;
     [self.navigationController pushViewController:detailViewController animated:YES];
 
     self.hidesBottomBarWhenPushed = NO;
     
-    detailViewController.titl.text = item.title;
-    detailViewController.rubric.text = item.rubric;
-    [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
+ //   detailViewController.titl.text = item.title;
+ //   detailViewController.rubric.text = item.rubric;
+ //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
+    
     [detailViewController release];
      
 }
@@ -370,17 +372,6 @@
             NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
         }
     }
-
-}
-
-- (IBAction)fontplus: (id)sender {
-    
-    NSLog(@"fontplus");
-}
-
-- (IBAction)fontminus: (id)sender {
-
-    NSLog(@"fontminus");
 
 }
 

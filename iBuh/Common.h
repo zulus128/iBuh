@@ -30,7 +30,11 @@
  
     NSMutableArray* news;
     NSMutableArray* qas;
+    NSMutableDictionary* favs;
+
 }
+
+@property (nonatomic, retain) NSString* filePath;
 
 + (Common*)instance;
 
@@ -44,5 +48,6 @@
 - (int) getQAsCount;
 - (Item*) getQAAt: (int)num;
 
+- (void) saveFav: (Item*) item;
 
 @end
