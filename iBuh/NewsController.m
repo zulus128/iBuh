@@ -92,16 +92,22 @@
         }
     }
     
-    UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStylePlain target:self action:@selector(refresh)] autorelease];
-    
-  //  self.navigationItem.rightBarButtonItem.customView.frame = CGRectMake(0,0,15,15);
-    
-    self.navigationItem.rightBarButtonItem = bbi;
-   
-    
+    //UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(refresh)] autorelease];
+    //self.navigationItem.rightBarButtonItem = bbi;
+
+    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
+    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [myButton setImage:myImage forState:UIControlStateNormal];
+    myButton.showsTouchWhenHighlighted = YES;
+    myButton.frame = CGRectMake(0.0, 0.0, myImage.size.width, myImage.size.height);
+    [myButton addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
+    self.navigationItem.rightBarButtonItem = bi;
+    [bi release];
     
     [self refresh];
-
+    
+//    self.hidesBottomBarWhenPushed = NO;
 }
 
 - (void)viewDidUnload
@@ -289,9 +295,14 @@
      
     int row = (indexPath.row == 1)?0:indexPath.row - ROW_CORRECTION;
     Item* item = [[Common instance] getNewsAt:row];
+    
+    self.hidesBottomBarWhenPushed = YES;
+    
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:detailViewController animated:YES];
 
+    self.hidesBottomBarWhenPushed = NO;
+    
     detailViewController.titl.text = item.title;
     detailViewController.rubric.text = item.rubric;
     [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
@@ -361,5 +372,17 @@
     }
 
 }
+
+- (IBAction)fontplus: (id)sender {
+    
+    NSLog(@"fontplus");
+}
+
+- (IBAction)fontminus: (id)sender {
+
+    NSLog(@"fontminus");
+
+}
+
 
 @end
