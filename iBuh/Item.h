@@ -14,6 +14,7 @@
 
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSString* link;
+@property (nonatomic, retain) NSString* ituneslink;
 @property (nonatomic, retain) NSString* rubric;
 @property (nonatomic, retain) NSString* full_text;
 @property (nonatomic, retain) NSString* date;

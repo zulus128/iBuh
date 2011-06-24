@@ -7,9 +7,14 @@
 //
 
 #import "PodController.h"
-
+#import "QACell.h"
+#import "Reachability.h"
+#import "Common.h"
+#import "XMLParser.h"
 
 @implementation PodController
+
+@synthesize samplecell = _samplecell;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,8 +25,10 @@
     return self;
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    
+    [_samplecell release];
+    
     [super dealloc];
 }
 
@@ -44,6 +51,18 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"QACell" owner:nil options:nil];
+    for (id currentObject in topLevelObjects) {
+        
+        if ([currentObject isKindOfClass:[QACell class]]) {
+            
+            self.samplecell = (QACell*) currentObject;
+            break;
+        }
+    }
+    
+    [self refresh];
 }
 
 - (void)viewDidUnload
@@ -90,21 +109,40 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [[Common instance] getPodcastsCount];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return self.samplecell.frame.size.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
+    static NSString *CellIdentifier = @"QACell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        // NSLog(@"TopNewsCell is nil");
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"QACell" owner:nil options:nil];
+        for (id currentObject in topLevelObjects) {
+            
+            if ([currentObject isKindOfClass:[QACell class]]) {
+                
+                cell = (QACell*) currentObject;
+                break;
+            }
+        }
+        // Configure the cell...
+        Item* item = [[Common instance] getPodcastAt:indexPath.row];
+        ((QACell*)cell).title.text = item.title;
+        ((QACell*)cell).quest.text = item.description;
     }
     
-    // Configure the cell...
-    
     return cell;
+
 }
 
 /*
@@ -158,6 +196,67 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    Item* item = [[Common instance] getPodcastAt:indexPath.row];
+    NSLog(@"item.ituneslink = %@", item.ituneslink);
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:item.ituneslink]];
+}
+
+- (void)refresh {
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == NotReachable) {
+		
+		UIAlertView* dialog = [[UIAlertView alloc] init];
+		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
+		[dialog setMessage:@"Невозможно загрузить новости."];
+		[dialog addButtonWithTitle:@"OK"];
+		[dialog show];
+		[dialog release];
+		
+	}else {
+        
+        [[Common instance] clearPodcasts];
+        [self addPodcasts:PODCAST_URL];
+		
+	}
+    
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)addPodcasts: (NSString*) url {
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:[NSURL URLWithString:url]];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = nil;//[[NSError alloc] init];
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    //        [error release];
+    NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
+    myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
+    NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
+    XMLParser* parser = [[XMLParser alloc] initXMLParser:TYPE_PCS];
+    [xmlParser setDelegate:parser];    
+    
+    for (int i = 0; i < 5; i++) {
+        
+        BOOL success = [xmlParser parse];	
+        
+        if(success) {
+            
+            NSLog(@"QA No Errors");
+            [self.tableView reloadData];
+            break;
+        }
+        else {
+            
+            //NSLog(@"Error! Possibly xml version is not new");
+            NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+        }
+    }
+    
 }
 
 @end

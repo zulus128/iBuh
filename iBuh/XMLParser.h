@@ -12,7 +12,8 @@
 enum item_types {
     
     TYPE_NEWS,
-    TYPE_QAS
+    TYPE_QAS,
+    TYPE_PCS
 };
 
 @interface XMLParser : NSObject <NSXMLParserDelegate> {

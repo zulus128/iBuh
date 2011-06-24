@@ -13,4 +13,9 @@
     
 }
 
+@property (nonatomic, retain) UITableViewCell* samplecell;
+
+- (void)refresh;
+- (void)addPodcasts: (NSString*) url;
+
 @end

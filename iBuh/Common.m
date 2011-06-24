@@ -33,6 +33,7 @@
 
         news = [[NSMutableArray alloc] init];
         qas = [[NSMutableArray alloc] init];
+        pcs = [[NSMutableArray alloc] init];
         
  		NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		NSString* docpath = [sp objectAtIndex: 0];
@@ -58,6 +59,7 @@
     
 	[news release];
     [qas release];
+    [pcs release];
     
     [_filePath release];
     
@@ -106,6 +108,27 @@
     return [qas objectAtIndex:num];
 }
 
+- (void)clearPodcasts {
+    
+    [pcs removeAllObjects];
+}
+
+- (void)addPodcast: (Item*)item {
+    
+    [pcs addObject:item];
+    NSLog(@"Podcast Item added, title: %@", item.title);
+}
+
+- (int) getPodcastsCount {
+    
+    return [pcs count];
+}
+
+- (Item*) getPodcastAt: (int)num {
+    
+    return [pcs objectAtIndex:num];
+}
+
 - (void) saveFav: (Item*) item {
 	
 	int cnt = [[favs objectForKey:@"count"] intValue];
@@ -115,6 +138,7 @@
     NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
                                                             item.title == nil?@"":item.title,
                                                             item.link == nil?@"":item.link,    
+                                                            item.ituneslink == nil?@"":item.ituneslink,    
                                                             item.rubric == nil?@"":item.rubric,
                                                             item.full_text == nil?@"":item.full_text,
                                                             item.date == nil?@"":item.date,
@@ -124,6 +148,7 @@
                                                      forKeys:[NSArray arrayWithObjects:
                                                               @"Title",
                                                               @"Link",
+                                                              @"Ituneslink",
                                                               @"Rubric",
                                                               @"Fulltext",
                                                               @"Date",
@@ -157,6 +182,7 @@
     Item* it = [[Item alloc] init];
     it.title = [obj objectForKey:@"Title"];
     it.link = [obj objectForKey:@"Link"];
+    it.ituneslink = [obj objectForKey:@"Ituneslink"];
     it.rubric = [obj objectForKey:@"Rubric"];
     it.full_text = [obj objectForKey:@"Fulltext"];
     it.date = [obj objectForKey:@"Date"];

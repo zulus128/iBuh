@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        fontsize = START_FONT;
     }
     return self;
 }
@@ -54,7 +55,17 @@
     self.navigationItem.hidesBackButton = NO;
     self.titl.text = self.citem.title;
     self.rubric.text = self.citem.rubric;
-    [self.fulltext loadHTMLString:self.citem.full_text baseURL:nil];
+    
+    NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
+                        "<head> \n"
+                        "<style type=\"text/css\"> \n"
+                        "body {font-family: \"%@\"; font-size: %@;}\n"
+                        "</style> \n"
+                        "</head> \n"
+                        "<body align=""justify"">%@</body> \n"
+                        "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
+    [self.fulltext loadHTMLString: contentHTML baseURL:nil];
+    
 //    self.hidesBottomBarWhenPushed = YES;
 
 }
@@ -75,11 +86,24 @@
 - (IBAction)fontplus: (id)sender {
     
     NSLog(@"fontplus");
+    
+    if(fontsize < MAX_FONT) {
+        
+        fontsize += STEP_FONT;
+        [self refrFont];
+    }
 }
 
 - (IBAction)fontminus: (id)sender {
     
     NSLog(@"fontminus");
+    
+    if(fontsize > MIN_FONT) {
+    
+        fontsize -= STEP_FONT;
+        [self refrFont];
+    }
+
     
 }
 
@@ -91,11 +115,36 @@
 
 - (IBAction)fav: (id)sender {
     
-    NSLog(@"fav");
+//    NSLog(@"fav");
     
     [[Common instance] saveFav:self.citem];
 
 }
 
+- (void) refrFont {
+    
+	//[aIndicator startAnimating];
+    
+	int entireSize = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int scrollPosition = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
+    //	NSLog(@"b4 ent = %d, scrollp = %d", entireSize, scrollPosition);
+	
+	NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
+                          fontsize];
+    [self.fulltext stringByEvaluatingJavaScriptFromString:jsString];
+    [jsString release];
+    
+	int entireSize1 = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
+    //	NSLog(@"af ent = %d, scrollp = %d", entireSize1, scrollPosition1);
+    
+//	[Common instance].maxPos = entireSize1;
+	[self.fulltext stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
+//	[Common instance].scrollPos = scrollPosition1;
+    
+	//[aIndicator stopAnimating];
+    
+	
+}
 
 @end

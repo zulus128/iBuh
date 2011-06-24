@@ -65,6 +65,9 @@
             case TYPE_QAS:
                 [[Common instance] addQA:item];                
                 break;
+            case TYPE_PCS:
+                [[Common instance] addPodcast:item];                
+                break;
                 
             default:
                 break;
@@ -89,6 +92,9 @@
                                             else
                                                 if([elementName isEqualToString:DESCRIPTION_TAG])
                                                     item.description = trimedStr;
+                                                    else
+                                                        if([elementName isEqualToString:ITUNESLINK_TAG])
+                                                            item.ituneslink = trimedStr;
 	
 	[currentElementValue release];
 	currentElementValue = nil;
