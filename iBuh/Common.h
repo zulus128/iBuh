@@ -32,6 +32,7 @@
     NSMutableArray* qas;
     NSMutableDictionary* favs;
 
+    int correction;
 }
 
 @property (nonatomic, retain) NSString* filePath;
@@ -49,5 +50,8 @@
 - (Item*) getQAAt: (int)num;
 
 - (void) saveFav: (Item*) item;
+
+- (int) getFavNewsCount;
+- (Item*) getFavNewsAt: (int)num;
 
 @end

@@ -47,8 +47,8 @@
 			[fileManager copyItemAtPath:appFile toPath:self.filePath error:&error];
 			
 		}
-            else
-            favs = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
+    
+        favs = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
 
 	}
 	return self;	
@@ -134,10 +134,37 @@
 	[favs writeToFile:self.filePath atomically: YES];
 }
 
-//- (NSString*) getParam: (NSString*) name {
+- (int) getFavNewsCount {
+
+    correction = [favs count];
+ //   NSLog(@"count = %i", [favs count] - 1);
+    return correction - 1;
+}
+
+- (Item*) getFavNewsAt: (int)num {
     
-//    return [params objectForKey:name];
-	
-//}
+    //NSLog(@"num = %i", num);
+    //NSLog(@"%@",[favs allValues]);
+    NSArray* arr = [favs allValues];
+    id obj = [arr objectAtIndex:(num >= correction)?(num + 1):num];
+    if([obj isKindOfClass:[NSNumber class]]) {
+        
+        correction = num;
+        NSLog(@"correction = %i", correction);
+        obj = [arr objectAtIndex:(num >= correction)?(num + 1):num];
+    }
+    
+    Item* it = [[Item alloc] init];
+    it.title = [obj objectForKey:@"Title"];
+    it.link = [obj objectForKey:@"Link"];
+    it.rubric = [obj objectForKey:@"Rubric"];
+    it.full_text = [obj objectForKey:@"Fulltext"];
+    it.date = [obj objectForKey:@"Date"];
+    it.image = [obj objectForKey:@"Image"];
+    it.description = [obj objectForKey:@"Descr"];
+
+    return [it autorelease];
+}
+
 
 @end

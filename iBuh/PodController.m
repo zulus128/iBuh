@@ -1,20 +1,15 @@
 //
-//  FavrController.m
+//  PodController.m
 //  iBuh
 //
-//  Created by вадим on 6/24/11.
+//  Created by naceka on 24.06.11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "FavrController.h"
-#import "NewsCell.h"
-#import "Item.h"
-#import "Common.h"
-#import "NewsDetailController.h"
+#import "PodController.h"
 
-@implementation FavrController
 
-@synthesize samplecell = _samplecell;
+@implementation PodController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,10 +20,8 @@
     return self;
 }
 
-- (void)dealloc {
-    
-    [_samplecell release];
-    
+- (void)dealloc
+{
     [super dealloc];
 }
 
@@ -51,16 +44,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
-    for (id currentObject in topLevelObjects) {
-        
-        if ([currentObject isKindOfClass:[NewsCell class]]) {
-            
-            self.samplecell = (NewsCell*) currentObject;
-            break;
-        }
-    }
 }
 
 - (void)viewDidUnload
@@ -73,8 +56,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //NSLog(@"appear");
-    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -100,11 +81,6 @@
 
 #pragma mark - Table view data source
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return self.samplecell.frame.size.height;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
@@ -114,32 +90,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [[Common instance] getFavNewsCount];
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NewsCell";
+    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        // NSLog(@"NewsCell is nil");
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
-        for (id currentObject in topLevelObjects) {
-            
-            if ([currentObject isKindOfClass:[NewsCell class]]) {
-                
-                cell = (NewsCell*) currentObject;
-                break;
-            }
-        }
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
+    
     // Configure the cell...
-    Item* item = [[Common instance] getFavNewsAt:indexPath.row];
-    ((NewsCell*)cell).title.text = item.title;
-    ((NewsCell*)cell).rubric.text = item.rubric;
-    ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-
     
     return cell;
 }
@@ -185,26 +148,16 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
-    
-    Item* item = [[Common instance] getFavNewsAt:indexPath.row];
-    
-    self.hidesBottomBarWhenPushed = YES;
-    
-    // Pass the selected object to the new view controller.
-    detailViewController.citem = item;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
-    self.hidesBottomBarWhenPushed = NO;
-    
-    //   detailViewController.titl.text = item.title;
-    //   detailViewController.rubric.text = item.rubric;
-    //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
-    
-    [detailViewController release];
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     [detailViewController release];
+     */
 }
 
 @end

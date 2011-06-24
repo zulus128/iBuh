@@ -18,6 +18,8 @@
 		8C94809913B303EE0085A268 /* word.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C94809513B303EE0085A268 /* word.png */; };
 		8C94809A13B303EE0085A268 /* word@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C94809613B303EE0085A268 /* word@2x.png */; };
 		8C95F19313B34D6900B1F5F4 /* favourites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C95F19213B34D6900B1F5F4 /* favourites.plist */; };
+		8C9A8B6E13B461C000DDD2D2 /* PodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6C13B461C000DDD2D2 /* PodController.m */; };
+		8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6D13B461C000DDD2D2 /* PodController.xib */; };
 		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
 		8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */; };
 		8C9D0DBB13AF6A4A009A8D20 /* 09-chat-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D0DB513AF6A4A009A8D20 /* 09-chat-2.png */; };
@@ -94,6 +96,9 @@
 		8C94809513B303EE0085A268 /* word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = word.png; sourceTree = "<group>"; };
 		8C94809613B303EE0085A268 /* word@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "word@2x.png"; sourceTree = "<group>"; };
 		8C95F19213B34D6900B1F5F4 /* favourites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = favourites.plist; sourceTree = "<group>"; };
+		8C9A8B6B13B461C000DDD2D2 /* PodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodController.h; sourceTree = "<group>"; };
+		8C9A8B6C13B461C000DDD2D2 /* PodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodController.m; sourceTree = "<group>"; };
+		8C9A8B6D13B461C000DDD2D2 /* PodController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodController.xib; sourceTree = "<group>"; };
 		8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok.png"; sourceTree = "<group>"; };
 		8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok@2x.png"; sourceTree = "<group>"; };
 		8C9D0DB513AF6A4A009A8D20 /* 09-chat-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2.png"; sourceTree = "<group>"; };
@@ -250,6 +255,8 @@
 				8C92547F13AF53AF00374063 /* SendQController.m */,
 				DD37745013B41E6D00398228 /* FavrController.h */,
 				DD37745113B41E6D00398228 /* FavrController.m */,
+				8C9A8B6B13B461C000DDD2D2 /* PodController.h */,
+				8C9A8B6C13B461C000DDD2D2 /* PodController.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -330,6 +337,7 @@
 				DDD038A213ADDBBC00BD246B /* QACell.xib */,
 				8C92548013AF53AF00374063 /* SendQController.xib */,
 				DD37745213B41E6D00398228 /* FavrController.xib */,
+				8C9A8B6D13B461C000DDD2D2 /* PodController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 				8C94809A13B303EE0085A268 /* word@2x.png in Resources */,
 				8C95F19313B34D6900B1F5F4 /* favourites.plist in Resources */,
 				DD37745413B41E6D00398228 /* FavrController.xib in Resources */,
+				8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,6 +496,7 @@
 				DDD038A313ADDBBD00BD246B /* QACell.m in Sources */,
 				8C92548113AF53AF00374063 /* SendQController.m in Sources */,
 				DD37745313B41E6D00398228 /* FavrController.m in Sources */,
+				8C9A8B6E13B461C000DDD2D2 /* PodController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
