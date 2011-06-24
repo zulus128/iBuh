@@ -19,5 +19,7 @@
 @property (nonatomic, retain) NSString* date;
 @property (nonatomic, retain) NSString* image;
 @property (nonatomic, retain) NSString* description;
+//do not forget to add to save favourites in Common.h
+
 
 @end

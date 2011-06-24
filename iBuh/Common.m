@@ -110,10 +110,27 @@
 	
 	int cnt = [[favs objectForKey:@"count"] intValue];
     NSLog(@"count = %i", cnt);
-//    [params setObject:val forKey:name];
-//	NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//	NSString* docpath = [sp objectAtIndex: 0];
-//	NSString* filePath = [docpath stringByAppendingPathComponent:@"params.plist"];
+    cnt++;
+    [favs setValue:[NSNumber numberWithInt:cnt] forKey:@"count"];
+    NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                            item.title == nil?@"":item.title,
+                                                            item.link == nil?@"":item.link,    
+                                                            item.rubric == nil?@"":item.rubric,
+                                                            item.full_text == nil?@"":item.full_text,
+                                                            item.date == nil?@"":item.date,
+                                                            item.image == nil?@"":item.image,
+                                                            item.description == nil?@"":item.description,
+                                                            nil]
+                                                     forKeys:[NSArray arrayWithObjects:
+                                                              @"Title",
+                                                              @"Link",
+                                                              @"Rubric",
+                                                              @"Fulltext",
+                                                              @"Date",
+                                                              @"Image",
+                                                              @"Descr",
+                                                              nil]];
+	[favs setObject:f forKey:[NSString stringWithFormat:@"Favourite%d", cnt]]; 
 	[favs writeToFile:self.filePath atomically: YES];
 }
 
