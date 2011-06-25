@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
+#import "FBConnect.h"
+
 #define MENU_URL_FOR_REACH @"www.buhgalteria.ru"
 #define MENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonenews.php"
 #define TOPMENU_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphoneday.php"
@@ -39,6 +41,8 @@
 }
 
 @property (nonatomic, retain) NSString* filePath;
+
+@property (nonatomic, retain) Facebook *facebook;
 
 + (Common*)instance;
 

@@ -163,4 +163,9 @@
     
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    return [[Common instance].facebook handleOpenURL:url]; 
+}
+
 @end

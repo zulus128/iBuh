@@ -2,10 +2,10 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1024</int>
-		<string key="IBDocument.SystemVersion">10J567</string>
+		<string key="IBDocument.SystemVersion">10J869</string>
 		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">462.00</string>
+		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			<string key="NS.object.0">301</string>
@@ -81,12 +81,12 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="206492565">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="633748258">
-						<string key="IBUITitle">Подкасты</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="413040641">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="737821670">
+						<string key="IBUITitle">Избранное</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">65-note.png</string>
+							<string key="NSResourceName">28-star.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -98,7 +98,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="433467510">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="339463307">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -109,14 +109,19 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="477043837">
-							<string key="IBUITitle">Подкасты</string>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="359832240">
+						<object class="IBUIViewController" id="1003010452">
+							<string key="IBUITitle">Избранное</string>
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="830236496">
 								<string key="IBUITitle"/>
+								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="781386718">
+									<string key="IBUITitle">Назад</string>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									<int key="IBUIStyle">1</int>
+								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="206492565"/>
-							<string key="IBUINibName">PodController</string>
+							<reference key="IBUIParentViewController" ref="413040641"/>
+							<string key="IBUINibName">FavrController</string>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
 								<int key="interfaceOrientation">1</int>
@@ -229,12 +234,13 @@
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="413040641">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="737821670">
-							<string key="IBUITitle">Избранное</string>
+					<reference ref="413040641"/>
+					<object class="IBUINavigationController" id="206492565">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="633748258">
+							<string key="IBUITitle">Подкасты</string>
 							<object class="NSCustomResource" key="IBUIImage">
 								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">28-star.png</string>
+								<string key="NSResourceName">65-note.png</string>
 							</object>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
@@ -246,7 +252,7 @@
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="339463307">
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="433467510">
 							<nil key="NSNextResponder"/>
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{0, 0}</string>
@@ -257,19 +263,14 @@
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="1003010452">
-								<string key="IBUITitle">Избранное</string>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="830236496">
+							<object class="IBUIViewController" id="477043837">
+								<string key="IBUITitle">Подкасты</string>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="359832240">
 									<string key="IBUITitle"/>
-									<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="781386718">
-										<string key="IBUITitle">Назад</string>
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIStyle">1</int>
-									</object>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
-								<reference key="IBUIParentViewController" ref="413040641"/>
-								<string key="IBUINibName">FavrController</string>
+								<reference key="IBUIParentViewController" ref="206492565"/>
+								<string key="IBUINibName">PodController</string>
 								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 									<int key="IBUIInterfaceOrientation">1</int>
 									<int key="interfaceOrientation">1</int>
@@ -279,7 +280,6 @@
 							</object>
 						</object>
 					</object>
-					<reference ref="206492565"/>
 					<object class="IBUINavigationController" id="321022457">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="975290286">
 							<string key="IBUITitle">Настройки</string>

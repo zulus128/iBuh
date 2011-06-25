@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 
+#import "FBConnect.h"
+
 #define START_FONT 100
 #define STEP_FONT 10
 #define MIN_FONT 30
 #define MAX_FONT 250
 
-@interface NewsDetailController : UIViewController {
+@interface NewsDetailController : UIViewController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate >{
   
     int fontsize;
 }

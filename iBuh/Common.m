@@ -12,6 +12,8 @@
 
 @synthesize filePath = _filePath;
 
+@synthesize facebook;
+
 + (Common*) instance  {
 	
 	static Common* instance;

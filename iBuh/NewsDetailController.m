@@ -109,8 +109,99 @@
 
 - (IBAction)share: (id)sender {
     
-    NSLog(@"share");
+   // NSLog(@"share");
 
+    UIActionSheet *asheet = [[UIActionSheet alloc] 
+                             initWithTitle:@"Поделиться с друзьями" 
+                             delegate:self 
+                             cancelButtonTitle:@"Отмена" 
+                             destructiveButtonTitle:nil 
+                             otherButtonTitles:@"Email", @"Facebook", @"Twitter"
+                             , nil];
+    
+    [asheet showInView:[self.view superview]]; 
+  //  [asheet setFrame:CGRectMake(0, 117, 320, 383)];
+    [asheet release];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"email");
+            break;
+        case 1: {
+            NSLog(@"facebook");
+            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            if ([defaults objectForKey:@"FBAccessTokenKey"] 
+                && [defaults objectForKey:@"FBExpirationDateKey"]) {
+                [Common instance].facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+                [Common instance].facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+            }
+            
+            //if (![[Common instance].facebook isSessionValid]) {
+            //    [[Common instance].facebook authorize:nil delegate:self];
+            //}
+            
+            
+            SBJSON *jsonWriter = [[SBJSON new] autorelease];
+            
+        /*    NSDictionary* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                                   @"Always Running",@"text",@"http://itsti.me/",@"href", nil], nil];
+            
+            NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];   
+            NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"a long run", @"name",
+                                        @"The Facebook Running app", @"caption",
+                                        @"it is fun", @"description",
+                                        @"http://itsti.me/", @"href", nil];   
+            NSString *attachmentStr = [jsonWriter stringWithObject:attachment];   
+            NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           @"Head",  @"user_message_prompt",
+                                           //actionLinksStr, @"action_links",
+                                           //attachmentStr, @"attachment",
+                                           nil];
+
+            [[Common instance].facebook dialog:@"feed" andParams:params andDelegate:self];
+            */
+            
+            
+            NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
+                                        self.citem.title, @"name",
+//                                        self.citem.title, @"caption",
+                                        self.citem.full_text, @"description",
+                                        nil];
+            
+            NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
+            NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
+                                           @"Что я думаю?", @"user_message_prompt",
+                                           attachmentStr, @"attachment",
+                                           nil];
+            
+            
+            [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
+            
+            break;
+        }
+        case 2:
+            NSLog(@"twitter");
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)fbDidLogin {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[[Common instance].facebook accessToken] forKey:@"FBAccessTokenKey"];
+    [defaults setObject:[[Common instance].facebook expirationDate] forKey:@"FBExpirationDateKey"];
+    [defaults synchronize];
+    
 }
 
 - (IBAction)fav: (id)sender {
