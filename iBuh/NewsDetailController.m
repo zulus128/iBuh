@@ -8,6 +8,7 @@
 
 #import "NewsDetailController.h"
 #import "Common.h"
+#import "iCodeOauthViewController.h"
 
 @implementation NewsDetailController
 
@@ -169,7 +170,10 @@
         case 2: {
             NSLog(@"twitter");
             
-            
+            iCodeOauthViewController* twitController = [[iCodeOauthViewController alloc] initWithNibName:@"iCodeOauthViewController" bundle:nil];
+            [self.navigationController pushViewController:twitController animated:YES];
+            [twitController release];
+
             break;
         }
             
