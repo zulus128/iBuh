@@ -12,6 +12,7 @@
 #import "Common.h"
 #import "Reachability.h"
 #import "SendQController.h"
+#import "NewsDetailController.h"
 
 @implementation QAController
 
@@ -205,14 +206,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
+    
+    Item* item = [[Common instance] getQAAt:indexPath.row];
+    
+    self.hidesBottomBarWhenPushed = YES;
+    
+    // Pass the selected object to the new view controller.
+    detailViewController.citem = item;
+    [self.navigationController pushViewController:detailViewController animated:YES];
+    
+    self.hidesBottomBarWhenPushed = NO;
+    
+    //   detailViewController.titl.text = item.title;
+    //   detailViewController.rubric.text = item.rubric;
+    //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
+    
+    [detailViewController release];
 }
 
 - (void)refresh {

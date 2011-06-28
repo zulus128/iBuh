@@ -128,9 +128,18 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
     switch (buttonIndex) {
-        case 0:
+        case 0: {
             NSLog(@"email");
+            
+            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+            controller.mailComposeDelegate = self;
+            [controller setSubject:self.citem.title];
+            [controller setMessageBody:self.citem.full_text isHTML:YES]; 
+            [self presentModalViewController:controller animated:YES];
+            [controller release];
+            
             break;
+        }
         case 1: {
             NSLog(@"facebook");
             [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
@@ -171,7 +180,10 @@
             NSLog(@"twitter");
             
             iCodeOauthViewController* twitController = [[iCodeOauthViewController alloc] initWithNibName:@"iCodeOauthViewController" bundle:nil];
+            self.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:twitController animated:YES];
+            //self.hidesBottomBarWhenPushed = NO;
+            twitController.citem = self.citem;
             [twitController release];
 
             break;
@@ -180,6 +192,16 @@
         default:
             break;
     }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller  
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)fbDidLogin {

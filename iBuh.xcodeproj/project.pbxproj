@@ -18,6 +18,7 @@
 		8C94809913B303EE0085A268 /* word.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C94809513B303EE0085A268 /* word.png */; };
 		8C94809A13B303EE0085A268 /* word@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C94809613B303EE0085A268 /* word@2x.png */; };
 		8C95F19313B34D6900B1F5F4 /* favourites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C95F19213B34D6900B1F5F4 /* favourites.plist */; };
+		8C9784BF13B9CC4800B818EC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9784BE13B9CC4800B818EC /* MessageUI.framework */; };
 		8C9A8B6E13B461C000DDD2D2 /* PodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6C13B461C000DDD2D2 /* PodController.m */; };
 		8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6D13B461C000DDD2D2 /* PodController.xib */; };
 		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
@@ -135,6 +136,7 @@
 		8C94809513B303EE0085A268 /* word.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = word.png; sourceTree = "<group>"; };
 		8C94809613B303EE0085A268 /* word@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "word@2x.png"; sourceTree = "<group>"; };
 		8C95F19213B34D6900B1F5F4 /* favourites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = favourites.plist; sourceTree = "<group>"; };
+		8C9784BE13B9CC4800B818EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		8C9A8B6B13B461C000DDD2D2 /* PodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodController.h; sourceTree = "<group>"; };
 		8C9A8B6C13B461C000DDD2D2 /* PodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodController.m; sourceTree = "<group>"; };
 		8C9A8B6D13B461C000DDD2D2 /* PodController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodController.xib; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9784BF13B9CC4800B818EC /* MessageUI.framework in Frameworks */,
 				8C9AEA8313B999060079E2D4 /* libxml2.2.7.3.dylib in Frameworks */,
 				DD251BC913A4F05800DBA93B /* SystemConfiguration.framework in Frameworks */,
 				DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */,
@@ -367,6 +370,7 @@
 		DDED169F13A3290C003E523C = {
 			isa = PBXGroup;
 			children = (
+				8C9784BE13B9CC4800B818EC /* MessageUI.framework */,
 				DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */,
 				DDED16B413A3290D003E523C /* iBuh */,
 				DDED16DA13A3290E003E523C /* iBuhTests */,

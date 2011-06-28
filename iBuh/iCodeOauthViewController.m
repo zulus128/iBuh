@@ -13,6 +13,7 @@
 
 @synthesize tableView;
 @synthesize textfield;
+@synthesize citem = _citem;
 
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -43,6 +44,9 @@
 	_engine.consumerKey = @"WhoqwNifQnIu64ldldFZMA";
 	_engine.consumerSecret = @"vOj9apnlgj1mtTujhHOTglxfNF1M5GstmamV25tI";
 	
+    
+    textfield.text = [NSString stringWithFormat:@"%@ %@ Link:%@", @"From iBuh: ",self.citem.title,self.citem.link];
+    
 	UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine: _engine delegate: self];
 	
 	if (controller) 
@@ -196,6 +200,9 @@
 
 
 - (void)dealloc {
+    
+    [_citem release];
+    
     [super dealloc];
 }
 

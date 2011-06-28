@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SA_OAuthTwitterEngine.h"
 #import "SA_OAuthTwitterController.h"
+#import "Item.h"
 
 @interface iCodeOauthViewController : UIViewController <SA_OAuthTwitterEngineDelegate, SA_OAuthTwitterControllerDelegate, UITableViewDelegate, UITableViewDataSource> {
 
@@ -21,6 +22,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UITextField *textfield;
+@property (nonatomic, retain) Item* citem;
 
 -(IBAction)updateStream:(id)sender;
 -(IBAction)tweet:(id)sender;
