@@ -12,6 +12,8 @@
 //git push origin master
 //pass: vaddav123
 
+//http://www.icodeblog.com/2010/09/16/dealing-with-the-twitter-oauth-apocalypse/
+
 #import <UIKit/UIKit.h>
 
 #define kOFFSET_FOR_KEYBOARD 20.0
