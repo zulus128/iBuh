@@ -22,6 +22,9 @@
 		8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6D13B461C000DDD2D2 /* PodController.xib */; };
 		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
 		8C9AAC7513AF3F6B00B759CF /* login-screen-ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */; };
+		8C9AEA8313B999060079E2D4 /* libxml2.2.7.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9AEA8213B999060079E2D4 /* libxml2.2.7.3.dylib */; };
+		8C9AEA8713B99EDF0079E2D4 /* TwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9AEA8513B99EDD0079E2D4 /* TwitterController.m */; };
+		8C9AEA8813B99EDF0079E2D4 /* TwitterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AEA8613B99EDE0079E2D4 /* TwitterController.xib */; };
 		8C9D0DBB13AF6A4A009A8D20 /* 09-chat-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D0DB513AF6A4A009A8D20 /* 09-chat-2.png */; };
 		8C9D0DBD13AF6A4A009A8D20 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D0DB713AF6A4A009A8D20 /* 19-gear.png */; };
 		8C9D0DBF13AF6A4A009A8D20 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9D0DB913AF6A4A009A8D20 /* 28-star.png */; };
@@ -136,6 +139,10 @@
 		8C9A8B6D13B461C000DDD2D2 /* PodController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodController.xib; sourceTree = "<group>"; };
 		8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok.png"; sourceTree = "<group>"; };
 		8C9AAC7313AF3F6B00B759CF /* login-screen-ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-screen-ok@2x.png"; sourceTree = "<group>"; };
+		8C9AEA8213B999060079E2D4 /* libxml2.2.7.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.7.3.dylib; path = usr/lib/libxml2.2.7.3.dylib; sourceTree = SDKROOT; };
+		8C9AEA8413B99EDD0079E2D4 /* TwitterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterController.h; sourceTree = "<group>"; };
+		8C9AEA8513B99EDD0079E2D4 /* TwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterController.m; sourceTree = "<group>"; };
+		8C9AEA8613B99EDE0079E2D4 /* TwitterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterController.xib; sourceTree = "<group>"; };
 		8C9D0DB513AF6A4A009A8D20 /* 09-chat-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2.png"; sourceTree = "<group>"; };
 		8C9D0DB713AF6A4A009A8D20 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
 		8C9D0DB913AF6A4A009A8D20 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
@@ -283,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9AEA8313B999060079E2D4 /* libxml2.2.7.3.dylib in Frameworks */,
 				DD251BC913A4F05800DBA93B /* SystemConfiguration.framework in Frameworks */,
 				DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */,
 				DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */,
@@ -376,6 +384,7 @@
 		DDED16AD13A3290D003E523C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C9AEA8213B999060079E2D4 /* libxml2.2.7.3.dylib */,
 				DDED16AE13A3290D003E523C /* UIKit.framework */,
 				DDED16B013A3290D003E523C /* Foundation.framework */,
 				DDED16B213A3290D003E523C /* CoreGraphics.framework */,
@@ -423,6 +432,9 @@
 				DD37745113B41E6D00398228 /* FavrController.m */,
 				8C9A8B6B13B461C000DDD2D2 /* PodController.h */,
 				8C9A8B6C13B461C000DDD2D2 /* PodController.m */,
+				8C9AEA8413B99EDD0079E2D4 /* TwitterController.h */,
+				8C9AEA8513B99EDD0079E2D4 /* TwitterController.m */,
+				8C9AEA8613B99EDE0079E2D4 /* TwitterController.xib */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -710,6 +722,7 @@
 				DD37745413B41E6D00398228 /* FavrController.xib in Resources */,
 				8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */,
 				DD2A3DFD13B5709100468228 /* FBDialog.bundle in Resources */,
+				8C9AEA8813B99EDF0079E2D4 /* TwitterController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +800,7 @@
 				DDF909F513B95C3E003FC2B5 /* NSString+UUID.m in Sources */,
 				DDF909F713B95C3E003FC2B5 /* SA_OAuthTwitterController.m in Sources */,
 				DDF909F813B95C3E003FC2B5 /* SA_OAuthTwitterEngine.m in Sources */,
+				8C9AEA8713B99EDF0079E2D4 /* TwitterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,6 +862,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
@@ -862,6 +877,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -871,7 +887,7 @@
 		DDED16E813A3290E003E523C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -880,6 +896,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iBuh/SAOAuthTwitterEngine\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -889,7 +906,7 @@
 		DDED16E913A3290E003E523C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBuh/iBuh-Prefix.pch";
@@ -897,6 +914,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iBuh/SAOAuthTwitterEngine\"",
+					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;

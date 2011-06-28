@@ -148,26 +148,6 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-        /*    NSDictionary* actionLinks = [NSArray arrayWithObjects:[NSDictionary dictionaryWithObjectsAndKeys:
-                                                                   @"Always Running",@"text",@"http://itsti.me/",@"href", nil], nil];
-            
-            NSString *actionLinksStr = [jsonWriter stringWithObject:actionLinks];   
-            NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        @"a long run", @"name",
-                                        @"The Facebook Running app", @"caption",
-                                        @"it is fun", @"description",
-                                        @"http://itsti.me/", @"href", nil];   
-            NSString *attachmentStr = [jsonWriter stringWithObject:attachment];   
-            NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                           @"Head",  @"user_message_prompt",
-                                           //actionLinksStr, @"action_links",
-                                           //attachmentStr, @"attachment",
-                                           nil];
-
-            [[Common instance].facebook dialog:@"feed" andParams:params andDelegate:self];
-            */
-            
-            
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         self.citem.title, @"name",
 //                                        self.citem.title, @"caption",
@@ -186,9 +166,12 @@
             
             break;
         }
-        case 2:
+        case 2: {
             NSLog(@"twitter");
+            
+            
             break;
+        }
             
         default:
             break;
