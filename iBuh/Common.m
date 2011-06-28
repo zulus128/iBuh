@@ -164,20 +164,20 @@
 - (int) getFavNewsCount {
 
     correction = [favs count];
- //   NSLog(@"count = %i", [favs count] - 1);
+    //NSLog(@"count = %i", [favs count] - 1);
     return correction - 1;
 }
 
 - (Item*) getFavNewsAt: (int)num {
     
     //NSLog(@"num = %i", num);
-    //NSLog(@"%@",[favs allValues]);
+//    NSLog(@"%@",[favs allValues]);
     NSArray* arr = [favs allValues];
     id obj = [arr objectAtIndex:(num >= correction)?(num + 1):num];
     if([obj isKindOfClass:[NSNumber class]]) {
         
         correction = num;
-        NSLog(@"correction = %i", correction);
+      //  NSLog(@"correction = %i", correction);
         obj = [arr objectAtIndex:(num >= correction)?(num + 1):num];
     }
     
@@ -192,6 +192,23 @@
     it.description = [obj objectForKey:@"Descr"];
 
     return [it autorelease];
+}
+
+- (void) delFavNewsAt: (int)num {
+    
+    [self getFavNewsAt:num];
+    
+    //NSLog(@"delete num = %i", num);
+    //NSLog(@"correction1 = %i", correction);
+    //NSLog(@"%@",[favs allKeys]);
+    NSArray* arr = [favs allKeys];
+    id obj = [arr objectAtIndex:(num >= correction)?(num + 1):num];
+    [favs removeObjectForKey:obj];
+    int cnt = [[favs objectForKey:@"count"] intValue];
+    cnt--;
+    [favs setValue:[NSNumber numberWithInt:cnt] forKey:@"count"];
+
+    [favs writeToFile:self.filePath atomically: YES];
 }
 
 

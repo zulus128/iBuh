@@ -60,6 +60,7 @@
 
 - (int) getFavNewsCount;
 - (Item*) getFavNewsAt: (int)num;
+- (void) delFavNewsAt: (int)num;
 
 - (void)clearPodcasts;
 - (void)addPodcast: (Item*)item;
