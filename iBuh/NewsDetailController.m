@@ -134,6 +134,7 @@
             MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
             controller.mailComposeDelegate = self;
             [controller setSubject:self.citem.title];
+//            [controller setSubject:@" "];
             [controller setMessageBody:self.citem.full_text isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
             [controller release];
@@ -158,9 +159,12 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
+//            NSString* text = [NSString stringWithFormat:@"%@ Link: %@", self.citem.full_text, self.citem.link];
+           // NSLog(@"text = %@", text);
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         self.citem.title, @"name",
-//                                        self.citem.title, @"caption",
+                                        //self.citem.title, @"caption",
+                                        self.citem.link, @"href",
                                         self.citem.full_text, @"description",
                                         nil];
             

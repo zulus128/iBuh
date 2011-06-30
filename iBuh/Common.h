@@ -30,6 +30,10 @@
 #define IMAGE_TAG @"enclosure"
 #define DESCRIPTION_TAG @"description"
 
+@interface UINavigationBar (UINavigationBarCategory)
+-(void) setBackgroundImage:(UIImage*)image;
+@end
+
 @interface Common : NSObject {
  
     NSMutableArray* news;

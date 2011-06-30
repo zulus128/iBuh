@@ -9,14 +9,21 @@
 #import "iBuhAppDelegate.h"
 #import "Common.h"
 
-@implementation UINavigationBar (UINavigationBarCategory)
+/*@implementation UINavigationBar (UINavigationBarCategory)
 
 - (void)drawRect:(CGRect)rect {
+    
+//    NSString* sss = self.topItem.title;
+//    NSLog(@"--- %@, %i",sss, [sss length]);
+    if (self.topItem.title.length) {
+        [super drawRect:rect];
+        return;
+    }
     UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
     [image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
 }
 @end
-
+*/
 
 @implementation iBuhAppDelegate
 

@@ -14,9 +14,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DDED16A913A3290D003E523C"
-               BuildableName = "iBuh.app"
-               BlueprintName = "iBuh"
-               ReferencedContainer = "container:iBuh.xcodeproj">
+               BuildableName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.app"
+               BlueprintName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;"
+               ReferencedContainer = "container:i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,9 +32,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DDED16D313A3290E003E523C"
-               BuildableName = "iBuhTests.octest"
-               BlueprintName = "iBuhTests"
-               ReferencedContainer = "container:iBuh.xcodeproj">
+               BuildableName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;Tests.octest"
+               BlueprintName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;Tests"
+               ReferencedContainer = "container:i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -51,9 +51,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DDED16A913A3290D003E523C"
-            BuildableName = "iBuh.app"
-            BlueprintName = "iBuh"
-            ReferencedContainer = "container:iBuh.xcodeproj">
+            BuildableName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.app"
+            BlueprintName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;"
+            ReferencedContainer = "container:i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DDED16A913A3290D003E523C"
-            BuildableName = "iBuh.app"
-            BlueprintName = "iBuh"
-            ReferencedContainer = "container:iBuh.xcodeproj">
+            BuildableName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.app"
+            BlueprintName = "i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;"
+            ReferencedContainer = "container:i&#1041;&#1091;&#1093;&#1075;&#1072;&#1083;&#1090;&#1077;&#1088;&#1080;&#1103;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

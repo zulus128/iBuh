@@ -8,6 +8,19 @@
 
 #import "Common.h"
 
+@implementation UINavigationBar (UINavigationBarCategory)
+-(void)setBackgroundImage:(UIImage*)image{
+    if(image == NULL){ //might be called with NULL argument
+        return;
+    }
+    UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
+    aTabBarBackground.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
+    [self addSubview:aTabBarBackground];
+    [self sendSubviewToBack:aTabBarBackground];
+    [aTabBarBackground release];
+}
+@end
+
 @implementation Common
 
 @synthesize filePath = _filePath;
