@@ -143,7 +143,8 @@
         }
         case 1: {
             NSLog(@"facebook");
-            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
+//            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
+            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"236302699730602"];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             if ([defaults objectForKey:@"FBAccessTokenKey"] 
@@ -152,15 +153,14 @@
                 [Common instance].facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
             }
             
-            //if (![[Common instance].facebook isSessionValid]) {
-            //    [[Common instance].facebook authorize:nil delegate:self];
-            //}
+           // if (![[Common instance].facebook isSessionValid]) {
+           //     [[Common instance].facebook authorize:nil delegate:self];
+           // }
             
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-//            NSString* text = [NSString stringWithFormat:@"%@ Link: %@", self.citem.full_text, self.citem.link];
-           // NSLog(@"text = %@", text);
+  
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         self.citem.title, @"name",
                                         //self.citem.title, @"caption",
@@ -170,13 +170,15 @@
             
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
             NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
+//                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
+                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
                                            @"Что я думаю?", @"user_message_prompt",
                                            attachmentStr, @"attachment",
                                            nil];
             
             
-            [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
+//            [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
+            [[Common instance].facebook dialog:@"feed" andParams:params andDelegate:self];
             
             break;
         }
@@ -196,6 +198,21 @@
         default:
             break;
     }
+}
+- (void)dismissWithSuccess:(BOOL)success animated:(BOOL)animated {
+    
+    NSLog(@"resopce!!!");
+}
+
+- (void)dismissWithError:(NSError*)error animated:(BOOL)animated {
+    
+    NSLog(@"resopce!!!");
+
+}
+- (void)dialogDidSucceed:(NSURL *)url {
+
+    NSLog(@"resopce!!!");
+
 }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller  
