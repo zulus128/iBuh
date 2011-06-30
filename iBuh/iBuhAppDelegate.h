@@ -13,6 +13,7 @@
 //pass: vaddav123
 
 //http://www.icodeblog.com/2010/09/16/dealing-with-the-twitter-oauth-apocalypse/
+//http://gitready.com/beginner/2009/01/19/ignoring-files.html
 
 #import <UIKit/UIKit.h>
 
