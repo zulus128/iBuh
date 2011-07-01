@@ -1,21 +1,20 @@
 //
-//  NewsDetailController.m
-//  iBuh
+//  QADetailController.m
+//  iБухгалтерия
 //
-//  Created by naceka on 14.06.11.
+//  Created by вадим on 7/1/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "NewsDetailController.h"
-#import "Common.h"
+#import "QADetailController.h"
 #import "iCodeOauthViewController.h"
+#import "Common.h"
 
-@implementation NewsDetailController
+@implementation QADetailController
 
 @synthesize titl = _titl;
-@synthesize rubric = _rubric;
-@synthesize fulltext = _fulltext;
-//@synthesize fontplusButton = _fontplusButton;
+@synthesize q = _q;
+@synthesize a = _a;
 @synthesize citem = _citem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -24,16 +23,16 @@
     if (self) {
         // Custom initialization
         fontsize = START_FONT;
+
     }
     return self;
 }
 
 - (void)dealloc {
-
+    
     [_titl release];
-    [_rubric release];
-    [_fulltext release];
-//    [_fontplusButton release];
+    [_q release];
+    [_a release];
     [_citem release];
     
     [super dealloc];
@@ -53,22 +52,32 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
     self.navigationItem.hidesBackButton = NO;
     self.titl.text = self.citem.title;
-    self.rubric.text = self.citem.rubric;
+//    self.rubric.text = self.citem.rubric;
     
     NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
-                        "<head> \n"
-                        "<style type=\"text/css\"> \n"
-                        "body {font-family: \"%@\"; font-size: %@;}\n"
-                        "</style> \n"
-                        "</head> \n"
-                        "<body align=""justify"">%@</body> \n"
-                        "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
-    [self.fulltext loadHTMLString: contentHTML baseURL:nil];
+                             "<head> \n"
+                             "<style type=\"text/css\"> \n"
+                             "body {font-family: \"%@\"; font-size: %@;}\n"
+                             "</style> \n"
+                             "</head> \n"
+                             "<body align=""justify"">%@</body> \n"
+                             "</html>", @"helvetica", [NSNumber numberWithInt:12], self.citem.description];
+    [self.q loadHTMLString: contentHTML baseURL:nil];
     
-//    self.hidesBottomBarWhenPushed = YES;
-
+    contentHTML = [NSString stringWithFormat:@"<html> \n"
+                             "<head> \n"
+                             "<style type=\"text/css\"> \n"
+                             "body {font-family: \"%@\"; font-size: %@;}\n"
+                             "</style> \n"
+                             "</head> \n"
+                             "<body align=""justify"">%@</body> \n"
+                             "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
+    [self.a loadHTMLString: contentHTML baseURL:nil];
 }
 
 - (void)viewDidUnload
@@ -100,18 +109,18 @@
     NSLog(@"fontminus");
     
     if(fontsize > MIN_FONT) {
-    
+        
         fontsize -= STEP_FONT;
         [self refrFont];
     }
-
+    
     
 }
 
 - (IBAction)share: (id)sender {
     
-   // NSLog(@"share");
-
+    // NSLog(@"share");
+    
     UIActionSheet *asheet = [[UIActionSheet alloc] 
                              initWithTitle:@"Поделиться с друзьями" 
                              delegate:self 
@@ -121,12 +130,12 @@
                              , nil];
     
     [asheet showInView:[self.view superview]]; 
-  //  [asheet setFrame:CGRectMake(0, 117, 320, 383)];
+    //  [asheet setFrame:CGRectMake(0, 117, 320, 383)];
     [asheet release];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-
+    
     switch (buttonIndex) {
         case 0: {
             NSLog(@"email");
@@ -134,7 +143,7 @@
             MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
             controller.mailComposeDelegate = self;
             [controller setSubject:self.citem.title];
-//            [controller setSubject:@" "];
+            //            [controller setSubject:@" "];
             [controller setMessageBody:self.citem.full_text isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
             [controller release];
@@ -143,7 +152,7 @@
         }
         case 1: {
             NSLog(@"facebook");
-//            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
+            //            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
             [Common instance].facebook = [[Facebook alloc] initWithAppId:@"236302699730602"];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -153,14 +162,14 @@
                 [Common instance].facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
             }
             
-           // if (![[Common instance].facebook isSessionValid]) {
-           //     [[Common instance].facebook authorize:nil delegate:self];
-           // }
+            // if (![[Common instance].facebook isSessionValid]) {
+            //     [[Common instance].facebook authorize:nil delegate:self];
+            // }
             
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-  
+            
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         self.citem.title, @"name",
                                         //self.citem.title, @"caption",
@@ -170,13 +179,13 @@
             
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
             NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-//                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
+                                           //                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
                                            @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
                                            @"Что я думаю?", @"user_message_prompt",
                                            attachmentStr, @"attachment",
                                            nil];
             
-                        [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
+            [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
             //[[Common instance].facebook dialog:@"feed" andParams:params andDelegate:self];
             
             break;
@@ -190,7 +199,7 @@
             //self.hidesBottomBarWhenPushed = NO;
             twitController.citem = self.citem;
             [twitController release];
-
+            
             break;
         }
             
@@ -198,44 +207,10 @@
             break;
     }
 }
-- (void)dismissWithSuccess:(BOOL)success animated:(BOOL)animated {
-    
-    NSLog(@"resopce!!!");
-}
-
-- (void)dismissWithError:(NSError*)error animated:(BOOL)animated {
-    
-    NSLog(@"resopce!!!");
-
-}
-- (void)dialogDidSucceed:(NSURL *)url {
-
-    NSLog(@"resopce!!!");
-
-}
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller  
-          didFinishWithResult:(MFMailComposeResult)result 
-                        error:(NSError*)error;
-{
-    if (result == MFMailComposeResultSent) {
-        NSLog(@"It's away!");
-    }
-    [self dismissModalViewControllerAnimated:YES];
-}
-
-- (void)fbDidLogin {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[[Common instance].facebook accessToken] forKey:@"FBAccessTokenKey"];
-    [defaults setObject:[[Common instance].facebook expirationDate] forKey:@"FBExpirationDateKey"];
-    [defaults synchronize];
-    
-}
 
 - (IBAction)fav: (id)sender {
     
-//    NSLog(@"fav");
+    //    NSLog(@"fav");
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Внимание" 
                                                     message:@"Добавить в избранное?"
                                                    delegate:self 
@@ -248,7 +223,7 @@
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 1){
-
+        
         NSLog(@"Ok");
         [[Common instance] saveFav:self.citem];
     }
@@ -258,22 +233,22 @@
     
 	//[aIndicator startAnimating];
     
-	int entireSize = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
-	int scrollPosition = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
+	int entireSize = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int scrollPosition = [[self.a stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
     //	NSLog(@"b4 ent = %d, scrollp = %d", entireSize, scrollPosition);
 	
 	NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
                           fontsize];
-    [self.fulltext stringByEvaluatingJavaScriptFromString:jsString];
+    [self.a stringByEvaluatingJavaScriptFromString:jsString];
     [jsString release];
     
-	int entireSize1 = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int entireSize1 = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
 	int scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
     //	NSLog(@"af ent = %d, scrollp = %d", entireSize1, scrollPosition1);
     
-//	[Common instance].maxPos = entireSize1;
-	[self.fulltext stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
-//	[Common instance].scrollPos = scrollPosition1;
+    //	[Common instance].maxPos = entireSize1;
+	[self.a stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
+    //	[Common instance].scrollPos = scrollPosition1;
     
 	//[aIndicator stopAnimating];
     

@@ -12,7 +12,8 @@
 #import "Common.h"
 #import "Reachability.h"
 #import "SendQController.h"
-#import "NewsDetailController.h"
+//#import "NewsDetailController.h"
+#import "QADetailController.h"
 
 @implementation QAController
 
@@ -209,22 +210,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
+    QADetailController* detailViewController = [[QADetailController alloc] initWithNibName:@"QADetailController" bundle:nil];
     
     Item* item = [[Common instance] getQAAt:indexPath.row];
     
     self.hidesBottomBarWhenPushed = YES;
-    
-    // Pass the selected object to the new view controller.
     detailViewController.citem = item;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    
+    [self.navigationController pushViewController:detailViewController animated:YES];    
     self.hidesBottomBarWhenPushed = NO;
-    
-    //   detailViewController.titl.text = item.title;
-    //   detailViewController.rubric.text = item.rubric;
-    //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
-    
     [detailViewController release];
 }
 
@@ -236,7 +229,7 @@
 		
 		UIAlertView* dialog = [[UIAlertView alloc] init];
 		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
-		[dialog setMessage:@"Невозможно загрузить новости."];
+		[dialog setMessage:@"Невозможно загрузить данные."];
 		[dialog addButtonWithTitle:@"OK"];
 		[dialog show];
 		[dialog release];

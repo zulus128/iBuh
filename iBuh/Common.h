@@ -30,6 +30,11 @@
 #define IMAGE_TAG @"enclosure"
 #define DESCRIPTION_TAG @"description"
 
+#define START_FONT 100
+#define STEP_FONT 10
+#define MIN_FONT 30
+#define MAX_FONT 250
+
 @interface UINavigationBar (UINavigationBarCategory)
 -(void) setBackgroundImage:(UIImage*)image;
 @end
