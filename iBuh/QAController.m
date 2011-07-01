@@ -162,6 +162,7 @@
         Item* item = [[Common instance] getQAAt:indexPath.row];
         ((QACell*)cell).title.text = item.title;
         ((QACell*)cell).quest.text = item.description;
+        ((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
     }
     
     return cell;
