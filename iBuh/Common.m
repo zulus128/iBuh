@@ -29,6 +29,7 @@
 @synthesize aTabBarBackground = _aTabBarBackground;
 
 @synthesize facebook;
+@synthesize img = _img;
 
 + (Common*) instance  {
 	
@@ -83,6 +84,7 @@
     
     [_filePath release];
     [_aTabBarBackground release];
+    [_img release];
     
 	[super dealloc];
 }

@@ -15,15 +15,21 @@
 #import "DelimNewsCell.h"
 #import "Item.h"
 #import "NewsDetailController.h"
+//#import "TopNewsDetailController.h"
 
 @implementation NewsController
 
 @synthesize samplecell = _samplecell;
 @synthesize delimsamplecell = _delimsamplecell;
+@synthesize tableView = _tableView;
 
-- (id)initWithStyle:(UITableViewStyle)style
+@synthesize image = _image;
+@synthesize titl = _titl;
+@synthesize rubric = _rubric;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -34,6 +40,12 @@
     
     [_samplecell release];
     [_delimsamplecell release];
+    
+    [_tableView release];
+    
+    [_image release];
+    [_titl release];
+    [_rubric release];
     
     [super dealloc];
 }
@@ -112,14 +124,14 @@
 //    NSLog(@"viewWillAppear");
     
     
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
+
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image];
 
     UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -156,6 +168,26 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+
+    //NSLog(@"check!");
+    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
+    Item* item = [[Common instance] getNewsAt:0];
+    
+    self.hidesBottomBarWhenPushed = YES;
+    
+    // Pass the selected object to the new view controller.
+    detailViewController.citem = item;
+    [self.navigationController pushViewController:detailViewController animated:YES];
+
+    detailViewController.image.hidden = NO;
+
+    self.hidesBottomBarWhenPushed = NO;
+
+    [detailViewController release];
+
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -169,26 +201,26 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [[Common instance] getNewsCount];
+    return [[Common instance] getNewsCount] - 1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //NSLog(@"heightForRowAtIndexPath");
 
-    if ((indexPath.row == 0) || (indexPath.row == 2))
-        return self.delimsamplecell.frame.size.height;
+   // if ((indexPath.row == 0) || (indexPath.row == 2))
+    //    return self.delimsamplecell.frame.size.height;
     return self.samplecell.frame.size.height;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier2 = @"DelimNewsCell";
-    static NSString *CellIdentifier1 = @"TopNewsCell";
+   // static NSString *CellIdentifier2 = @"DelimNewsCell";
+   // static NSString *CellIdentifier1 = @"TopNewsCell";
     static NSString *CellIdentifier = @"NewsCell";
     UITableViewCell* cell;
     
-    if ((indexPath.row == 0) || (indexPath.row == 2)) {
+   /* if ((indexPath.row == 0) || (indexPath.row == 2)) {
         
         cell = (DelimNewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
         if (cell == nil) {
@@ -230,7 +262,7 @@
             ((TopNewsCell*)cell).rubric.text = item.rubric;
             ((TopNewsCell*)cell).image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
         }
-    }else
+    }else */
         {
             cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
@@ -246,10 +278,13 @@
                 }
             }
             // Configure the cell...
-            Item* item = [[Common instance] getNewsAt:(indexPath.row - ROW_CORRECTION)];
+//            Item* item = [[Common instance] getNewsAt:(indexPath.row - ROW_CORRECTION)];
+            Item* item = [[Common instance] getNewsAt:(indexPath.row + 1)];
             ((NewsCell*)cell).title.text = item.title;
             ((NewsCell*)cell).rubric.text = item.rubric;
             ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
+            
+            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         }
 
     return cell;
@@ -297,17 +332,21 @@
 
 #pragma mark - Table view delegate
 
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return nil;
+//}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     
-     if ((indexPath.row == 0) || (indexPath.row == 2))
-         return;
+//     if ((indexPath.row == 0) || (indexPath.row == 2))
+//         return;
     
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
      
-    int row = (indexPath.row == 1)?0:indexPath.row - ROW_CORRECTION;
-    Item* item = [[Common instance] getNewsAt:row];
+   // int row = (indexPath.row == 1)?0:indexPath.row - ROW_CORRECTION;
+    Item* item = [[Common instance] getNewsAt:/*row*/(indexPath.row + 1)];
     
     self.hidesBottomBarWhenPushed = YES;
     
@@ -316,6 +355,8 @@
     [self.navigationController pushViewController:detailViewController animated:YES];
 
     self.hidesBottomBarWhenPushed = NO;
+
+    detailViewController.image.hidden = YES;
     
  //   detailViewController.titl.text = item.title;
  //   detailViewController.rubric.text = item.rubric;
@@ -346,6 +387,12 @@
         [self addNews:TOPMENU_URL];
         [self addNews:MENU_URL];
         [self.tableView reloadData];
+
+        Item* item = [[Common instance] getNewsAt:0];
+        self.titl.text = item.title;
+        self.rubric.text = item.rubric;
+        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+        [Common instance].img = self.image.image;
 
 	}
     

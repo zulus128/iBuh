@@ -53,6 +53,7 @@
 
 @property (nonatomic, retain) Facebook *facebook;
 @property (nonatomic, retain) UIImageView *aTabBarBackground;
+@property (nonatomic, retain) IBOutlet UIImage* img;
 
 + (Common*)instance;
 

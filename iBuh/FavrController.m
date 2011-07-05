@@ -79,13 +79,15 @@
     //NSLog(@"appear");
     [self.tableView reloadData];
     
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated

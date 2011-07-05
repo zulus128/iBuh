@@ -17,6 +17,7 @@
 @synthesize fulltext = _fulltext;
 //@synthesize fontplusButton = _fontplusButton;
 @synthesize citem = _citem;
+@synthesize image = _image;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +36,7 @@
     [_fulltext release];
 //    [_fontplusButton release];
     [_citem release];
+    [_image release];
     
     [super dealloc];
 }
@@ -51,11 +53,20 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     
 //    [self.navigationController.navigationBar setBackgroundImage:NULL];
     
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+ //   NSLog(@"image = %@", self.citem.image);
+ //   self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -76,6 +87,19 @@
                         "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
     [self.fulltext loadHTMLString: contentHTML baseURL:nil];
     
+    if((self.citem.image == nil) || (![self.citem.image length])) {
+       
+        self.titl.frame = CGRectMake(7, 0, 313, 62);
+        self.rubric.frame = CGRectMake(7, 62, 313, 21);
+    }
+    else {
+
+        self.titl.frame = CGRectMake(108, 0, 212, 62);
+        self.rubric.frame = CGRectMake(108, 62, 212, 21);
+        self.image.image = [Common instance].img;
+//        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
+    }
+
 //    self.hidesBottomBarWhenPushed = YES;
 
 }

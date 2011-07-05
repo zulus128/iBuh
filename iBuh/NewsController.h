@@ -10,7 +10,7 @@
 
 #define ROW_CORRECTION 2
 
-@interface NewsController : UITableViewController {
+@interface NewsController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
 }
 
@@ -19,5 +19,10 @@
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
 @property (nonatomic, retain) UITableViewCell* delimsamplecell;
+@property (nonatomic, retain) UITableView* tableView;
+
+@property (nonatomic, retain) IBOutlet UIImageView* image;
+@property (nonatomic, retain) IBOutlet UILabel* titl;
+@property (nonatomic, retain) IBOutlet UILabel* rubric;
 
 @end
