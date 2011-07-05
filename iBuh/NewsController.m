@@ -51,9 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+      
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -94,18 +92,6 @@
         }
     }
     
-    //UIBarButtonItem* bbi = [[[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"02-redo.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(refresh)] autorelease];
-    //self.navigationItem.rightBarButtonItem = bbi;
-
-    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [myButton setImage:myImage forState:UIControlStateNormal];
-    myButton.showsTouchWhenHighlighted = YES;
-    myButton.frame = CGRectMake(0.0, 0.0, myImage.size.width, myImage.size.height);
-    [myButton addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
-    self.navigationItem.rightBarButtonItem = bi;
-    [bi release];
     
     [self refresh];
     
@@ -119,24 +105,49 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
+- (void)viewWillAppear:(BOOL)animated {
+    
     [super viewWillAppear:animated];
+  
+//    NSLog(@"viewWillAppear");
+    
+    
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image];
+
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
+    
     [super viewDidAppear:animated];
+
+    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
+    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [myButton setImage:myImage forState:UIControlStateNormal];
+    myButton.showsTouchWhenHighlighted = YES;
+    myButton.frame = CGRectMake(0.0, 0.0, myImage.size.width, myImage.size.height);
+    [myButton addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
+    self.navigationItem.rightBarButtonItem = bi;
+    [bi release];
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+
+    [self.navigationController.navigationBar setBackgroundImage:NULL];
+
     [super viewWillDisappear:animated];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+
+
     [super viewDidDisappear:animated];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

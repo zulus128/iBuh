@@ -11,19 +11,22 @@
 @implementation UINavigationBar (UINavigationBarCategory)
 -(void)setBackgroundImage:(UIImage*)image{
     if(image == NULL){ //might be called with NULL argument
+  //      NSLog(@"%@",[self subviews]);
+        [[Common instance].aTabBarBackground removeFromSuperview];
         return;
     }
-    UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
-    aTabBarBackground.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
-    [self addSubview:aTabBarBackground];
-    [self sendSubviewToBack:aTabBarBackground];
-    [aTabBarBackground release];
+ //   UIImageView *aTabBarBackground = [[UIImageView alloc]initWithImage:image];
+    [Common instance].aTabBarBackground.frame = CGRectMake(0,0,self.frame.size.width,self.frame.size.height);
+    [self addSubview:[Common instance].aTabBarBackground];
+    [self sendSubviewToBack:[Common instance].aTabBarBackground];
+//    [aTabBarBackground release];
 }
 @end
 
 @implementation Common
 
 @synthesize filePath = _filePath;
+@synthesize aTabBarBackground = _aTabBarBackground;
 
 @synthesize facebook;
 
@@ -49,6 +52,8 @@
         news = [[NSMutableArray alloc] init];
         qas = [[NSMutableArray alloc] init];
         pcs = [[NSMutableArray alloc] init];
+        
+        self.aTabBarBackground = [[UIImageView alloc]initWithImage:[UIImage imageNamed: @"top-logo-sample.png"]];
         
  		NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 		NSString* docpath = [sp objectAtIndex: 0];
@@ -77,6 +82,7 @@
     [pcs release];
     
     [_filePath release];
+    [_aTabBarBackground release];
     
 	[super dealloc];
 }

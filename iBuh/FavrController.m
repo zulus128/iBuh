@@ -46,8 +46,8 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+//    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+//    [self.navigationController.navigationBar setBackgroundImage:image];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -78,6 +78,9 @@
     [super viewWillAppear:animated];
     //NSLog(@"appear");
     [self.tableView reloadData];
+    
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -88,6 +91,9 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+//    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:NULL];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

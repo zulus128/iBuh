@@ -49,8 +49,9 @@
 {
     [super viewDidLoad];
 
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+    
+ //   UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+ //   [self.navigationController.navigationBar setBackgroundImage:image];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -74,11 +75,6 @@
     //self.navigationItem.rightBarButtonItem.enabled = YES;
 //    self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithTitle:@"+" style:UIBarButtonItemStylePlain target:self action:@selector(addQuestion:)] autorelease];
     
-    UIButton *btnAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];  
-    [btnAdd addTarget:self action:@selector(addQuestion:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithCustomView:btnAdd] autorelease];  
-    self.navigationItem.rightBarButtonItem = btnItemAdd; 
-
 }
 
 - (void)addQuestion:(NSObject*)sender {
@@ -101,16 +97,29 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+        
+    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image];
+
+    //NSLog(@"%@", [self.navigationController.navigationBar subviews]);
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    UIButton *btnAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];  
+    [btnAdd addTarget:self action:@selector(addQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithCustomView:btnAdd] autorelease];  
+    self.navigationItem.rightBarButtonItem = btnItemAdd; 
+
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    [self.navigationController.navigationBar setBackgroundImage:NULL];
 }
 
 - (void)viewDidDisappear:(BOOL)animated

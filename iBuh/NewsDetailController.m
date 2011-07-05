@@ -49,6 +49,13 @@
 
 #pragma mark - View lifecycle
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+//    [self.navigationController.navigationBar setBackgroundImage:NULL];
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,6 +63,8 @@
     self.navigationItem.hidesBackButton = NO;
     self.titl.text = self.citem.title;
     self.rubric.text = self.citem.rubric;
+
+   // [self.navigationController.navigationBar setBackgroundImage:NULL];
     
     NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
                         "<head> \n"
@@ -135,7 +144,10 @@
             controller.mailComposeDelegate = self;
             [controller setSubject:self.citem.title];
 //            [controller setSubject:@" "];
-            [controller setMessageBody:self.citem.full_text isHTML:YES]; 
+            
+            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ",self.citem.full_text,self.citem.link];
+
+            [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
             [controller release];
             

@@ -74,6 +74,10 @@
 		DDD0389F13ADD2A500BD246B /* QAController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0389D13ADD2A500BD246B /* QAController.xib */; };
 		DDD038A313ADDBBD00BD246B /* QACell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD038A113ADDBBC00BD246B /* QACell.m */; };
 		DDD038A413ADDBBD00BD246B /* QACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD038A213ADDBBC00BD246B /* QACell.xib */; };
+		DDD0BF2A13C27F21005E0A80 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD0BF2813C27F21005E0A80 /* arrow.png */; };
+		DDD0BF2B13C27F21005E0A80 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDD0BF2913C27F21005E0A80 /* arrow@2x.png */; };
+		DDD0BF3113C2917E005E0A80 /* TopNewsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */; };
+		DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0BF3013C2917D005E0A80 /* TopNewsDetailController.xib */; };
 		DDED16AF13A3290D003E523C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16AE13A3290D003E523C /* UIKit.framework */; };
 		DDED16B113A3290D003E523C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B013A3290D003E523C /* Foundation.framework */; };
 		DDED16B313A3290D003E523C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED16B213A3290D003E523C /* CoreGraphics.framework */; };
@@ -223,6 +227,11 @@
 		DDD038A013ADDBBB00BD246B /* QACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QACell.h; sourceTree = "<group>"; };
 		DDD038A113ADDBBC00BD246B /* QACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QACell.m; sourceTree = "<group>"; };
 		DDD038A213ADDBBC00BD246B /* QACell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QACell.xib; sourceTree = "<group>"; };
+		DDD0BF2813C27F21005E0A80 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		DDD0BF2913C27F21005E0A80 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		DDD0BF2E13C2917C005E0A80 /* TopNewsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNewsDetailController.h; sourceTree = "<group>"; };
+		DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNewsDetailController.m; sourceTree = "<group>"; };
+		DDD0BF3013C2917D005E0A80 /* TopNewsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopNewsDetailController.xib; sourceTree = "<group>"; };
 		DDED16AA13A3290D003E523C /* iБухгалтерия.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iБухгалтерия.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -454,6 +463,8 @@
 				8C9AEA9713B9AC2C0079E2D4 /* Tweet.m */,
 				DD0EB8D313BD46F40009F34F /* QADetailController.h */,
 				DD0EB8D413BD46F40009F34F /* QADetailController.m */,
+				DDD0BF2E13C2917C005E0A80 /* TopNewsDetailController.h */,
+				DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -493,6 +504,8 @@
 		DDED16ED13A45576003E523C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DDD0BF2813C27F21005E0A80 /* arrow.png */,
+				DDD0BF2913C27F21005E0A80 /* arrow@2x.png */,
 				8C94809313B303EE0085A268 /* word-big.png */,
 				8C94809413B303EE0085A268 /* word-big@2x.png */,
 				8C94809513B303EE0085A268 /* word.png */,
@@ -531,6 +544,7 @@
 				DDED177C13A48363003E523C /* NewsController.xib */,
 				DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */,
 				8C87438113A76A2E00588B05 /* NewsDetailController.xib */,
+				DDD0BF3013C2917D005E0A80 /* TopNewsDetailController.xib */,
 				DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */,
 				DDD0389D13ADD2A500BD246B /* QAController.xib */,
 				DDD038A213ADDBBC00BD246B /* QACell.xib */,
@@ -749,6 +763,9 @@
 				DD0EB8D013BD42F50009F34F /* 57.png in Resources */,
 				DD0EB8D213BD43070009F34F /* 114.png in Resources */,
 				DD0EB8D713BD46F40009F34F /* QADetailController.xib in Resources */,
+				DDD0BF2A13C27F21005E0A80 /* arrow.png in Resources */,
+				DDD0BF2B13C27F21005E0A80 /* arrow@2x.png in Resources */,
+				DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +846,7 @@
 				8C9E203113BC8E7E001AA2C1 /* SBJsonParser.m in Sources */,
 				8C9E203213BC8E7E001AA2C1 /* SBJsonWriter.m in Sources */,
 				DD0EB8D613BD46F40009F34F /* QADetailController.m in Sources */,
+				DDD0BF3113C2917E005E0A80 /* TopNewsDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

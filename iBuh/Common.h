@@ -52,6 +52,7 @@
 @property (nonatomic, retain) NSString* filePath;
 
 @property (nonatomic, retain) Facebook *facebook;
+@property (nonatomic, retain) UIImageView *aTabBarBackground;
 
 + (Common*)instance;
 
