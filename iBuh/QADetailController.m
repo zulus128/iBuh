@@ -133,7 +133,7 @@
     //  [asheet setFrame:CGRectMake(0, 117, 320, 383)];
     [asheet release];
 }
-
+/*
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     
     switch (buttonIndex) {
@@ -206,6 +206,94 @@
         default:
             break;
     }
+}
+*/
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    switch (buttonIndex) {
+        case 0: {
+            NSLog(@"email");
+            
+            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+            controller.mailComposeDelegate = self;
+            [controller setSubject:self.citem.title];
+            //            [controller setSubject:@" "];
+            
+            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ",self.citem.full_text,self.citem.link];
+            
+            [controller setMessageBody:str isHTML:YES]; 
+            [self presentModalViewController:controller animated:YES];
+            [controller release];
+            
+            break;
+        }
+        case 1: {
+            NSLog(@"facebook");
+            //            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"209264682449638"];
+            [Common instance].facebook = [[Facebook alloc] initWithAppId:@"236302699730602"];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            if ([defaults objectForKey:@"FBAccessTokenKey"] 
+                && [defaults objectForKey:@"FBExpirationDateKey"]) {
+                [Common instance].facebook.accessToken = [defaults objectForKey:@"FBAccessTokenKey"];
+                [Common instance].facebook.expirationDate = [defaults objectForKey:@"FBExpirationDateKey"];
+            }
+            
+            // if (![[Common instance].facebook isSessionValid]) {
+            //     [[Common instance].facebook authorize:nil delegate:self];
+            // }
+            
+            
+            SBJSON *jsonWriter = [[SBJSON new] autorelease];
+            
+            
+            NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
+                                        self.citem.title, @"name",
+                                        //self.citem.title, @"caption",
+                                        self.citem.link, @"href",
+                                        self.citem.full_text, @"description",
+                                        nil];
+            
+            NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
+            NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           //                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
+                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+                                           @"Что я думаю?", @"user_message_prompt",
+                                           attachmentStr, @"attachment",
+                                           nil];
+            
+            [[Common instance].facebook dialog:@"stream.publish" andParams:params andDelegate:self];
+            //[[Common instance].facebook dialog:@"feed" andParams:params andDelegate:self];
+            
+            break;
+        }
+        case 2: {
+            NSLog(@"twitter");
+            
+            iCodeOauthViewController* twitController = [[iCodeOauthViewController alloc] initWithNibName:@"iCodeOauthViewController" bundle:nil];
+            self.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:twitController animated:YES];
+            //self.hidesBottomBarWhenPushed = NO;
+            twitController.citem = self.citem;
+            [twitController release];
+            
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller  
+          didFinishWithResult:(MFMailComposeResult)result 
+                        error:(NSError*)error;
+{
+    if (result == MFMailComposeResultSent) {
+        NSLog(@"It's away!");
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)fav: (id)sender {
