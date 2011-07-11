@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Item.h"
+//#import "Item.h"
 #import "FBConnect.h"
 #import <MessageUI/MessageUI.h>
+#import "MyDetailController.h"
 
-@interface QADetailController : UIViewController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate > {
+@interface QADetailController : MyDetailController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate > {
     
     int fontsize;
 }
@@ -20,7 +21,7 @@
 //@property (nonatomic, retain) IBOutlet UILabel* rubric;
 @property (nonatomic, retain) IBOutlet UIWebView* q;
 @property (nonatomic, retain) IBOutlet UIWebView* a;
-@property (nonatomic, retain) Item* citem;
+//@property (nonatomic, retain) Item* citem;
 
 - (IBAction)fontplus: (id)sender;
 - (IBAction)fontminus: (id)sender;

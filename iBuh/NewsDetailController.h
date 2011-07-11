@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Item.h"
+//#import "Item.h"
 #import "FBConnect.h"
 #import <MessageUI/MessageUI.h>
+#import "MyDetailController.h"
 
-@interface NewsDetailController : UIViewController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate >{
+@interface NewsDetailController : MyDetailController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate >{
   
     int fontsize;
 }
@@ -22,7 +23,7 @@
 @property (nonatomic, retain) IBOutlet UIWebView* fulltext;
 //@property (nonatomic, retain) IBOutlet UIBarButtonItem* fontplusButton;
 
-@property (nonatomic, retain) Item* citem;
+//@property (nonatomic, retain) Item* citem;
 
 @property (nonatomic, retain) IBOutlet UIImageView* image;
 

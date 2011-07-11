@@ -111,6 +111,8 @@
 		DDF909F613B95C3E003FC2B5 /* libOAuth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DDF909E313B95C3E003FC2B5 /* libOAuth.a */; };
 		DDF909F713B95C3E003FC2B5 /* SA_OAuthTwitterController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF909E513B95C3E003FC2B5 /* SA_OAuthTwitterController.m */; };
 		DDF909F813B95C3E003FC2B5 /* SA_OAuthTwitterEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = DDF909E713B95C3E003FC2B5 /* SA_OAuthTwitterEngine.m */; };
+		DDFDD4B713C9595700A1F883 /* MyDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDFDD4B613C9595700A1F883 /* MyDetailController.m */; };
+		DDFDD51913C975E000A1F883 /* preload.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDFDD51813C975E000A1F883 /* preload.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +308,9 @@
 		DDF909E513B95C3E003FC2B5 /* SA_OAuthTwitterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SA_OAuthTwitterController.m; sourceTree = "<group>"; };
 		DDF909E613B95C3E003FC2B5 /* SA_OAuthTwitterEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SA_OAuthTwitterEngine.h; sourceTree = "<group>"; };
 		DDF909E713B95C3E003FC2B5 /* SA_OAuthTwitterEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SA_OAuthTwitterEngine.m; sourceTree = "<group>"; };
+		DDFDD4B513C9595700A1F883 /* MyDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDetailController.h; sourceTree = "<group>"; };
+		DDFDD4B613C9595700A1F883 /* MyDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDetailController.m; sourceTree = "<group>"; };
+		DDFDD51813C975E000A1F883 /* preload.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preload.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -465,6 +470,8 @@
 				DD0EB8D413BD46F40009F34F /* QADetailController.m */,
 				DDD0BF2E13C2917C005E0A80 /* TopNewsDetailController.h */,
 				DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */,
+				DDFDD4B513C9595700A1F883 /* MyDetailController.h */,
+				DDFDD4B613C9595700A1F883 /* MyDetailController.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -477,6 +484,7 @@
 				DDED16BA13A3290D003E523C /* iБухгалтерия-Prefix.pch */,
 				DDED16BB13A3290D003E523C /* main.m */,
 				8C95F19213B34D6900B1F5F4 /* favourites.plist */,
+				DDFDD51813C975E000A1F883 /* preload.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -766,6 +774,7 @@
 				DDD0BF2A13C27F21005E0A80 /* arrow.png in Resources */,
 				DDD0BF2B13C27F21005E0A80 /* arrow@2x.png in Resources */,
 				DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */,
+				DDFDD51913C975E000A1F883 /* preload.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +856,7 @@
 				8C9E203213BC8E7E001AA2C1 /* SBJsonWriter.m in Sources */,
 				DD0EB8D613BD46F40009F34F /* QADetailController.m in Sources */,
 				DDD0BF3113C2917E005E0A80 /* TopNewsDetailController.m in Sources */,
+				DDFDD4B713C9595700A1F883 /* MyDetailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

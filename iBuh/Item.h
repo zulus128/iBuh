@@ -11,7 +11,7 @@
 @interface Item : NSObject {
 
 }
-
+@property (assign, readwrite) int type;
 @property (nonatomic, retain) NSString* title;
 @property (nonatomic, retain) NSString* link;
 @property (nonatomic, retain) NSString* ituneslink;

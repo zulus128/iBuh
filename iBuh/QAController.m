@@ -248,6 +248,7 @@
         [[Common instance] clearQAs];
         [self addQAs:QAMENU_URL];
 		
+        [[Common instance] saveQAsPreload];
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

@@ -9,13 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
-enum item_types {
-    
-    TYPE_NEWS,
-    TYPE_QAS,
-    TYPE_PCS
-};
-
 @interface XMLParser : NSObject <NSXMLParserDelegate> {
 
 	NSMutableString* currentElementValue;

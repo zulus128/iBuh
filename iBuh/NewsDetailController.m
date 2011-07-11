@@ -16,7 +16,7 @@
 @synthesize rubric = _rubric;
 @synthesize fulltext = _fulltext;
 //@synthesize fontplusButton = _fontplusButton;
-@synthesize citem = _citem;
+//@synthesize citem = _citem;
 @synthesize image = _image;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -35,7 +35,7 @@
     [_rubric release];
     [_fulltext release];
 //    [_fontplusButton release];
-    [_citem release];
+//    [_citem release];
     [_image release];
     
     [super dealloc];

@@ -31,7 +31,9 @@
 	if([elementName isEqualToString:ITEM_TAG]) {
 
 		item = [[Item alloc] init];
-	//	NSLog(@"Item alloc");
+        item.type = itype;
+        
+        NSLog(@"Item alloc type = %i", itype);
 	}
 	
     if ([elementName isEqualToString:IMAGE_TAG])

@@ -35,6 +35,13 @@
 #define MIN_FONT 30
 #define MAX_FONT 250
 
+enum item_types {
+    
+    TYPE_NEWS,
+    TYPE_QAS,
+    TYPE_PCS
+};
+
 @interface UINavigationBar (UINavigationBarCategory)
 -(void) setBackgroundImage:(UIImage*)image;
 @end
@@ -45,11 +52,12 @@
     NSMutableArray* qas;
     NSMutableArray* pcs;
     NSMutableDictionary* favs;
-
+    NSMutableDictionary* prels;
     int correction;
 }
 
 @property (nonatomic, retain) NSString* filePath;
+@property (nonatomic, retain) NSString* prelfilePath;
 
 @property (nonatomic, retain) Facebook *facebook;
 @property (nonatomic, retain) UIImageView *aTabBarBackground;
@@ -77,5 +85,12 @@
 - (void)addPodcast: (Item*)item;
 - (int) getPodcastsCount;
 - (Item*) getPodcastAt: (int)num;
+
+- (void) loadPreloaded;
+- (void) saveNewsPreload;
+- (void) saveQAsPreload;
+- (void) savePodcastsPreload;
+
+- (void) sort: (NSMutableArray*) a;
 
 @end

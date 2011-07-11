@@ -229,6 +229,7 @@
         [[Common instance] clearPodcasts];
         [self addPodcasts:PODCAST_URL];
 		
+        [[Common instance] savePodcastsPreload];
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

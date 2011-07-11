@@ -380,6 +380,9 @@
 		[dialog addButtonWithTitle:@"OK"];
 		[dialog show];
 		[dialog release];
+        
+        [self addPreloadedNews];
+        [self.tableView reloadData];
 		
 	}else {
         
@@ -388,17 +391,33 @@
         [self addNews:MENU_URL];
         [self.tableView reloadData];
 
+        [[Common instance] saveNewsPreload];
+        
+        
+	}
+    
+    if([[Common instance] getNewsCount]) {
+        
         Item* item = [[Common instance] getNewsAt:0];
         self.titl.text = item.title;
         self.rubric.text = item.rubric;
         self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
         [Common instance].img = self.image.image;
-
-	}
-    
+    }
+        
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 }
+
+- (void)addPreloadedNews {
+    
+    [[Common instance] clearNews];
+    [[Common instance] clearQAs];
+    [[Common instance] clearPodcasts];
+    
+    [[Common instance] loadPreloaded];
+}
+
 
 - (void)addNews: (NSString*) url {
     

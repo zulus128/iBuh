@@ -11,7 +11,7 @@
 
 @implementation Item
 
-@synthesize title, link, ituneslink, rubric, full_text, date, image, description;
+@synthesize type, title, link, ituneslink, rubric, full_text, date, image, description;
 
 - (void) dealloc {
 	

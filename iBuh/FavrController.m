@@ -11,6 +11,7 @@
 #import "Item.h"
 #import "Common.h"
 #import "NewsDetailController.h"
+#import "QADetailController.h"
 
 @implementation FavrController
 
@@ -212,22 +213,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
-    
     Item* item = [[Common instance] getFavNewsAt:indexPath.row];
+
+    MyDetailController* detailViewController;
+    
+    switch (item.type) {
+        
+        case TYPE_NEWS:
+        default:
+            detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
+            break;
+
+        case TYPE_QAS:
+            detailViewController = [[QADetailController alloc] initWithNibName:@"QADetailController" bundle:nil];                
+            break;
+            
+    }
+
     
     self.hidesBottomBarWhenPushed = YES;
-    
-    // Pass the selected object to the new view controller.
     detailViewController.citem = item;
     [self.navigationController pushViewController:detailViewController animated:YES];
-    
     self.hidesBottomBarWhenPushed = NO;
-    
-    //   detailViewController.titl.text = item.title;
-    //   detailViewController.rubric.text = item.rubric;
-    //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
-    
     [detailViewController release];
 
 }

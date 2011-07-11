@@ -26,6 +26,7 @@
 @implementation Common
 
 @synthesize filePath = _filePath;
+@synthesize prelfilePath = _prelfilePath;
 @synthesize aTabBarBackground = _aTabBarBackground;
 
 @synthesize facebook;
@@ -72,6 +73,21 @@
     
         favs = [[NSMutableDictionary alloc] initWithContentsOfFile:self.filePath];
 
+        self.prelfilePath = [docpath stringByAppendingPathComponent:@"preload.plist"];
+		
+        fe = [[NSFileManager defaultManager] fileExistsAtPath:self.prelfilePath];
+		if(!fe) {
+            
+            NSLog(@"NO preload.plist FILE !!! Creating...");
+            NSString *appFile = [[NSBundle mainBundle] pathForResource:@"preload" ofType:@"plist"];
+			NSError *error;
+			NSFileManager *fileManager = [NSFileManager defaultManager];
+			[fileManager copyItemAtPath:appFile toPath:self.prelfilePath error:&error];
+			
+		}
+        
+        prels = [[NSMutableDictionary alloc] initWithContentsOfFile:self.prelfilePath];
+
 	}
 	return self;	
 }
@@ -83,6 +99,7 @@
     [pcs release];
     
     [_filePath release];
+    [_prelfilePath release];
     [_aTabBarBackground release];
     [_img release];
     
@@ -159,6 +176,9 @@
     cnt++;
     [favs setValue:[NSNumber numberWithInt:cnt] forKey:@"count"];
     NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                            
+                                                            [NSNumber numberWithInt:item.type],
+                                                            
                                                             item.title == nil?@"":item.title,
                                                             item.link == nil?@"":item.link,    
                                                             item.ituneslink == nil?@"":item.ituneslink,    
@@ -169,6 +189,7 @@
                                                             item.description == nil?@"":item.description,
                                                             nil]
                                                      forKeys:[NSArray arrayWithObjects:
+                                                              @"Type",
                                                               @"Title",
                                                               @"Link",
                                                               @"Ituneslink",
@@ -203,6 +224,7 @@
     }
     
     Item* it = [[Item alloc] init];
+    it.type = [[obj objectForKey:@"Type"] intValue];
     it.title = [obj objectForKey:@"Title"];
     it.link = [obj objectForKey:@"Link"];
     it.ituneslink = [obj objectForKey:@"Ituneslink"];
@@ -232,5 +254,189 @@
     [favs writeToFile:self.filePath atomically: YES];
 }
 
+- (void) sort: (NSMutableArray*) a {
+
+    for (int i = 0; i < (a.count - 1); i++) {
+        for (int j = i + 1; j < a.count; j++) {
+            NSString* n1 = (NSString*)[a objectAtIndex:i];
+            NSString* n2 = (NSString*)[a objectAtIndex:j];
+//            NSLog(@"i=%d, j=%d, n1 = %@, n2 = %@", i, j, n1, n2);
+            if ([n1 caseInsensitiveCompare:n2] == NSOrderedDescending) {
+                [a exchangeObjectAtIndex:i withObjectAtIndex:j];
+            }
+        }
+    }
+    
+    NSLog(@"a=%@", a);
+}
+
+- (void) loadPreloaded {
+    
+    NSArray* arr = [prels allValues];
+    NSMutableArray* arr1 = (NSMutableArray*)[prels allKeys];
+    [self sort:arr1];
+    //NSLog(@"arr=%@", arr);
+   // NSLog(@"arr1=%@", arr1);
+    for (int i = 0; i < arr.count; i++) {
+
+        id obj = [arr objectAtIndex:i];
+        Item* it = [[Item alloc] init];
+        it.type = [[obj objectForKey:@"Type"] intValue];
+        it.title = [obj objectForKey:@"Title"];
+        it.link = [obj objectForKey:@"Link"];
+        it.ituneslink = [obj objectForKey:@"Ituneslink"];
+        it.rubric = [obj objectForKey:@"Rubric"];
+        it.full_text = [obj objectForKey:@"Fulltext"];
+        it.date = [obj objectForKey:@"Date"];
+        it.image = [obj objectForKey:@"Image"];
+        it.description = [obj objectForKey:@"Descr"];
+
+        switch (it.type) {
+            case TYPE_NEWS:
+                [self addNews:it];                
+                break;
+            case TYPE_QAS:
+                [self addQA:it];                
+                break;
+            case TYPE_PCS:
+                [self addPodcast:it]; 
+                break;
+                
+            default:
+                break;
+        }
+        [it release];
+
+    }
+    
+}
+
+- (void) saveNewsPreload {
+    
+    NSArray* arr = [prels allKeys];
+    NSArray* arr1 = [prels allValues];
+    for (int i = 0; i < arr1.count; i++) {
+    
+        id obj = [arr1 objectAtIndex:i];
+        if ([[obj objectForKey:@"Type"] intValue] == TYPE_NEWS) 
+            [prels removeObjectForKey:[arr objectAtIndex:i]];
+    }
+    
+    for (int i = 0; i < news.count; i++) {
+      
+        Item* item = (Item*)[news objectAtIndex:i];
+        NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                                [NSNumber numberWithInt:item.type],
+                                                                item.title == nil?@"":item.title,
+                                                                item.link == nil?@"":item.link,    
+                                                                item.ituneslink == nil?@"":item.ituneslink,    
+                                                                item.rubric == nil?@"":item.rubric,
+                                                                item.full_text == nil?@"":item.full_text,
+                                                                item.date == nil?@"":item.date,
+                                                                item.image == nil?@"":item.image,
+                                                                item.description == nil?@"":item.description,
+                                                                nil]
+                                                      forKeys:[NSArray arrayWithObjects:
+                                                               @"Type",
+                                                               @"Title",
+                                                               @"Link",
+                                                               @"Ituneslink",
+                                                               @"Rubric",
+                                                               @"Fulltext",
+                                                               @"Date",
+                                                               @"Image",
+                                                               @"Descr",
+                                                               nil]];
+        [prels setObject:f forKey:[NSString stringWithFormat:@"News%04d", i]]; 
+    }
+
+    [prels writeToFile:self.prelfilePath atomically: YES];
+}
+
+- (void) saveQAsPreload {
+    
+    NSArray* arr = [prels allKeys];
+    NSArray* arr1 = [prels allValues];
+    for (int i = 0; i < arr1.count; i++) {
+        
+        id obj = [arr1 objectAtIndex:i];
+        if ([[obj objectForKey:@"Type"] intValue] == TYPE_QAS) 
+            [prels removeObjectForKey:[arr objectAtIndex:i]];
+    }
+    
+    for (int i = 0; i < qas.count; i++) {
+        
+        Item* item = (Item*)[qas objectAtIndex:i];
+        NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                                [NSNumber numberWithInt:item.type],
+                                                                item.title == nil?@"":item.title,
+                                                                item.link == nil?@"":item.link,    
+                                                                item.ituneslink == nil?@"":item.ituneslink,    
+                                                                item.rubric == nil?@"":item.rubric,
+                                                                item.full_text == nil?@"":item.full_text,
+                                                                item.date == nil?@"":item.date,
+                                                                item.image == nil?@"":item.image,
+                                                                item.description == nil?@"":item.description,
+                                                                nil]
+                                                      forKeys:[NSArray arrayWithObjects:
+                                                               @"Type",
+                                                               @"Title",
+                                                               @"Link",
+                                                               @"Ituneslink",
+                                                               @"Rubric",
+                                                               @"Fulltext",
+                                                               @"Date",
+                                                               @"Image",
+                                                               @"Descr",
+                                                               nil]];
+        [prels setObject:f forKey:[NSString stringWithFormat:@"QAs%04d", i]]; 
+    }
+    
+    [prels writeToFile:self.prelfilePath atomically: YES];
+
+}
+
+- (void) savePodcastsPreload {
+    
+    
+    NSArray* arr = [prels allKeys];
+    NSArray* arr1 = [prels allValues];
+    for (int i = 0; i < arr1.count; i++) {
+        
+        id obj = [arr1 objectAtIndex:i];
+        if ([[obj objectForKey:@"Type"] intValue] == TYPE_PCS) 
+            [prels removeObjectForKey:[arr objectAtIndex:i]];
+    }
+    
+    for (int i = 0; i < pcs.count; i++) {
+        
+        Item* item = (Item*)[pcs objectAtIndex:i];
+        NSDictionary *f = [NSDictionary dictionaryWithObjects: [NSArray arrayWithObjects:
+                                                                [NSNumber numberWithInt:item.type],
+                                                                item.title == nil?@"":item.title,
+                                                                item.link == nil?@"":item.link,    
+                                                                item.ituneslink == nil?@"":item.ituneslink,    
+                                                                item.rubric == nil?@"":item.rubric,
+                                                                item.full_text == nil?@"":item.full_text,
+                                                                item.date == nil?@"":item.date,
+                                                                item.image == nil?@"":item.image,
+                                                                item.description == nil?@"":item.description,
+                                                                nil]
+                                                      forKeys:[NSArray arrayWithObjects:
+                                                               @"Type",
+                                                               @"Title",
+                                                               @"Link",
+                                                               @"Ituneslink",
+                                                               @"Rubric",
+                                                               @"Fulltext",
+                                                               @"Date",
+                                                               @"Image",
+                                                               @"Descr",
+                                                               nil]];
+        [prels setObject:f forKey:[NSString stringWithFormat:@"PCS%04d", i]]; 
+    }
+    
+    [prels writeToFile:self.prelfilePath atomically: YES];
+}
 
 @end

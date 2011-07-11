@@ -16,6 +16,7 @@
 
 - (void)refresh;
 - (void)addNews: (NSString*) url;
+- (void)addPreloadedNews;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
 @property (nonatomic, retain) UITableViewCell* delimsamplecell;
