@@ -9,6 +9,7 @@
 #import "Common.h"
 
 @implementation UINavigationBar (UINavigationBarCategory)
+
 -(void)setBackgroundImage:(UIImage*)image{
     if(image == NULL){ //might be called with NULL argument
   //      NSLog(@"%@",[self subviews]);
@@ -21,6 +22,7 @@
     [self sendSubviewToBack:[Common instance].aTabBarBackground];
 //    [aTabBarBackground release];
 }
+
 @end
 
 @implementation Common
@@ -267,19 +269,19 @@
         }
     }
     
-    NSLog(@"a=%@", a);
+ //   NSLog(@"a=%@", a);
 }
 
 - (void) loadPreloaded {
     
-    NSArray* arr = [prels allValues];
-    NSMutableArray* arr1 = (NSMutableArray*)[prels allKeys];
+//    NSArray* arr = [prels allValues];
+    NSMutableArray* arr1 = [[prels allKeys] mutableCopy];
     [self sort:arr1];
     //NSLog(@"arr=%@", arr);
-   // NSLog(@"arr1=%@", arr1);
-    for (int i = 0; i < arr.count; i++) {
+    NSLog(@"arr1=%@", arr1);
+    for (int i = 0; i < arr1.count; i++) {
 
-        id obj = [arr objectAtIndex:i];
+        id obj = [prels objectForKey:[arr1 objectAtIndex:i]];
         Item* it = [[Item alloc] init];
         it.type = [[obj objectForKey:@"Type"] intValue];
         it.title = [obj objectForKey:@"Title"];
