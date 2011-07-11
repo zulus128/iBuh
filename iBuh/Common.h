@@ -65,6 +65,9 @@ enum item_types {
 
 + (Common*)instance;
 
++ (void) saveImage: (UIImage*)img;
++ (UIImage*) loadImage;
+
 - (void)clearNews;
 - (void)addNews: (Item*)item;
 - (int) getNewsCount;

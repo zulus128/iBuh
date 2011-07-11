@@ -382,6 +382,13 @@
 		[dialog release];
         
         [self addPreloadedNews];
+        
+        Item* item = [[Common instance] getNewsAt:0];
+        self.titl.text = item.title;
+        self.rubric.text = item.rubric;
+        self.image.image = [Common loadImage];
+        [Common instance].img = self.image.image;
+        
         [self.tableView reloadData];
 		
 	}else {
@@ -392,18 +399,21 @@
         [self.tableView reloadData];
 
         [[Common instance] saveNewsPreload];
+
+        if([[Common instance] getNewsCount]) {
+            
+            Item* item = [[Common instance] getNewsAt:0];
+            self.titl.text = item.title;
+            self.rubric.text = item.rubric;
+            self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+            [Common instance].img = self.image.image;
+            
+            [Common saveImage:self.image.image];
+        }
         
         
 	}
     
-    if([[Common instance] getNewsCount]) {
-        
-        Item* item = [[Common instance] getNewsAt:0];
-        self.titl.text = item.title;
-        self.rubric.text = item.rubric;
-        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
-        [Common instance].img = self.image.image;
-    }
         
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     

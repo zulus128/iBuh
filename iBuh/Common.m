@@ -94,6 +94,23 @@
 	return self;	
 }
 
++ (void) saveImage: (UIImage*)img {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString *pngFilePath = [NSString stringWithFormat:@"%@/main.png",docpath];
+    NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(img)];
+    [data1 writeToFile:pngFilePath atomically:YES];
+
+}
+
++ (UIImage*) loadImage {
+
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    return [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/main.png",docpath]];
+}
+
 - (void) dealloc {
     
 	[news release];
