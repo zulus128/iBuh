@@ -7,9 +7,11 @@
 //
 
 #import "SettingsController.h"
-
+#import "Common.h"
 
 @implementation SettingsController
+
+@synthesize wifii;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +36,12 @@
 }
 
 #pragma mark - View lifecycle
+- (void)viewDidAppear:(BOOL)animated {
+
+    [super viewDidAppear:animated];
+    
+    self.wifii.on = [Common instance].isOnlyWiFi;
+}
 
 - (void)viewDidLoad
 {
@@ -53,5 +61,14 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (IBAction) switchChanged:(id)sender {
+    
+    UISwitch* switchControl = (UISwitch*)sender;
+    NSLog( @"The switch is %@", switchControl.on ? @"ON" : @"OFF" );
+    
+    [[Common instance] setOnlyWiFi:switchControl.on];
+}
+
 
 @end
