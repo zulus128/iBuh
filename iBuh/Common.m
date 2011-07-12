@@ -458,4 +458,15 @@
     [prels writeToFile:self.prelfilePath atomically: YES];
 }
 
+- (BOOL) isOnlyWiFi {
+    
+	return [[NSUserDefaults standardUserDefaults] boolForKey:@"onlyWiFi"];
+}
+
+- (void) setOnlyWiFi: (BOOL)b {
+	
+	[[NSUserDefaults standardUserDefaults] setBool:b forKey:@"onlyWiFi"];
+    
+}
+
 @end

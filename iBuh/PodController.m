@@ -79,8 +79,8 @@
 {
     [super viewWillAppear:animated];
     
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+    //UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    //[self.navigationController.navigationBar setBackgroundImage:image];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -215,11 +215,11 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == NotReachable) {
+	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == ([[Common instance] isOnlyWiFi]?ReachableViaWiFi:NotReachable)) {
 		
 		UIAlertView* dialog = [[UIAlertView alloc] init];
 		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
-		[dialog setMessage:@"Невозможно загрузить новости."];
+		[dialog setMessage:@"Невозможно загрузить данные."];
 		[dialog addButtonWithTitle:@"OK"];
 		[dialog show];
 		[dialog release];

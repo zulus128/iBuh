@@ -86,8 +86,8 @@
 {
     [super viewDidAppear:animated];
 
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+    //UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
+    //[self.navigationController.navigationBar setBackgroundImage:image];
 
 }
 

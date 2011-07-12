@@ -42,6 +42,8 @@
 		8C9E203113BC8E7E001AA2C1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E202213BC8E7E001AA2C1 /* SBJsonParser.m */; };
 		8C9E203213BC8E7E001AA2C1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E202413BC8E7E001AA2C1 /* SBJsonWriter.m */; };
 		8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */; };
+		8CE39EA413CBFE370039090C /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE39EA213CBFE370039090C /* SettingsController.m */; };
+		8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE39EA313CBFE370039090C /* SettingsController.xib */; };
 		DD06237013B15B1D00A4465F /* 53-house.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06236E13B15B1D00A4465F /* 53-house.png */; };
 		DD06237113B15B1D00A4465F /* 53-house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06236F13B15B1D00A4465F /* 53-house@2x.png */; };
 		DD06237513B15B3E00A4465F /* 09-chat-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06237213B15B3E00A4465F /* 09-chat-2@2x.png */; };
@@ -187,6 +189,9 @@
 		8C9E202313BC8E7E001AA2C1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		8C9E202413BC8E7E001AA2C1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		8CE39EA113CBFE370039090C /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
+		8CE39EA213CBFE370039090C /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
+		8CE39EA313CBFE370039090C /* SettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		DD06236E13B15B1D00A4465F /* 53-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house.png"; sourceTree = "<group>"; };
 		DD06236F13B15B1D00A4465F /* 53-house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house@2x.png"; sourceTree = "<group>"; };
 		DD06237213B15B3E00A4465F /* 09-chat-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2@2x.png"; sourceTree = "<group>"; };
@@ -472,6 +477,8 @@
 				DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */,
 				DDFDD4B513C9595700A1F883 /* MyDetailController.h */,
 				DDFDD4B613C9595700A1F883 /* MyDetailController.m */,
+				8CE39EA113CBFE370039090C /* SettingsController.h */,
+				8CE39EA213CBFE370039090C /* SettingsController.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -561,6 +568,7 @@
 				8C9A8B6D13B461C000DDD2D2 /* PodController.xib */,
 				8C9AEA9413B9AAFB0079E2D4 /* iCodeOauthViewController.xib */,
 				DD0EB8D513BD46F40009F34F /* QADetailController.xib */,
+				8CE39EA313CBFE370039090C /* SettingsController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -775,6 +783,7 @@
 				DDD0BF2B13C27F21005E0A80 /* arrow@2x.png in Resources */,
 				DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */,
 				DDFDD51913C975E000A1F883 /* preload.plist in Resources */,
+				8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -857,6 +866,7 @@
 				DD0EB8D613BD46F40009F34F /* QADetailController.m in Sources */,
 				DDD0BF3113C2917E005E0A80 /* TopNewsDetailController.m in Sources */,
 				DDFDD4B713C9595700A1F883 /* MyDetailController.m in Sources */,
+				8CE39EA413CBFE370039090C /* SettingsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

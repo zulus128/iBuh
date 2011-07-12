@@ -96,4 +96,8 @@ enum item_types {
 
 - (void) sort: (NSMutableArray*) a;
 
+- (BOOL) isOnlyWiFi;
+- (void) setOnlyWiFi: (BOOL)b;
+
+
 @end
