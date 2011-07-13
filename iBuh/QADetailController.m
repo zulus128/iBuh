@@ -47,17 +47,12 @@
 }
 
 #pragma mark - View lifecycle
+- (void) update {
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    Item* citem = [[Common instance] getQAAt:self.number];
     self.navigationItem.hidesBackButton = NO;
-    self.titl.text = self.citem.title;
-//    self.rubric.text = self.citem.rubric;
+    self.titl.text = citem.title;
+    //    self.rubric.text = self.citem.rubric;
     
     NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
                              "<head> \n"
@@ -66,18 +61,71 @@
                              "</style> \n"
                              "</head> \n"
                              "<body align=""justify"">%@</body> \n"
-                             "</html>", @"helvetica", [NSNumber numberWithInt:12], self.citem.description];
+                             "</html>", @"helvetica", [NSNumber numberWithInt:12], citem.description];
     [self.q loadHTMLString: contentHTML baseURL:nil];
     
     contentHTML = [NSString stringWithFormat:@"<html> \n"
-                             "<head> \n"
-                             "<style type=\"text/css\"> \n"
-                             "body {font-family: \"%@\"; font-size: %@;}\n"
-                             "</style> \n"
-                             "</head> \n"
-                             "<body align=""justify"">%@</body> \n"
-                             "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
+                   "<head> \n"
+                   "<style type=\"text/css\"> \n"
+                   "body {font-family: \"%@\"; font-size: %@;}\n"
+                   "</style> \n"
+                   "</head> \n"
+                   "<body align=""justify"">%@</body> \n"
+                   "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
     [self.a loadHTMLString: contentHTML baseURL:nil];
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    [self update];
+    
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:
+                                            [NSArray arrayWithObjects:
+                                             [UIImage imageNamed:@"arr-left.png"],
+                                             [UIImage imageNamed:@"arr-right.png"],
+                                             nil]];
+    
+    [segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    segmentedControl.frame = CGRectMake(0, 0, 80, 30);
+    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    segmentedControl.momentary = YES;
+    
+    // defaultTintColor = [segmentedControl.tintColor retain];    // keep track of this for later
+    
+    UIBarButtonItem *segmentBarItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+    [segmentedControl release];
+    
+    self.navigationItem.rightBarButtonItem = segmentBarItem;
+    [segmentBarItem release];
+    
+}
+
+-(void)segmentAction:(id)sender {
+    
+    if([sender selectedSegmentIndex] == 0) {
+        
+        if(self.number > 0) {
+            
+            self.number--;
+            [self update];
+        }
+    }
+    else {
+        
+        if(self.number < ([[Common instance] getQAsCount] - 1)) {
+            
+            self.number++;
+            [self update];
+        }
+        
+    }
 }
 
 - (void)viewDidUnload
@@ -135,6 +183,8 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+  
+    Item* citem = [[Common instance] getQAAt:self.number];
     
     switch (buttonIndex) {
         case 0: {
@@ -142,10 +192,10 @@
             
             MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
             controller.mailComposeDelegate = self;
-            [controller setSubject:self.citem.title];
+            [controller setSubject:citem.title];
             //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", self.citem.description, self.citem.full_text, self.citem.link];
+            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
             
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -172,11 +222,11 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", self.citem.description, self.citem.full_text];
+            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
-                                        self.citem.title, @"name",
+                                        citem.title, @"name",
                                         //self.citem.title, @"caption",
-                                        self.citem.link, @"href",
+                                        citem.link, @"href",
                                         str, @"description",
                                         nil];
             
@@ -200,7 +250,7 @@
             self.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:twitController animated:YES];
             //self.hidesBottomBarWhenPushed = NO;
-            twitController.citem = self.citem;
+            twitController.citem = citem;
             [twitController release];
             
             break;
@@ -234,11 +284,11 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
+    Item* citem = [[Common instance] getQAAt:self.number];
     if (buttonIndex == 1){
         
         NSLog(@"Ok");
-        [[Common instance] saveFav:self.citem];
+        [[Common instance] saveFav:citem];
     }
 }
 

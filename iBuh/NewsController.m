@@ -26,6 +26,7 @@
 @synthesize image = _image;
 @synthesize titl = _titl;
 @synthesize rubric = _rubric;
+@synthesize time = _time;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +47,7 @@
     [_image release];
     [_titl release];
     [_rubric release];
+    [_time release];
     
     [super dealloc];
 }
@@ -105,7 +107,7 @@
     }
     
     
-    [self refresh];
+    [self refresh:NO];
     
 //    self.hidesBottomBarWhenPushed = NO;
 }
@@ -138,7 +140,7 @@
     [myButton setImage:myImage forState:UIControlStateNormal];
     myButton.showsTouchWhenHighlighted = YES;
     myButton.frame = CGRectMake(0.0, 0.0, myImage.size.width, myImage.size.height);
-    [myButton addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
+    [myButton addTarget:self action:@selector(refr) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
     self.navigationItem.rightBarButtonItem = bi;
     [bi release];
@@ -172,12 +174,13 @@
 
     //NSLog(@"check!");
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
-    Item* item = [[Common instance] getNewsAt:0];
+//    Item* item = [[Common instance] getNewsAt:0];
     
     self.hidesBottomBarWhenPushed = YES;
     
     // Pass the selected object to the new view controller.
-    detailViewController.citem = item;
+//    detailViewController.citem = item;
+    detailViewController.number = 0;
     [self.navigationController pushViewController:detailViewController animated:YES];
 
     detailViewController.image.hidden = NO;
@@ -345,28 +348,23 @@
     
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
      
-   // int row = (indexPath.row == 1)?0:indexPath.row - ROW_CORRECTION;
-    Item* item = [[Common instance] getNewsAt:/*row*/(indexPath.row + 1)];
-    
+//    Item* item = [[Common instance] getNewsAt:/*row*/(indexPath.row + 1)];
     self.hidesBottomBarWhenPushed = YES;
-    
-    // Pass the selected object to the new view controller.
-    detailViewController.citem = item;
+//    detailViewController.citem = item;
+    detailViewController.number = indexPath.row + 1;
     [self.navigationController pushViewController:detailViewController animated:YES];
-
     self.hidesBottomBarWhenPushed = NO;
-
     detailViewController.image.hidden = YES;
-    
- //   detailViewController.titl.text = item.title;
- //   detailViewController.rubric.text = item.rubric;
- //   [detailViewController.fulltext loadHTMLString:item.full_text baseURL:nil];
-    
     [detailViewController release];
      
 }
 
-- (void)refresh {
+- (void)refr {
+    
+    [self refresh:YES];
+}
+
+- (void)refresh: (BOOL)hand {
     
     NSLog(@"refresh");
     
@@ -411,10 +409,22 @@
             [Common saveImage:self.image.image];
         }
         
-        
+        if (hand) {
+            
+            NSDate *now = [NSDate date];
+            
+            NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+            dateFormatter.dateFormat = @"hh:mm:ss";
+            [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+            self.time.text = [NSString stringWithFormat:@"Обновлено: %@", [dateFormatter stringFromDate:now]];
+            [dateFormatter release];
+            
+        }
+        else
+            self.time.text = @"";
+    
 	}
     
-        
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
 }

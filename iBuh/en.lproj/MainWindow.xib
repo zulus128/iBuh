@@ -79,12 +79,12 @@
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<bool key="IBUIHorizontal">NO</bool>
-				<object class="IBUINavigationController" key="IBUISelectedViewController" id="277404453">
-					<object class="IBUITabBarItem" key="IBUITabBarItem" id="169535313">
-						<string key="IBUITitle">Вопрос-ответ</string>
+				<object class="IBUINavigationController" key="IBUISelectedViewController" id="321022457">
+					<object class="IBUITabBarItem" key="IBUITabBarItem" id="975290286">
+						<string key="IBUITitle">Настройки</string>
 						<object class="NSCustomResource" key="IBUIImage">
 							<string key="NSClassName">NSImage</string>
-							<string key="NSResourceName">09-chat-2.png</string>
+							<string key="NSResourceName">19-gear.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
@@ -96,7 +96,7 @@
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					<bool key="IBUIHorizontal">NO</bool>
-					<object class="IBUINavigationBar" key="IBUINavigationBar" id="543046431">
+					<object class="IBUINavigationBar" key="IBUINavigationBar" id="1022931564">
 						<nil key="NSNextResponder"/>
 						<int key="NSvFlags">256</int>
 						<string key="NSFrameSize">{0, 0}</string>
@@ -107,19 +107,14 @@
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="IBUIViewController" id="1015225123">
-							<string key="IBUITitle">Вопрос-ответ</string>
-							<object class="IBUINavigationItem" key="IBUINavigationItem" id="749537997">
-								<string key="IBUITitle">Вопрос-ответ</string>
-								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="943564331">
-									<string key="IBUITitle">Назад</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-									<int key="IBUIStyle">1</int>
-								</object>
+						<object class="IBUIViewController" id="144526035">
+							<string key="IBUITitle">Настройки</string>
+							<object class="IBUINavigationItem" key="IBUINavigationItem" id="187232555">
+								<string key="IBUITitle">Настройки</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<reference key="IBUIParentViewController" ref="277404453"/>
-							<string key="IBUINibName">QAController</string>
+							<reference key="IBUIParentViewController" ref="321022457"/>
+							<string key="IBUINibName">SettingsController</string>
 							<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
 								<int key="IBUIInterfaceOrientation">1</int>
 								<int key="interfaceOrientation">1</int>
@@ -182,7 +177,56 @@
 							</object>
 						</object>
 					</object>
-					<reference ref="277404453"/>
+					<object class="IBUINavigationController" id="277404453">
+						<object class="IBUITabBarItem" key="IBUITabBarItem" id="169535313">
+							<string key="IBUITitle">Вопрос-ответ</string>
+							<object class="NSCustomResource" key="IBUIImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">09-chat-2.png</string>
+							</object>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<reference key="IBUIParentViewController" ref="1034742383"/>
+						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
+						<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+							<int key="IBUIInterfaceOrientation">1</int>
+							<int key="interfaceOrientation">1</int>
+						</object>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIHorizontal">NO</bool>
+						<object class="IBUINavigationBar" key="IBUINavigationBar" id="543046431">
+							<nil key="NSNextResponder"/>
+							<int key="NSvFlags">256</int>
+							<string key="NSFrameSize">{0, 0}</string>
+							<bool key="IBUIOpaque">NO</bool>
+							<bool key="IBUIClipsSubviews">YES</bool>
+							<bool key="IBUIMultipleTouchEnabled">YES</bool>
+							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						</object>
+						<object class="NSMutableArray" key="IBUIViewControllers">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIViewController" id="1015225123">
+								<string key="IBUITitle">Вопрос-ответ</string>
+								<object class="IBUINavigationItem" key="IBUINavigationItem" id="749537997">
+									<string key="IBUITitle">Вопрос-ответ</string>
+									<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="943564331">
+										<string key="IBUITitle">Назад</string>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<int key="IBUIStyle">1</int>
+									</object>
+									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								</object>
+								<reference key="IBUIParentViewController" ref="277404453"/>
+								<string key="IBUINibName">QAController</string>
+								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
+									<int key="IBUIInterfaceOrientation">1</int>
+									<int key="interfaceOrientation">1</int>
+								</object>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<bool key="IBUIHorizontal">NO</bool>
+							</object>
+						</object>
+					</object>
 					<object class="IBUINavigationController" id="413040641">
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="737821670">
 							<string key="IBUITitle">Избранное</string>
@@ -278,51 +322,7 @@
 							</object>
 						</object>
 					</object>
-					<object class="IBUINavigationController" id="321022457">
-						<object class="IBUITabBarItem" key="IBUITabBarItem" id="975290286">
-							<string key="IBUITitle">Настройки</string>
-							<object class="NSCustomResource" key="IBUIImage">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">19-gear.png</string>
-							</object>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<reference key="IBUIParentViewController" ref="1034742383"/>
-						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
-						<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-							<int key="IBUIInterfaceOrientation">1</int>
-							<int key="interfaceOrientation">1</int>
-						</object>
-						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<bool key="IBUIHorizontal">NO</bool>
-						<object class="IBUINavigationBar" key="IBUINavigationBar" id="1022931564">
-							<nil key="NSNextResponder"/>
-							<int key="NSvFlags">256</int>
-							<string key="NSFrameSize">{0, 0}</string>
-							<bool key="IBUIOpaque">NO</bool>
-							<bool key="IBUIClipsSubviews">YES</bool>
-							<bool key="IBUIMultipleTouchEnabled">YES</bool>
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
-						<object class="NSMutableArray" key="IBUIViewControllers">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIViewController" id="144526035">
-								<string key="IBUITitle">Настройки</string>
-								<object class="IBUINavigationItem" key="IBUINavigationItem" id="187232555">
-									<string key="IBUITitle">Настройки</string>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								</object>
-								<reference key="IBUIParentViewController" ref="321022457"/>
-								<string key="IBUINibName">SettingsController</string>
-								<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">
-									<int key="IBUIInterfaceOrientation">1</int>
-									<int key="interfaceOrientation">1</int>
-								</object>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<bool key="IBUIHorizontal">NO</bool>
-							</object>
-						</object>
-					</object>
+					<reference ref="321022457"/>
 				</object>
 				<object class="IBUITabBar" key="IBUITabBar" id="795333663">
 					<reference key="NSNextResponder"/>
@@ -341,7 +341,7 @@
 			</object>
 			<object class="IBUIViewController" id="928706391">
 				<object class="IBUIView" key="IBUIView" id="135094880">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">274</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -411,6 +411,7 @@
 						</object>
 					</object>
 					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="670347055"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
@@ -638,6 +639,7 @@
 							<reference ref="187232555"/>
 						</object>
 						<reference key="parent" ref="321022457"/>
+						<string key="objectName">View Controller - Настройки</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">149</int>
@@ -806,6 +808,7 @@
 					<string>147.IBPluginDependency</string>
 					<string>148.IBPluginDependency</string>
 					<string>149.IBPluginDependency</string>
+					<string>150.CustomClassName</string>
 					<string>150.IBPluginDependency</string>
 					<string>153.IBPluginDependency</string>
 					<string>154.IBPluginDependency</string>
@@ -848,6 +851,7 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>SettingsController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

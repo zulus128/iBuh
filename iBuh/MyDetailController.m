@@ -11,20 +11,22 @@
 
 @implementation MyDetailController
 
-@synthesize citem = _citem;
+//@synthesize citem = _citem;
+@synthesize number;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.number = -1;
     }
     return self;
 }
 
 - (void)dealloc {
     
-    [_citem release];
+//    [_citem release];
     
     [super dealloc];
 }

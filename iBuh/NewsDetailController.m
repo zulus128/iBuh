@@ -67,41 +67,94 @@
  //   self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];    
 }
 
+- (void) update {
+
+    Item* citem = [[Common instance] getNewsAt:self.number];
+
+    self.titl.text = citem.title;
+    self.rubric.text = citem.rubric;
+    
+    // [self.navigationController.navigationBar setBackgroundImage:NULL];
+    
+    NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
+                             "<head> \n"
+                             "<style type=\"text/css\"> \n"
+                             "body {font-family: \"%@\"; font-size: %@;}\n"
+                             "</style> \n"
+                             "</head> \n"
+                             "<body align=""justify"">%@</body> \n"
+                             "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
+    [self.fulltext loadHTMLString: contentHTML baseURL:nil];
+    
+//    if((/*citem.image == nil*/self.number < 0) || (![citem.image length])) {
+    if(![citem.image length]) {
+        
+        self.titl.frame = CGRectMake(7, 0, 313, 62);
+        self.rubric.frame = CGRectMake(7, 62, 313, 21);
+        self.image.hidden = YES;
+    }
+    else {
+        
+        self.titl.frame = CGRectMake(108, 0, 212, 62);
+        self.rubric.frame = CGRectMake(108, 62, 212, 21);
+        self.image.image = [Common instance].img;
+        self.image.hidden = NO;
+
+        //        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
+    }
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.hidesBackButton = NO;
-    self.titl.text = self.citem.title;
-    self.rubric.text = self.citem.rubric;
 
-   // [self.navigationController.navigationBar setBackgroundImage:NULL];
+//    self.hidesBottomBarWhenPushed = YES;
     
-    NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
-                        "<head> \n"
-                        "<style type=\"text/css\"> \n"
-                        "body {font-family: \"%@\"; font-size: %@;}\n"
-                        "</style> \n"
-                        "</head> \n"
-                        "<body align=""justify"">%@</body> \n"
-                        "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
-    [self.fulltext loadHTMLString: contentHTML baseURL:nil];
+    [self update];
     
-    if((self.citem.image == nil) || (![self.citem.image length])) {
-       
-        self.titl.frame = CGRectMake(7, 0, 313, 62);
-        self.rubric.frame = CGRectMake(7, 62, 313, 21);
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:
+                                            [NSArray arrayWithObjects:
+                                             [UIImage imageNamed:@"arr-left.png"],
+                                             [UIImage imageNamed:@"arr-right.png"],
+                                             nil]];
+    
+    [segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    segmentedControl.frame = CGRectMake(0, 0, 80, 30);
+    segmentedControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    segmentedControl.momentary = YES;
+    
+   // defaultTintColor = [segmentedControl.tintColor retain];    // keep track of this for later
+    
+    UIBarButtonItem *segmentBarItem = [[UIBarButtonItem alloc] initWithCustomView:segmentedControl];
+    [segmentedControl release];
+    
+    self.navigationItem.rightBarButtonItem = segmentBarItem;
+    [segmentBarItem release];
+
+}
+
+-(void)segmentAction:(id)sender {
+    
+    if([sender selectedSegmentIndex] == 0) {
+        
+        if(self.number > 0) {
+            
+            self.number--;
+            [self update];
+        }
     }
     else {
 
-        self.titl.frame = CGRectMake(108, 0, 212, 62);
-        self.rubric.frame = CGRectMake(108, 62, 212, 21);
-        self.image.image = [Common instance].img;
-//        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
+        if(self.number < ([[Common instance] getNewsCount] - 1)) {
+            
+            self.number++;
+            [self update];
+        }
+
     }
-
-//    self.hidesBottomBarWhenPushed = YES;
-
 }
 
 - (void)viewDidUnload
@@ -160,16 +213,18 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
+   Item* citem = [[Common instance] getNewsAt:self.number];
+    
     switch (buttonIndex) {
         case 0: {
             NSLog(@"email");
             
             MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
             controller.mailComposeDelegate = self;
-            [controller setSubject:self.citem.title];
+            [controller setSubject:citem.title];
 //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ",self.citem.full_text,self.citem.link];
+            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ", citem.full_text, citem.link];
 
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -198,10 +253,10 @@
             
   
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
-                                        self.citem.title, @"name",
+                                        citem.title, @"name",
                                         //self.citem.title, @"caption",
-                                        self.citem.link, @"href",
-                                        self.citem.full_text, @"description",
+                                        citem.link, @"href",
+                                        citem.full_text, @"description",
                                         nil];
             
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
@@ -224,7 +279,7 @@
             self.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:twitController animated:YES];
             //self.hidesBottomBarWhenPushed = NO;
-            twitController.citem = self.citem;
+            twitController.citem = citem;
             [twitController release];
 
             break;
@@ -283,10 +338,11 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
+    Item* citem = [[Common instance] getNewsAt:self.number];
     if (buttonIndex == 1){
 
         NSLog(@"Ok");
-        [[Common instance] saveFav:self.citem];
+        [[Common instance] saveFav:citem];
     }
 }
 

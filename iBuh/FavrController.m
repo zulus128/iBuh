@@ -232,7 +232,8 @@
 
     
     self.hidesBottomBarWhenPushed = YES;
-    detailViewController.citem = item;
+    //detailViewController.citem = item;
+    detailViewController.number = indexPath.row;
     [self.navigationController pushViewController:detailViewController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
     [detailViewController release];

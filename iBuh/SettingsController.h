@@ -13,7 +13,7 @@
     
 }
 
-@property (nonatomic, retain) IBOutlet UISwitch* wifii;
+@property (nonatomic, retain) IBOutlet UISwitch* sw;
 
 - (IBAction) switchChanged:(id)sender;
 

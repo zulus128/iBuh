@@ -221,10 +221,11 @@
 {
     QADetailController* detailViewController = [[QADetailController alloc] initWithNibName:@"QADetailController" bundle:nil];
     
-    Item* item = [[Common instance] getQAAt:indexPath.row];
+   // Item* item = [[Common instance] getQAAt:indexPath.row];
     
     self.hidesBottomBarWhenPushed = YES;
-    detailViewController.citem = item;
+  //  detailViewController.citem = item;
+    detailViewController.number = indexPath.row;
     [self.navigationController pushViewController:detailViewController animated:YES];    
     self.hidesBottomBarWhenPushed = NO;
     [detailViewController release];

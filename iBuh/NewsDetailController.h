@@ -31,7 +31,8 @@
 - (IBAction)fontminus: (id)sender;
 - (IBAction)share: (id)sender;
 - (IBAction)fav: (id)sender;
-
 - (void) refrFont;
+- (void) segmentAction:(id)sender;
+- (void) update;
 
 @end

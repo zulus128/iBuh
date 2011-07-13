@@ -11,7 +11,7 @@
 
 @implementation SettingsController
 
-@synthesize wifii;
+@synthesize sw;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +40,7 @@
 
     [super viewDidAppear:animated];
     
-    self.wifii.on = [Common instance].isOnlyWiFi;
+    self.sw.on = [Common instance].isOnlyWiFi;
 }
 
 - (void)viewDidLoad

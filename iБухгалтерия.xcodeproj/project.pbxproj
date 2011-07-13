@@ -44,6 +44,10 @@
 		8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */; };
 		8CE39EA413CBFE370039090C /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE39EA213CBFE370039090C /* SettingsController.m */; };
 		8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE39EA313CBFE370039090C /* SettingsController.xib */; };
+		8CEBDC5113CD61D5002C2524 /* arr-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4D13CD61D5002C2524 /* arr-left.png */; };
+		8CEBDC5213CD61D5002C2524 /* arr-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4E13CD61D5002C2524 /* arr-left@2x.png */; };
+		8CEBDC5313CD61D5002C2524 /* arr-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4F13CD61D5002C2524 /* arr-right.png */; };
+		8CEBDC5413CD61D5002C2524 /* arr-right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC5013CD61D5002C2524 /* arr-right@2x.png */; };
 		DD06237013B15B1D00A4465F /* 53-house.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06236E13B15B1D00A4465F /* 53-house.png */; };
 		DD06237113B15B1D00A4465F /* 53-house@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06236F13B15B1D00A4465F /* 53-house@2x.png */; };
 		DD06237513B15B3E00A4465F /* 09-chat-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD06237213B15B3E00A4465F /* 09-chat-2@2x.png */; };
@@ -192,6 +196,10 @@
 		8CE39EA113CBFE370039090C /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
 		8CE39EA213CBFE370039090C /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
 		8CE39EA313CBFE370039090C /* SettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
+		8CEBDC4D13CD61D5002C2524 /* arr-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-left.png"; sourceTree = "<group>"; };
+		8CEBDC4E13CD61D5002C2524 /* arr-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-left@2x.png"; sourceTree = "<group>"; };
+		8CEBDC4F13CD61D5002C2524 /* arr-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-right.png"; sourceTree = "<group>"; };
+		8CEBDC5013CD61D5002C2524 /* arr-right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-right@2x.png"; sourceTree = "<group>"; };
 		DD06236E13B15B1D00A4465F /* 53-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house.png"; sourceTree = "<group>"; };
 		DD06236F13B15B1D00A4465F /* 53-house@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house@2x.png"; sourceTree = "<group>"; };
 		DD06237213B15B3E00A4465F /* 09-chat-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2@2x.png"; sourceTree = "<group>"; };
@@ -519,6 +527,10 @@
 		DDED16ED13A45576003E523C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8CEBDC4D13CD61D5002C2524 /* arr-left.png */,
+				8CEBDC4E13CD61D5002C2524 /* arr-left@2x.png */,
+				8CEBDC4F13CD61D5002C2524 /* arr-right.png */,
+				8CEBDC5013CD61D5002C2524 /* arr-right@2x.png */,
 				DDD0BF2813C27F21005E0A80 /* arrow.png */,
 				DDD0BF2913C27F21005E0A80 /* arrow@2x.png */,
 				8C94809313B303EE0085A268 /* word-big.png */,
@@ -784,6 +796,10 @@
 				DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */,
 				DDFDD51913C975E000A1F883 /* preload.plist in Resources */,
 				8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */,
+				8CEBDC5113CD61D5002C2524 /* arr-left.png in Resources */,
+				8CEBDC5213CD61D5002C2524 /* arr-left@2x.png in Resources */,
+				8CEBDC5313CD61D5002C2524 /* arr-right.png in Resources */,
+				8CEBDC5413CD61D5002C2524 /* arr-right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

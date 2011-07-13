@@ -14,7 +14,8 @@
     
 }
 
-- (void)refresh;
+- (void)refresh: (BOOL)hand;
+- (void)refr;
 - (void)addNews: (NSString*) url;
 - (void)addPreloadedNews;
 
@@ -25,5 +26,6 @@
 @property (nonatomic, retain) IBOutlet UIImageView* image;
 @property (nonatomic, retain) IBOutlet UILabel* titl;
 @property (nonatomic, retain) IBOutlet UILabel* rubric;
+@property (nonatomic, retain) IBOutlet UILabel* time;
 
 @end
