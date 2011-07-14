@@ -370,8 +370,11 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-	if ([[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus] == ([[Common instance] isOnlyWiFi]?ReachableViaWiFi:NotReachable)) {
-		
+	
+    BOOL b = [[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus];    
+    if (([[Common instance] isOnlyWiFi] && (b != ReachableViaWiFi))
+        || (![[Common instance] isOnlyWiFi] && (b == NotReachable))) {
+    
 		UIAlertView* dialog = [[UIAlertView alloc] init];
 		[dialog setTitle:@"Убедитесь в наличии Интернета!"];
 		[dialog setMessage:@"Невозможно загрузить новости."];

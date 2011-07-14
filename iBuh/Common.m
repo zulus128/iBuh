@@ -295,7 +295,7 @@
     NSMutableArray* arr1 = [[prels allKeys] mutableCopy];
     [self sort:arr1];
     //NSLog(@"arr=%@", arr);
-    NSLog(@"arr1=%@", arr1);
+ //   NSLog(@"arr1=%@", arr1);
     for (int i = 0; i < arr1.count; i++) {
 
         id obj = [prels objectForKey:[arr1 objectAtIndex:i]];
