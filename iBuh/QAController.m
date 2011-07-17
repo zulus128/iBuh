@@ -49,6 +49,7 @@
 {
     [super viewDidLoad];
 
+    converter = [[MREntitiesConverter alloc] init];
     
  //   UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
  //   [self.navigationController.navigationBar setBackgroundImage:image];
@@ -92,6 +93,7 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    [converter release];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -107,9 +109,10 @@
     //UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
     //[self.navigationController.navigationBar setBackgroundImage:image];
 
-    UIButton *btnAdd = [UIButton buttonWithType:UIButtonTypeContactAdd];  
-    [btnAdd addTarget:self action:@selector(addQuestion:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithCustomView:btnAdd] autorelease];  
+//    UIButton *btnAdd = [UIButton buttonWithType:/*UIBarButtonSystemItemCompose*/UIButtonTypeContactAdd];  
+//    [btnAdd addTarget:self action:@selector(addQuestion:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(addQuestion:)]autorelease];
+//    UIBarButtonItem* btnItemAdd = [[[UIBarButtonItem alloc] initWithCustomView:btnAdd] autorelease];  
     self.navigationItem.rightBarButtonItem = btnItemAdd; 
 
 }
@@ -168,9 +171,12 @@
         }
         // Configure the cell...
         Item* item = [[Common instance] getQAAt:indexPath.row];
+        //((QACell*)cell).queststring = item.description;
+        //[((QACell*)cell) refresh];
         ((QACell*)cell).title.text = item.title;
-        ((QACell*)cell).quest.text = item.description;
+        ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
         ((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
+//        ((QACell*)cell).webview.hidden = YES;
     }
     
     return cell;

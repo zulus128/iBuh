@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MREntitiesConverter.h"
 
 @interface QAController : UITableViewController {
     
+    MREntitiesConverter* converter;
 }
 
 - (void)addQAs: (NSString*) url;

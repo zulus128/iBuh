@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 
 
-@interface QACell : UITableViewCell {
+@interface QACell : UITableViewCell /*<UIWebViewDelegate>*/ {
     
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* time;
 @property (nonatomic, retain) IBOutlet UILabel* title;
 @property (nonatomic, retain) IBOutlet UILabel* quest;
+//@property (nonatomic, retain) IBOutlet UIWebView* webview;
+//@property (nonatomic, retain) NSString* queststring;
+
+//-(void) refresh;
+//- (void)webViewDidFinishLoad:(UIWebView *)webView;
 
 @end

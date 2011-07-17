@@ -42,8 +42,6 @@
 		8C9E203113BC8E7E001AA2C1 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E202213BC8E7E001AA2C1 /* SBJsonParser.m */; };
 		8C9E203213BC8E7E001AA2C1 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E202413BC8E7E001AA2C1 /* SBJsonWriter.m */; };
 		8CDEB88D13AF0ADD00143F26 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */; };
-		8CE39EA413CBFE370039090C /* SettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CE39EA213CBFE370039090C /* SettingsController.m */; };
-		8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE39EA313CBFE370039090C /* SettingsController.xib */; };
 		8CEBDC5113CD61D5002C2524 /* arr-left.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4D13CD61D5002C2524 /* arr-left.png */; };
 		8CEBDC5213CD61D5002C2524 /* arr-left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4E13CD61D5002C2524 /* arr-left@2x.png */; };
 		8CEBDC5313CD61D5002C2524 /* arr-right.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CEBDC4F13CD61D5002C2524 /* arr-right.png */; };
@@ -66,6 +64,10 @@
 		DD251BA813A4975D00DBA93B /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BA713A4975D00DBA93B /* XMLParser.m */; };
 		DD251BAB13A497F300DBA93B /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DD251BAA13A497F200DBA93B /* Item.m */; };
 		DD251BC913A4F05800DBA93B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */; };
+		DD2C33B113D295DF00B75A86 /* SettController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2C33AF13D295DE00B75A86 /* SettController.m */; };
+		DD2C33B213D295DF00B75A86 /* SettController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2C33B013D295DE00B75A86 /* SettController.xib */; };
+		DD2C33C113D2997800B75A86 /* WiFiCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DD2C33C013D2997400B75A86 /* WiFiCell.m */; };
+		DD2C33C313D29A7C00B75A86 /* WiFiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */; };
 		DD37745313B41E6D00398228 /* FavrController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD37745113B41E6D00398228 /* FavrController.m */; };
 		DD37745413B41E6D00398228 /* FavrController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD37745213B41E6D00398228 /* FavrController.xib */; };
 		DDC99BE413AD8EB800958DF2 /* top-logo-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BE213AD8EB800958DF2 /* top-logo-sample.png */; };
@@ -74,6 +76,7 @@
 		DDC99BF513AD994F00958DF2 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF413AD994F00958DF2 /* Default@2x.png */; };
 		DDC99BF913AD9D3E00958DF2 /* TopNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */; };
 		DDC99BFA13AD9D3E00958DF2 /* TopNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */; };
+		DDCB0EC713D2A74B00D08E3E /* MREntitiesConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCB0EC613D2A74B00D08E3E /* MREntitiesConverter.m */; };
 		DDD0386813ADBD6B00BD246B /* DelimNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */; };
 		DDD0386913ADBD6B00BD246B /* DelimNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */; };
 		DDD0389E13ADD2A500BD246B /* QAController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD0389C13ADD2A500BD246B /* QAController.m */; };
@@ -193,9 +196,6 @@
 		8C9E202313BC8E7E001AA2C1 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		8C9E202413BC8E7E001AA2C1 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
-		8CE39EA113CBFE370039090C /* SettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsController.h; sourceTree = "<group>"; };
-		8CE39EA213CBFE370039090C /* SettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsController.m; sourceTree = "<group>"; };
-		8CE39EA313CBFE370039090C /* SettingsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsController.xib; sourceTree = "<group>"; };
 		8CEBDC4D13CD61D5002C2524 /* arr-left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-left.png"; sourceTree = "<group>"; };
 		8CEBDC4E13CD61D5002C2524 /* arr-left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-left@2x.png"; sourceTree = "<group>"; };
 		8CEBDC4F13CD61D5002C2524 /* arr-right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arr-right.png"; sourceTree = "<group>"; };
@@ -223,6 +223,12 @@
 		DD251BA913A497F200DBA93B /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		DD251BAA13A497F200DBA93B /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		DD251BC813A4F05800DBA93B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DD2C33AE13D295DD00B75A86 /* SettController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettController.h; sourceTree = "<group>"; };
+		DD2C33AF13D295DE00B75A86 /* SettController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettController.m; sourceTree = "<group>"; };
+		DD2C33B013D295DE00B75A86 /* SettController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettController.xib; sourceTree = "<group>"; };
+		DD2C33BF13D2997400B75A86 /* WiFiCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WiFiCell.h; sourceTree = "<group>"; };
+		DD2C33C013D2997400B75A86 /* WiFiCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WiFiCell.m; sourceTree = "<group>"; };
+		DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WiFiCell.xib; sourceTree = "<group>"; };
 		DD37745013B41E6D00398228 /* FavrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavrController.h; sourceTree = "<group>"; };
 		DD37745113B41E6D00398228 /* FavrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavrController.m; sourceTree = "<group>"; };
 		DD37745213B41E6D00398228 /* FavrController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavrController.xib; sourceTree = "<group>"; };
@@ -233,6 +239,8 @@
 		DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNewsCell.h; sourceTree = "<group>"; };
 		DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNewsCell.m; sourceTree = "<group>"; };
 		DDC99BF813AD9D3E00958DF2 /* TopNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopNewsCell.xib; sourceTree = "<group>"; };
+		DDCB0EC513D2A74B00D08E3E /* MREntitiesConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MREntitiesConverter.h; sourceTree = "<group>"; };
+		DDCB0EC613D2A74B00D08E3E /* MREntitiesConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MREntitiesConverter.m; sourceTree = "<group>"; };
 		DDD0386513ADBD6B00BD246B /* DelimNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelimNewsCell.h; sourceTree = "<group>"; };
 		DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DelimNewsCell.m; sourceTree = "<group>"; };
 		DDD0386713ADBD6B00BD246B /* DelimNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelimNewsCell.xib; sourceTree = "<group>"; };
@@ -485,8 +493,12 @@
 				DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */,
 				DDFDD4B513C9595700A1F883 /* MyDetailController.h */,
 				DDFDD4B613C9595700A1F883 /* MyDetailController.m */,
-				8CE39EA113CBFE370039090C /* SettingsController.h */,
-				8CE39EA213CBFE370039090C /* SettingsController.m */,
+				DD2C33AE13D295DD00B75A86 /* SettController.h */,
+				DD2C33AF13D295DE00B75A86 /* SettController.m */,
+				DD2C33BF13D2997400B75A86 /* WiFiCell.h */,
+				DD2C33C013D2997400B75A86 /* WiFiCell.m */,
+				DDCB0EC513D2A74B00D08E3E /* MREntitiesConverter.h */,
+				DDCB0EC613D2A74B00D08E3E /* MREntitiesConverter.m */,
 			);
 			path = iBuh;
 			sourceTree = "<group>";
@@ -566,6 +578,7 @@
 		DDED16F813A45852003E523C /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */,
 				8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */,
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
@@ -580,7 +593,7 @@
 				8C9A8B6D13B461C000DDD2D2 /* PodController.xib */,
 				8C9AEA9413B9AAFB0079E2D4 /* iCodeOauthViewController.xib */,
 				DD0EB8D513BD46F40009F34F /* QADetailController.xib */,
-				8CE39EA313CBFE370039090C /* SettingsController.xib */,
+				DD2C33B013D295DE00B75A86 /* SettController.xib */,
 			);
 			name = Xibs;
 			sourceTree = "<group>";
@@ -795,11 +808,12 @@
 				DDD0BF2B13C27F21005E0A80 /* arrow@2x.png in Resources */,
 				DDD0BF3213C2917E005E0A80 /* TopNewsDetailController.xib in Resources */,
 				DDFDD51913C975E000A1F883 /* preload.plist in Resources */,
-				8CE39EA513CBFE370039090C /* SettingsController.xib in Resources */,
 				8CEBDC5113CD61D5002C2524 /* arr-left.png in Resources */,
 				8CEBDC5213CD61D5002C2524 /* arr-left@2x.png in Resources */,
 				8CEBDC5313CD61D5002C2524 /* arr-right.png in Resources */,
 				8CEBDC5413CD61D5002C2524 /* arr-right@2x.png in Resources */,
+				DD2C33B213D295DF00B75A86 /* SettController.xib in Resources */,
+				DD2C33C313D29A7C00B75A86 /* WiFiCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -882,7 +896,9 @@
 				DD0EB8D613BD46F40009F34F /* QADetailController.m in Sources */,
 				DDD0BF3113C2917E005E0A80 /* TopNewsDetailController.m in Sources */,
 				DDFDD4B713C9595700A1F883 /* MyDetailController.m in Sources */,
-				8CE39EA413CBFE370039090C /* SettingsController.m in Sources */,
+				DD2C33B113D295DF00B75A86 /* SettController.m in Sources */,
+				DD2C33C113D2997800B75A86 /* WiFiCell.m in Sources */,
+				DDCB0EC713D2A74B00D08E3E /* MREntitiesConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

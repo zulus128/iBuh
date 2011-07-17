@@ -135,7 +135,7 @@
     UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
     [self.navigationController.navigationBar setBackgroundImage:image];
 
-    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
+/*    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
     UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [myButton setImage:myImage forState:UIControlStateNormal];
     myButton.showsTouchWhenHighlighted = YES;
@@ -144,6 +144,9 @@
     UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
     self.navigationItem.rightBarButtonItem = bi;
     [bi release];
+*/
+    UIBarButtonItem* bi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refr)] autorelease];
+    self.navigationItem.rightBarButtonItem = bi; 
 
 }
 
@@ -288,6 +291,9 @@
             ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
             
             [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+//            ((NewsCell*)cell).title.numberOfLines = 3;
+//            ((NewsCell*)cell).title.frame = CGRectMake(63,0,200,800);
+//            [((NewsCell*)cell).title sizeToFit];
         }
 
     return cell;
