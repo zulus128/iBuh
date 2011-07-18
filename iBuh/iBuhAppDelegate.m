@@ -122,8 +122,8 @@
 	[self setViewMovedUp:NO];
 }
 
--(void)setViewMovedUp:(BOOL)movedUp
-{
+-(void)setViewMovedUp:(BOOL)movedUp {
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.5]; 
 	
@@ -162,7 +162,7 @@
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
 //    [error release];
     NSString *responseString = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"email sent responce = %@", responseString);
+    NSLog(@"email sent response = %@", responseString);
     
     self.window.rootViewController = self.tabBarController;
     
