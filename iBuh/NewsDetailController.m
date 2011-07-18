@@ -57,6 +57,8 @@
     
 //    [self.navigationController.navigationBar setBackgroundImage:NULL];
     
+    segmentedControl.hidden = (self.number < 0);
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -69,7 +71,8 @@
 
 - (void) update {
 
-    Item* citem = [[Common instance] getNewsAt:self.number];
+    
+    Item* citem = (self.number < 0)?self.citem:[[Common instance] getNewsAt:self.number];
 
     self.titl.text = citem.title;
     self.rubric.text = citem.rubric;
@@ -112,10 +115,8 @@
     self.navigationItem.hidesBackButton = NO;
 
 //    self.hidesBottomBarWhenPushed = YES;
-    
-    [self update];
-    
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:
+        
+    segmentedControl = [[UISegmentedControl alloc] initWithItems:
                                             [NSArray arrayWithObjects:
                                              [UIImage imageNamed:@"arr-left.png"],
                                              [UIImage imageNamed:@"arr-right.png"],
@@ -133,6 +134,9 @@
     
     self.navigationItem.rightBarButtonItem = segmentBarItem;
     [segmentBarItem release];
+    
+    [self update];
+    self.navigationItem.title = @"Новости";
 
 }
 
@@ -213,7 +217,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 
-   Item* citem = [[Common instance] getNewsAt:self.number];
+   Item* citem = (self.number < 0)?self.citem:[[Common instance] getNewsAt:self.number];
     
     switch (buttonIndex) {
         case 0: {
@@ -338,7 +342,7 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
-    Item* citem = [[Common instance] getNewsAt:self.number];
+    Item* citem = (self.number < 0)?self.citem:[[Common instance] getNewsAt:self.number];
     if (buttonIndex == 1){
 
         NSLog(@"Ok");

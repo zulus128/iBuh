@@ -7,7 +7,7 @@
 //
 
 #import "FavrController.h"
-#import "NewsCell.h"
+#import "FavrCell.h"
 #import "Item.h"
 #import "Common.h"
 #import "NewsDetailController.h"
@@ -56,12 +56,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
+    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FavrCell" owner:nil options:nil];
     for (id currentObject in topLevelObjects) {
         
-        if ([currentObject isKindOfClass:[NewsCell class]]) {
+        if ([currentObject isKindOfClass:[FavrCell class]]) {
             
-            self.samplecell = (NewsCell*) currentObject;
+            self.samplecell = (FavrCell*) currentObject;
             break;
         }
     }
@@ -136,27 +136,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NewsCell";
+    static NSString *CellIdentifier = @"FavrCell";
     
-    UITableViewCell *cell = (NewsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = (FavrCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        // NSLog(@"NewsCell is nil");
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
+
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"FavrCell" owner:nil options:nil];
         for (id currentObject in topLevelObjects) {
             
-            if ([currentObject isKindOfClass:[NewsCell class]]) {
+            if ([currentObject isKindOfClass:[FavrCell class]]) {
                 
-                cell = (NewsCell*) currentObject;
+                cell = (FavrCell*) currentObject;
                 break;
             }
         }
     }
     // Configure the cell...
     Item* item = [[Common instance] getFavNewsAt:indexPath.row];
-    ((NewsCell*)cell).title.text = item.title;
-    ((NewsCell*)cell).rubric.text = item.rubric;
-    ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-
+    ((FavrCell*)cell).title.text = item.title;
+    ((FavrCell*)cell).rubric.text = item.rubric;
     
     return cell;
 }
@@ -232,11 +230,12 @@
 
     
     self.hidesBottomBarWhenPushed = YES;
-    //detailViewController.citem = item;
-    detailViewController.number = indexPath.row;
+    detailViewController.citem = item;
+    detailViewController.number = -1;
     [self.navigationController pushViewController:detailViewController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
     [detailViewController release];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
 }
 

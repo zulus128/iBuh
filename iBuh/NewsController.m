@@ -12,20 +12,24 @@
 #import "XMLParser.h"
 #import "NewsCell.h"
 #import "TopNewsCell.h"
-#import "DelimNewsCell.h"
+//#import "DelimNewsCell.h"
 #import "Item.h"
 #import "NewsDetailController.h"
 //#import "TopNewsDetailController.h"
+#import "TopNewsCell.h"
 
 @implementation NewsController
 
 @synthesize samplecell = _samplecell;
-@synthesize delimsamplecell = _delimsamplecell;
+//@synthesize delimsamplecell = _delimsamplecell;
 @synthesize tableView = _tableView;
 
-@synthesize image = _image;
-@synthesize titl = _titl;
-@synthesize rubric = _rubric;
+//@synthesize image = _image;
+//@synthesize titl = _titl;
+//@synthesize rubric = _rubric;
+
+@synthesize topcell = _topcell;
+
 @synthesize time = _time;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -40,13 +44,16 @@
 - (void)dealloc {
     
     [_samplecell release];
-    [_delimsamplecell release];
+//    [_delimsamplecell release];
     
     [_tableView release];
     
-    [_image release];
-    [_titl release];
-    [_rubric release];
+//    [_image release];
+//    [_titl release];
+//    [_rubric release];
+    
+    [_topcell release];
+    
     [_time release];
     
     [super dealloc];
@@ -96,7 +103,7 @@
         }
     }
 
-    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DelimNewsCell" owner:nil options:nil];
+/*    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DelimNewsCell" owner:nil options:nil];
     for (id currentObject in topLevelObjects) {
         
         if ([currentObject isKindOfClass:[DelimNewsCell class]]) {
@@ -105,7 +112,24 @@
             break;
         }
     }
+  */  
+     topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TopNewsCell" owner:nil options:nil];
+     for (id currentObject in topLevelObjects) {
     
+         if ([currentObject isKindOfClass:[TopNewsCell class]]) {
+     
+             self.topcell = (TopNewsCell*) currentObject;
+             break;
+         }
+     }
+
+    [self.view addSubview:self.topcell];
+    CGRect r = self.topcell.frame;
+    r.origin.y = 20;
+    self.topcell.frame = r;
+    self.topcell.nc = self;
+    //self.topcell.selected = YES;
+    //self.topcell.multipleTouchEnabled = YES;
     
     [self refresh:NO];
     
@@ -147,11 +171,10 @@
 */
     UIBarButtonItem* bi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refr)] autorelease];
     self.navigationItem.rightBarButtonItem = bi; 
-
+    
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
+- (void)viewWillDisappear:(BOOL)animated {
 
     [self.navigationController.navigationBar setBackgroundImage:NULL];
 
@@ -173,7 +196,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+/*- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
     //NSLog(@"check!");
     NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
@@ -192,7 +215,7 @@
 
     [detailViewController release];
 
-}
+}*/
 
 #pragma mark - Table view data source
 
@@ -290,7 +313,8 @@
             ((NewsCell*)cell).rubric.text = item.rubric;
             ((NewsCell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
             
-            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+//            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+            
 //            ((NewsCell*)cell).title.numberOfLines = 3;
 //            ((NewsCell*)cell).title.frame = CGRectMake(63,0,200,800);
 //            [((NewsCell*)cell).title sizeToFit];
@@ -363,6 +387,7 @@
     detailViewController.image.hidden = YES;
     [detailViewController release];
      
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)refr {
@@ -391,10 +416,14 @@
         [self addPreloadedNews];
         
         Item* item = [[Common instance] getNewsAt:0];
-        self.titl.text = item.title;
-        self.rubric.text = item.rubric;
-        self.image.image = [Common loadImage];
-        [Common instance].img = self.image.image;
+//        self.titl.text = item.title;
+//        self.rubric.text = item.rubric;
+//        self.image.image = [Common loadImage];
+//        [Common instance].img = self.image.image;
+        self.topcell.title.text = item.title;
+        self.topcell.rubric.text = item.rubric;
+        self.topcell.image.image = [Common loadImage];
+        [Common instance].img = self.topcell.image.image;
         
         [self.tableView reloadData];
 		
@@ -410,12 +439,16 @@
         if([[Common instance] getNewsCount]) {
             
             Item* item = [[Common instance] getNewsAt:0];
-            self.titl.text = item.title;
-            self.rubric.text = item.rubric;
-            self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
-            [Common instance].img = self.image.image;
+//            self.titl.text = item.title;
+//            self.rubric.text = item.rubric;
+//            self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+//            [Common instance].img = self.image.image;
+            self.topcell.title.text = item.title;
+            self.topcell.rubric.text = item.rubric;
+            self.topcell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+            [Common instance].img = self.topcell.image.image;
             
-            [Common saveImage:self.image.image];
+            [Common saveImage:self.topcell.image.image];
         }
         
         if (hand) {
@@ -423,7 +456,7 @@
             NSDate *now = [NSDate date];
             
             NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-            dateFormatter.dateFormat = @"hh:mm:ss";
+            dateFormatter.dateFormat = @"dd.MM в hh:mm";
             [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
             self.time.text = [NSString stringWithFormat:@"Обновлено: %@", [dateFormatter stringFromDate:now]];
             [dateFormatter release];

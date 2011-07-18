@@ -235,6 +235,7 @@
     [self.navigationController pushViewController:detailViewController animated:YES];    
     self.hidesBottomBarWhenPushed = NO;
     [detailViewController release];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)refresh {

@@ -7,10 +7,10 @@
 //
 
 #import "PodController.h"
-#import "QACell.h"
 #import "Reachability.h"
 #import "Common.h"
 #import "XMLParser.h"
+#import "PodCell.h"
 
 @implementation PodController
 
@@ -55,12 +55,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"QACell" owner:nil options:nil];
+    NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PodCell" owner:nil options:nil];
     for (id currentObject in topLevelObjects) {
         
-        if ([currentObject isKindOfClass:[QACell class]]) {
+        if ([currentObject isKindOfClass:[PodCell class]]) {
             
-            self.samplecell = (QACell*) currentObject;
+            self.samplecell = (PodCell*) currentObject;
             break;
         }
     }
@@ -128,26 +128,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    static NSString *CellIdentifier = @"QACell";
+    static NSString *CellIdentifier = @"PodCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
         // NSLog(@"TopNewsCell is nil");
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"QACell" owner:nil options:nil];
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"PodCell" owner:nil options:nil];
         for (id currentObject in topLevelObjects) {
             
-            if ([currentObject isKindOfClass:[QACell class]]) {
+            if ([currentObject isKindOfClass:[PodCell class]]) {
                 
-                cell = (QACell*) currentObject;
+                cell = (PodCell*) currentObject;
                 break;
             }
         }
         // Configure the cell...
         Item* item = [[Common instance] getPodcastAt:indexPath.row];
-        ((QACell*)cell).title.text = item.title;
-        ((QACell*)cell).quest.text = item.description;
-        ((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
+        ((PodCell*)cell).title.text = item.title;
 
     }
     
@@ -209,6 +207,7 @@
     Item* item = [[Common instance] getPodcastAt:indexPath.row];
     NSLog(@"item.ituneslink = %@", item.ituneslink);
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:item.ituneslink]];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)refresh {

@@ -11,7 +11,7 @@
 
 @implementation MyDetailController
 
-//@synthesize citem = _citem;
+@synthesize citem = _citem;
 @synthesize number;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -26,7 +26,7 @@
 
 - (void)dealloc {
     
-//    [_citem release];
+    [_citem release];
     
     [super dealloc];
 }

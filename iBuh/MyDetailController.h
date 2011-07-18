@@ -13,7 +13,7 @@
     
 }
 
-//@property (nonatomic, retain) Item* citem;
+@property (nonatomic, retain) Item* citem;
 @property (assign, readwrite) int number;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NewsController.h"
 
 @interface TopNewsCell : UITableViewCell  {
     
@@ -16,5 +16,6 @@
 @property (nonatomic, retain) IBOutlet UIImageView* image;
 @property (nonatomic, retain) IBOutlet UILabel* title;
 @property (nonatomic, retain) IBOutlet UILabel* rubric;
+@property (nonatomic, retain) NewsController* nc;
 
 @end

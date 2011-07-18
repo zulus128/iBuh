@@ -70,6 +70,10 @@
 		DD2C33C313D29A7C00B75A86 /* WiFiCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */; };
 		DD37745313B41E6D00398228 /* FavrController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD37745113B41E6D00398228 /* FavrController.m */; };
 		DD37745413B41E6D00398228 /* FavrController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD37745213B41E6D00398228 /* FavrController.xib */; };
+		DDC06D4813D4C306001B5DAD /* PodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC06D4613D4C306001B5DAD /* PodCell.m */; };
+		DDC06D4913D4C306001B5DAD /* PodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC06D4713D4C306001B5DAD /* PodCell.xib */; };
+		DDC06D4D13D4C976001B5DAD /* FavrCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDC06D4B13D4C976001B5DAD /* FavrCell.m */; };
+		DDC06D4E13D4C976001B5DAD /* FavrCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDC06D4C13D4C976001B5DAD /* FavrCell.xib */; };
 		DDC99BE413AD8EB800958DF2 /* top-logo-sample.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BE213AD8EB800958DF2 /* top-logo-sample.png */; };
 		DDC99BED13AD956600958DF2 /* top-logo-sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BEB13AD956600958DF2 /* top-logo-sample@2x.png */; };
 		DDC99BF313AD993E00958DF2 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC99BF213AD993E00958DF2 /* Default.png */; };
@@ -232,6 +236,12 @@
 		DD37745013B41E6D00398228 /* FavrController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavrController.h; sourceTree = "<group>"; };
 		DD37745113B41E6D00398228 /* FavrController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavrController.m; sourceTree = "<group>"; };
 		DD37745213B41E6D00398228 /* FavrController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavrController.xib; sourceTree = "<group>"; };
+		DDC06D4513D4C306001B5DAD /* PodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodCell.h; sourceTree = "<group>"; };
+		DDC06D4613D4C306001B5DAD /* PodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodCell.m; sourceTree = "<group>"; };
+		DDC06D4713D4C306001B5DAD /* PodCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodCell.xib; sourceTree = "<group>"; };
+		DDC06D4A13D4C976001B5DAD /* FavrCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavrCell.h; sourceTree = "<group>"; };
+		DDC06D4B13D4C976001B5DAD /* FavrCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavrCell.m; sourceTree = "<group>"; };
+		DDC06D4C13D4C976001B5DAD /* FavrCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavrCell.xib; sourceTree = "<group>"; };
 		DDC99BE213AD8EB800958DF2 /* top-logo-sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-logo-sample.png"; sourceTree = "<group>"; };
 		DDC99BEB13AD956600958DF2 /* top-logo-sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-logo-sample@2x.png"; sourceTree = "<group>"; };
 		DDC99BF213AD993E00958DF2 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
@@ -469,12 +479,16 @@
 				DDD0389C13ADD2A500BD246B /* QAController.m */,
 				8C87437F13A76A2E00588B05 /* NewsDetailController.h */,
 				8C87438013A76A2E00588B05 /* NewsDetailController.m */,
+				DDC06D4A13D4C976001B5DAD /* FavrCell.h */,
+				DDC06D4B13D4C976001B5DAD /* FavrCell.m */,
 				DD10C1D313A6D6C1007E191D /* NewsCell.h */,
 				DD10C1D413A6D6C1007E191D /* NewsCell.m */,
 				DDC99BF613AD9D3E00958DF2 /* TopNewsCell.h */,
 				DDC99BF713AD9D3E00958DF2 /* TopNewsCell.m */,
 				DDD0386513ADBD6B00BD246B /* DelimNewsCell.h */,
 				DDD0386613ADBD6B00BD246B /* DelimNewsCell.m */,
+				DDC06D4513D4C306001B5DAD /* PodCell.h */,
+				DDC06D4613D4C306001B5DAD /* PodCell.m */,
 				DDD038A013ADDBBB00BD246B /* QACell.h */,
 				DDD038A113ADDBBC00BD246B /* QACell.m */,
 				8C92547E13AF53AF00374063 /* SendQController.h */,
@@ -578,6 +592,8 @@
 		DDED16F813A45852003E523C /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
+				DDC06D4713D4C306001B5DAD /* PodCell.xib */,
+				DDC06D4C13D4C976001B5DAD /* FavrCell.xib */,
 				DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */,
 				8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */,
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
@@ -814,6 +830,8 @@
 				8CEBDC5413CD61D5002C2524 /* arr-right@2x.png in Resources */,
 				DD2C33B213D295DF00B75A86 /* SettController.xib in Resources */,
 				DD2C33C313D29A7C00B75A86 /* WiFiCell.xib in Resources */,
+				DDC06D4913D4C306001B5DAD /* PodCell.xib in Resources */,
+				DDC06D4E13D4C976001B5DAD /* FavrCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +917,8 @@
 				DD2C33B113D295DF00B75A86 /* SettController.m in Sources */,
 				DD2C33C113D2997800B75A86 /* WiFiCell.m in Sources */,
 				DDCB0EC713D2A74B00D08E3E /* MREntitiesConverter.m in Sources */,
+				DDC06D4813D4C306001B5DAD /* PodCell.m in Sources */,
+				DDC06D4D13D4C976001B5DAD /* FavrCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

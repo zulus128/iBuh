@@ -15,6 +15,7 @@
 @interface QADetailController : MyDetailController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate > {
     
     int fontsize;
+    UISegmentedControl *segmentedControl;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* titl;

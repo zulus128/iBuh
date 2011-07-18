@@ -15,7 +15,6 @@
 @synthesize titl = _titl;
 @synthesize q = _q;
 @synthesize a = _a;
-//@synthesize citem = _citem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +32,6 @@
     [_titl release];
     [_q release];
     [_a release];
-//    [_citem release];
     
     [super dealloc];
 }
@@ -46,10 +44,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    segmentedControl.hidden = (self.number < 0);
+    
+}
+
 #pragma mark - View lifecycle
 - (void) update {
 
-    Item* citem = [[Common instance] getQAAt:self.number];
+    Item* citem = (self.number < 0)?self.citem:[[Common instance] getQAAt:self.number];
     self.navigationItem.hidesBackButton = NO;
     self.titl.text = citem.title;
     //    self.rubric.text = self.citem.rubric;
@@ -84,9 +90,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self update];
+
     
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:
+    segmentedControl = [[UISegmentedControl alloc] initWithItems:
                                             [NSArray arrayWithObjects:
                                              [UIImage imageNamed:@"arr-left.png"],
                                              [UIImage imageNamed:@"arr-right.png"],
@@ -104,6 +110,11 @@
     
     self.navigationItem.rightBarButtonItem = segmentBarItem;
     [segmentBarItem release];
+    
+    [self update];
+    
+    self.navigationItem.title = @"Вопрос-ответ";
+
     
 }
 
@@ -184,7 +195,7 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
   
-    Item* citem = [[Common instance] getQAAt:self.number];
+    Item* citem = (self.number < 0)?self.citem:[[Common instance] getQAAt:self.number];
     
     switch (buttonIndex) {
         case 0: {
@@ -284,7 +295,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    Item* citem = [[Common instance] getQAAt:self.number];
+    Item* citem = (self.number < 0)?self.citem:[[Common instance] getQAAt:self.number];
     if (buttonIndex == 1){
         
         NSLog(@"Ok");
