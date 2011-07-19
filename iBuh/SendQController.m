@@ -53,6 +53,8 @@
     
     [urlRequest release];
     [url release];
+    
+    self.navigationItem.title = @"Задать вопрос";
 }
 
 - (void)viewDidUnload

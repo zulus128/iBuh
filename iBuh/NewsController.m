@@ -125,7 +125,7 @@
 
     [self.view addSubview:self.topcell];
     CGRect r = self.topcell.frame;
-    r.origin.y = 20;
+    r.origin.y = 31;
     self.topcell.frame = r;
     self.topcell.nc = self;
     //self.topcell.selected = YES;
