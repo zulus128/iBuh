@@ -18,7 +18,7 @@
 #define SENDQ_URL @"http://www.buhgalteria.ru/addq/iphone.php"
 #define PODCAST_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonepodcast.php"
 
-#define EMAIL_URL @"www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
+#define EMAIL_URL @"http://www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
 #define ITEM_TAG @"item"
 #define TITLE_TAG @"title"

@@ -151,13 +151,13 @@
     [userDefaults setObject:textField.text forKey:@"email"];  
     
     
-//    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     NSString* emailurl = [NSString stringWithFormat:EMAIL_URL,textField.text];
     NSLog(@"email URL = %@", emailurl);
  
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:emailurl]];
+//    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:emailurl]];
     
-/*    [request setURL:[NSURL URLWithString:emailurl]];
+    [request setURL:[NSURL URLWithString:emailurl]];
     
     NSHTTPURLResponse* urlResponse = nil;
     NSError *error = nil;//[[NSError alloc] init];
@@ -165,7 +165,7 @@
 //    [error release];
     NSString *responseString = [[NSString alloc]initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"email sent response = %@", responseString);
-  */  
+    
     self.window.rootViewController = self.tabBarController;
     
 	return NO;
