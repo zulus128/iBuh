@@ -63,7 +63,7 @@
     NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
                              "<head> \n"
                              "<style type=\"text/css\"> \n"
-                             "body {font-family: \"%@\"; font-size: %@;}\n"
+                             "body {font-family: \"%@\"; font-size: %@; font-style:oblique;}\n"
                              "</style> \n"
                              "</head> \n"
                              "<body align=""justify"">%@</body> \n"
