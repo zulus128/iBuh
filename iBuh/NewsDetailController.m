@@ -15,7 +15,7 @@
 @synthesize titl = _titl;
 @synthesize rubric = _rubric;
 @synthesize fulltext = _fulltext;
-//@synthesize fontplusButton = _fontplusButton;
+@synthesize favButton = _favButton;
 //@synthesize citem = _citem;
 @synthesize image = _image;
 
@@ -24,7 +24,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        fontsize = START_FONT;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+        fontsize = [userDefaults integerForKey:@"newsfont"];
+        if(!fontsize)
+            fontsize = START_FONT;
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
     }
     return self;
 }
@@ -34,7 +38,7 @@
     [_titl release];
     [_rubric release];
     [_fulltext release];
-//    [_fontplusButton release];
+    [_favButton release];
 //    [_citem release];
     [_image release];
     
@@ -58,6 +62,8 @@
 //    [self.navigationController.navigationBar setBackgroundImage:NULL];
     
     segmentedControl.hidden = (self.number < 0);
+    self.favButton.enabled = (self.number >= 0);
+//    NSLog(@"number=%i", self.number);
     
 }
 
@@ -105,6 +111,19 @@
 
         //        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
     }
+
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    //NSLog(@"finishLoad");
+    [self refrFont];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+
+    //NSLog(@"loadError");
 
 }
 
@@ -181,6 +200,10 @@
     if(fontsize < MAX_FONT) {
         
         fontsize += STEP_FONT;
+
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
+
         [self refrFont];
     }
 }
@@ -192,6 +215,10 @@
     if(fontsize > MIN_FONT) {
     
         fontsize -= STEP_FONT;
+        
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
+
         [self refrFont];
     }
 
@@ -338,6 +365,7 @@
                                           otherButtonTitles:@"Добавить",nil];
     [alert show];
     [alert release];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -352,7 +380,12 @@
 
 - (void) refrFont {
     
-	//[aIndicator startAnimating];
+	
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+	fontsize = [userDefaults integerForKey:@"newsfont"];
+    
+//    NSLog(@"fontsize = %d", fontsize);
+    //[aIndicator startAnimating];
     
 	int entireSize = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
 	int scrollPosition = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];

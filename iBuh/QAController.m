@@ -175,7 +175,10 @@
         //[((QACell*)cell) refresh];
         ((QACell*)cell).title.text = item.title;
         ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
-        ((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
+        //((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
+        ((QACell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
+        ((QACell*)cell).rubric.text = item.rubric;
+
 //        ((QACell*)cell).webview.hidden = YES;
     }
     

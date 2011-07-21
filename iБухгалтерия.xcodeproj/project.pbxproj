@@ -278,7 +278,7 @@
 		DDED16BA13A3290D003E523C /* iБухгалтерия-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iБухгалтерия-Prefix.pch"; sourceTree = "<group>"; };
 		DDED16BB13A3290D003E523C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhAppDelegate.h; sourceTree = "<group>"; };
-		DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhAppDelegate.m; sourceTree = "<group>"; };
+		DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBuhAppDelegate.m; sourceTree = "<group>"; };
 		DDED16C113A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		DDED16D413A3290E003E523C /* iБухгалтерияTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iБухгалтерияTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16DC13A3290E003E523C /* iБухгалтерияTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iБухгалтерияTests-Info.plist"; sourceTree = "<group>"; };

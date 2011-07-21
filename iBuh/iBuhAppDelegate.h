@@ -29,6 +29,7 @@
 
 - (IBAction)up: (id)sender;
 - (IBAction)down: (id)sender;
--(void)setViewMovedUp:(BOOL)movedUp;
+- (void)setViewMovedUp:(BOOL)movedUp;
+- (BOOL)validateEmailWithString:(NSString*)email;
 
 @end

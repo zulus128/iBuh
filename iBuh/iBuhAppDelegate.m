@@ -2,7 +2,7 @@
 //  iBuhAppDelegate.m
 //  iBuh
 //
-//  Created by вадим on 6/11/11.
+//  Created by –≤–∞–і–Є–Љ on 6/11/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -143,9 +143,26 @@
     [UIView commitAnimations];
 }
 
+- (BOOL)validateEmailWithString:(NSString*)email {
+    
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"; 
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex]; 
+    return [emailTest evaluateWithObject:email];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-	[textField resignFirstResponder];
+	
+    if (![self validateEmailWithString:textField.text]) {
+		UIAlertView* errorAlertView = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                                 message:@"Введен некорректный адрес" delegate:nil cancelButtonTitle:@"Закрыть" otherButtonTitles:nil];
+		[errorAlertView show];
+		[errorAlertView release];
+        
+        return NO;
+	} 
+    
+    [textField resignFirstResponder];
     
     NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
     [userDefaults setObject:textField.text forKey:@"email"];  
