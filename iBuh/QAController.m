@@ -177,7 +177,7 @@
         ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
         //((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
         ((QACell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-        ((QACell*)cell).rubric.text = item.rubric;
+//        ((QACell*)cell).rubric.text = item.rubric;
 
 //        ((QACell*)cell).webview.hidden = YES;
     }
@@ -260,15 +260,16 @@
 	}else {
         
         [[Common instance] clearQAs];
-        [self addQAs:QAMENU_URL];
+        
+        if([self addQAs:QAMENU_URL])
+            [[Common instance] saveQAsPreload];
 		
-        [[Common instance] saveQAsPreload];
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)addQAs: (NSString*) url {
+- (BOOL)addQAs: (NSString*) url {
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:url]];
@@ -277,6 +278,20 @@
     NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //        [error release];
+    if (responseData == nil) {
+        // Check for problems
+        if (error != nil) {
+            
+            UIAlertView* dialog = [[UIAlertView alloc] init];
+            [dialog setTitle:@"Ошибка Интернет-подключения"];
+            [dialog setMessage:[error localizedDescription]];
+            [dialog addButtonWithTitle:@"OK"];
+            [dialog show];
+            [dialog release];
+            return NO;
+        }
+    }
+
     NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -298,9 +313,11 @@
             
             //NSLog(@"Error! Possibly xml version is not new");
             NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            return NO;
+            
         }
     }
-    
+    return YES;   
 }
 
 @end

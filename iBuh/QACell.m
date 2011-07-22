@@ -14,7 +14,7 @@
 @synthesize time = _time;
 @synthesize title = _title;
 @synthesize quest = _quest;
-@synthesize rubric = _rubric;
+//@synthesize rubric = _rubric;
 //@synthesize webview = _webview;
 //@synthesize queststring = _queststring;
 
@@ -55,7 +55,7 @@
     [_time release];
     [_title release];
     [_quest release];
-    [_rubric release];
+//    [_rubric release];
 //    [_webview release];
 //    [_queststring release];
     

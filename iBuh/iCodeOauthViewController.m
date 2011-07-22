@@ -45,7 +45,7 @@
 	_engine.consumerSecret = @"vOj9apnlgj1mtTujhHOTglxfNF1M5GstmamV25tI";
 	
     
-    textfield.text = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ",self.citem.title,self.citem.link];
+    textfield.text = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From Бухгалтерия: ",self.citem.title,self.citem.link];
     
 	UIViewController *controller = [SA_OAuthTwitterController controllerToEnterCredentialsWithTwitterEngine: _engine delegate: self];
 	

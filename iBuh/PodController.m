@@ -145,6 +145,9 @@
         }
         // Configure the cell...
         Item* item = [[Common instance] getPodcastAt:indexPath.row];
+        //NSLog(@"descr = %@",item.description);
+        //NSLog(@"title = %@",item.title);
+        ((PodCell*)cell).descr.text = item.description;
         ((PodCell*)cell).title.text = item.title;
 
     }
@@ -229,15 +232,15 @@
 	}else {
         
         [[Common instance] clearPodcasts];
-        [self addPodcasts:PODCAST_URL];
-		
-        [[Common instance] savePodcastsPreload];
+        
+        if([self addPodcasts:PODCAST_URL])
+            [[Common instance] savePodcastsPreload];
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)addPodcasts: (NSString*) url {
+- (BOOL)addPodcasts: (NSString*) url {
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:url]];
@@ -246,6 +249,20 @@
     NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //        [error release];
+    if (responseData == nil) {
+        // Check for problems
+        if (error != nil) {
+            
+            UIAlertView* dialog = [[UIAlertView alloc] init];
+            [dialog setTitle:@"Ошибка Интернет-подключения"];
+            [dialog setMessage:[error localizedDescription]];
+            [dialog addButtonWithTitle:@"OK"];
+            [dialog show];
+            [dialog release];
+            return NO;
+        }
+    }
+
     NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -267,9 +284,11 @@
             
             //NSLog(@"Error! Possibly xml version is not new");
             NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            return NO;
         }
     }
-    
+  
+    return YES;
 }
 
 @end

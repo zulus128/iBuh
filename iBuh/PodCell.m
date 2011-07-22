@@ -12,6 +12,7 @@
 @implementation PodCell
 
 @synthesize title = _title;
+@synthesize descr = _descr;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,6 +27,7 @@
 - (void)dealloc {
     
     [_title release];
+    [_descr release];
     
     [super dealloc];
 }

@@ -17,7 +17,7 @@
 @property (nonatomic, retain) IBOutlet UILabel* title;
 @property (nonatomic, retain) IBOutlet UILabel* quest;
 
-@property (nonatomic, retain) IBOutlet UILabel* rubric;
+//@property (nonatomic, retain) IBOutlet UILabel* rubric;
 
 //@property (nonatomic, retain) IBOutlet UIWebView* webview;
 //@property (nonatomic, retain) NSString* queststring;

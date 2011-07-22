@@ -28,6 +28,7 @@
 //@property (nonatomic, retain) Item* citem;
 
 @property (nonatomic, retain) IBOutlet UIImageView* image;
+@property (nonatomic, retain) IBOutlet UIImageView* arrow;
 
 - (IBAction)fontplus: (id)sender;
 - (IBAction)fontminus: (id)sender;

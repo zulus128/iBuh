@@ -235,7 +235,7 @@
             [controller setSubject:citem.title];
             //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
+            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
             
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -262,7 +262,7 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
+            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         citem.title, @"name",
                                         //self.citem.title, @"caption",
@@ -273,7 +273,8 @@
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
             NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                            //                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
-                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+//                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+                                           @"d599b3ff0852226f1792b946ea7198a3", @"api_key",
                                            @"Что я думаю?", @"user_message_prompt",
                                            attachmentStr, @"attachment",
                                            nil];
