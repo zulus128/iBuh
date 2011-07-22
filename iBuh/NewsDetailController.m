@@ -15,16 +15,21 @@
 @synthesize titl = _titl;
 @synthesize rubric = _rubric;
 @synthesize fulltext = _fulltext;
-//@synthesize fontplusButton = _fontplusButton;
+@synthesize favButton = _favButton;
 //@synthesize citem = _citem;
 @synthesize image = _image;
+@synthesize arrow = _arrow;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        fontsize = START_FONT;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+        fontsize = [userDefaults integerForKey:@"newsfont"];
+        if(!fontsize)
+            fontsize = START_FONT;
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
     }
     return self;
 }
@@ -34,9 +39,10 @@
     [_titl release];
     [_rubric release];
     [_fulltext release];
-//    [_fontplusButton release];
+    [_favButton release];
 //    [_citem release];
     [_image release];
+    [_arrow release];
     
     [super dealloc];
 }
@@ -58,6 +64,8 @@
 //    [self.navigationController.navigationBar setBackgroundImage:NULL];
     
     segmentedControl.hidden = (self.number < 0);
+    self.favButton.enabled = (self.number >= 0);
+//    NSLog(@"number=%i", self.number);
     
 }
 
@@ -93,18 +101,33 @@
     if(![citem.image length]) {
         
         self.titl.frame = CGRectMake(7, 0, 313, 62);
-        self.rubric.frame = CGRectMake(7, 62, 313, 21);
+        self.rubric.frame = CGRectMake(20, 62, 300, 21);
+        self.arrow.frame = CGRectMake(7, 66, 10, 14);
         self.image.hidden = YES;
     }
     else {
         
         self.titl.frame = CGRectMake(108, 0, 212, 62);
-        self.rubric.frame = CGRectMake(108, 62, 212, 21);
+        self.rubric.frame = CGRectMake(121, 62, 212, 21);
+        self.arrow.frame = CGRectMake(108, 66, 10, 14);
         self.image.image = [Common instance].img;
         self.image.hidden = NO;
 
         //        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
     }
+
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    //NSLog(@"finishLoad");
+    [self refrFont];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+
+    //NSLog(@"loadError");
 
 }
 
@@ -181,6 +204,10 @@
     if(fontsize < MAX_FONT) {
         
         fontsize += STEP_FONT;
+
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
+
         [self refrFont];
     }
 }
@@ -192,6 +219,10 @@
     if(fontsize > MIN_FONT) {
     
         fontsize -= STEP_FONT;
+        
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"newsfont"];
+
         [self refrFont];
     }
 
@@ -228,7 +259,7 @@
             [controller setSubject:citem.title];
 //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From iБухгалтерия: ", citem.full_text, citem.link];
+            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From Бухгалтерия: ", citem.full_text, citem.link];
 
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -264,10 +295,21 @@
                                         nil];
             
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
-            NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+  /*          NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                           @"http://developers.facebook.com/docs/reference/dialogs/", @"link",
+                                           @"http://fbrell.com/f8.jpg", @"picture",
+                                           @"Facebook Dialogs", @"name",
+                                           @"Reference Documentation", @"caption",
+                                           @"Dialogs provide a simple, consistent interface for apps to interact with users.", @"description",
+                                           @"Facebook Dialogs are so easy!",  @"message",
+                                           nil];
+*/
+               NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
 //                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
-                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+//                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+                                           @"d599b3ff0852226f1792b946ea7198a3", @"api_key",
                                            @"Что я думаю?", @"user_message_prompt",
+                                            //@"message", @"message",
                                            attachmentStr, @"attachment",
                                            nil];
             
@@ -338,6 +380,7 @@
                                           otherButtonTitles:@"Добавить",nil];
     [alert show];
     [alert release];
+    
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
@@ -352,7 +395,12 @@
 
 - (void) refrFont {
     
-	//[aIndicator startAnimating];
+	
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+	fontsize = [userDefaults integerForKey:@"newsfont"];
+    
+//    NSLog(@"fontsize = %d", fontsize);
+    //[aIndicator startAnimating];
     
 	int entireSize = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
 	int scrollPosition = [[self.fulltext stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];

@@ -14,7 +14,7 @@
     MREntitiesConverter* converter;
 }
 
-- (void)addQAs: (NSString*) url;
+- (BOOL)addQAs: (NSString*) url;
 - (void)refresh;
 - (void)addQuestion:(NSObject*)sender;
 

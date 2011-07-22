@@ -16,6 +16,6 @@
 @property (nonatomic, retain) UITableViewCell* samplecell;
 
 - (void)refresh;
-- (void)addPodcasts: (NSString*) url;
+- (BOOL)addPodcasts: (NSString*) url;
 
 @end

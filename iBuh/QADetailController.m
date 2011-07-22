@@ -15,13 +15,18 @@
 @synthesize titl = _titl;
 @synthesize q = _q;
 @synthesize a = _a;
+@synthesize favButton = _favButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        fontsize = START_FONT;
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+        fontsize = [userDefaults integerForKey:@"qafont"];
+        if(!fontsize)
+            fontsize = START_FONT;
+        [userDefaults setInteger:fontsize forKey:@"qafont"];
 
     }
     return self;
@@ -32,6 +37,7 @@
     [_titl release];
     [_q release];
     [_a release];
+    [_favButton release];
     
     [super dealloc];
 }
@@ -49,6 +55,8 @@
     [super viewWillAppear:animated];
     
     segmentedControl.hidden = (self.number < 0);
+    self.favButton.enabled = (self.number >= 0);
+
     
 }
 
@@ -80,6 +88,19 @@
                    "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
     [self.a loadHTMLString: contentHTML baseURL:nil];
 
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    
+    //NSLog(@"finishLoad");
+    [self refrFont];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    
+    
+    //NSLog(@"loadError");
+    
 }
 
 - (void)viewDidLoad
@@ -159,6 +180,10 @@
     if(fontsize < MAX_FONT) {
         
         fontsize += STEP_FONT;
+        
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"qafont"];
+
         [self refrFont];
     }
 }
@@ -170,6 +195,10 @@
     if(fontsize > MIN_FONT) {
         
         fontsize -= STEP_FONT;
+        
+        NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];  
+        [userDefaults setInteger:fontsize forKey:@"qafont"];
+
         [self refrFont];
     }
     
@@ -206,7 +235,7 @@
             [controller setSubject:citem.title];
             //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
+            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
             
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -233,7 +262,7 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-            NSString* str = [NSString stringWithFormat:@"From iБухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
+            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         citem.title, @"name",
                                         //self.citem.title, @"caption",
@@ -244,7 +273,8 @@
             NSString *attachmentStr = [jsonWriter stringWithObject:attachment];
             NSMutableDictionary* params = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                            //                                           @"165c51ec9fc4c91dbcd4ddba7d4a989b", @"api_key",
-                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+//                                           @"9c70a4861ca225eb7558a03bd762d6ac", @"api_key",
+                                           @"d599b3ff0852226f1792b946ea7198a3", @"api_key",
                                            @"Что я думаю?", @"user_message_prompt",
                                            attachmentStr, @"attachment",
                                            nil];
@@ -305,27 +335,29 @@
 
 - (void) refrFont {
     
-	//[aIndicator startAnimating];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
+	fontsize = [userDefaults integerForKey:@"qafont"];
     
 	int entireSize = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
 	int scrollPosition = [[self.a stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
-    //	NSLog(@"b4 ent = %d, scrollp = %d", entireSize, scrollPosition);
-	
 	NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
                           fontsize];
     [self.a stringByEvaluatingJavaScriptFromString:jsString];
     [jsString release];
-    
 	int entireSize1 = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
 	int scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
-    //	NSLog(@"af ent = %d, scrollp = %d", entireSize1, scrollPosition1);
-    
-    //	[Common instance].maxPos = entireSize1;
 	[self.a stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
-    //	[Common instance].scrollPos = scrollPosition1;
-    
-	//[aIndicator stopAnimating];
-    
+
+    entireSize = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	scrollPosition = [[self.q stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
+	jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
+                          fontsize - 10];
+    [self.q stringByEvaluatingJavaScriptFromString:jsString];
+    [jsString release];
+	entireSize1 = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
+	[self.q stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
+
 	
 }
 

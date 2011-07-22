@@ -19,6 +19,8 @@
 		8C94809A13B303EE0085A268 /* word@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C94809613B303EE0085A268 /* word@2x.png */; };
 		8C95F19313B34D6900B1F5F4 /* favourites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C95F19213B34D6900B1F5F4 /* favourites.plist */; };
 		8C9784BF13B9CC4800B818EC /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C9784BE13B9CC4800B818EC /* MessageUI.framework */; };
+		8C980B7713D84E5B0011ACFA /* AboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C980B7613D84E5B0011ACFA /* AboutCell.m */; };
+		8C980B7913D84E850011ACFA /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C980B7813D84E850011ACFA /* AboutCell.xib */; };
 		8C9A8B6E13B461C000DDD2D2 /* PodController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6C13B461C000DDD2D2 /* PodController.m */; };
 		8C9A8B6F13B461C000DDD2D2 /* PodController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9A8B6D13B461C000DDD2D2 /* PodController.xib */; };
 		8C9AAC7413AF3F6B00B759CF /* login-screen-ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C9AAC7213AF3F6B00B759CF /* login-screen-ok.png */; };
@@ -162,6 +164,9 @@
 		8C94809613B303EE0085A268 /* word@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "word@2x.png"; sourceTree = "<group>"; };
 		8C95F19213B34D6900B1F5F4 /* favourites.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = favourites.plist; sourceTree = "<group>"; };
 		8C9784BE13B9CC4800B818EC /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		8C980B7513D84E5B0011ACFA /* AboutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutCell.h; sourceTree = "<group>"; };
+		8C980B7613D84E5B0011ACFA /* AboutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutCell.m; sourceTree = "<group>"; };
+		8C980B7813D84E850011ACFA /* AboutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
 		8C9A8B6B13B461C000DDD2D2 /* PodController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PodController.h; sourceTree = "<group>"; };
 		8C9A8B6C13B461C000DDD2D2 /* PodController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PodController.m; sourceTree = "<group>"; };
 		8C9A8B6D13B461C000DDD2D2 /* PodController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PodController.xib; sourceTree = "<group>"; };
@@ -269,19 +274,19 @@
 		DDD0BF2E13C2917C005E0A80 /* TopNewsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopNewsDetailController.h; sourceTree = "<group>"; };
 		DDD0BF2F13C2917C005E0A80 /* TopNewsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopNewsDetailController.m; sourceTree = "<group>"; };
 		DDD0BF3013C2917D005E0A80 /* TopNewsDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopNewsDetailController.xib; sourceTree = "<group>"; };
-		DDED16AA13A3290D003E523C /* iБухгалтерия.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iБухгалтерия.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDED16AA13A3290D003E523C /* Бухгалтерия.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Бухгалтерия.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDED16AE13A3290D003E523C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DDED16B013A3290D003E523C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DDED16B213A3290D003E523C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DDED16B613A3290D003E523C /* iБухгалтерия-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iБухгалтерия-Info.plist"; sourceTree = "<group>"; };
+		DDED16B613A3290D003E523C /* Бухгалтерия-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Бухгалтерия-Info.plist"; sourceTree = "<group>"; };
 		DDED16B813A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DDED16BA13A3290D003E523C /* iБухгалтерия-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iБухгалтерия-Prefix.pch"; sourceTree = "<group>"; };
+		DDED16BA13A3290D003E523C /* Бухгалтерия-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Бухгалтерия-Prefix.pch"; sourceTree = "<group>"; };
 		DDED16BB13A3290D003E523C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DDED16BD13A3290D003E523C /* iBuhAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhAppDelegate.h; sourceTree = "<group>"; };
-		DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iBuhAppDelegate.m; sourceTree = "<group>"; };
+		DDED16BE13A3290D003E523C /* iBuhAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iBuhAppDelegate.m; sourceTree = "<group>"; };
 		DDED16C113A3290D003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		DDED16D413A3290E003E523C /* iБухгалтерияTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iБухгалтерияTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDED16DC13A3290E003E523C /* iБухгалтерияTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iБухгалтерияTests-Info.plist"; sourceTree = "<group>"; };
+		DDED16D413A3290E003E523C /* БухгалтерияTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "БухгалтерияTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDED16DC13A3290E003E523C /* БухгалтерияTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "БухгалтерияTests-Info.plist"; sourceTree = "<group>"; };
 		DDED16DE13A3290E003E523C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DDED16E013A3290E003E523C /* iБухгалтерияTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iБухгалтерияTests-Prefix.pch"; sourceTree = "<group>"; };
 		DDED16E113A3290E003E523C /* iBuhTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iBuhTests.h; sourceTree = "<group>"; };
@@ -440,8 +445,8 @@
 		DDED16AB13A3290D003E523C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DDED16AA13A3290D003E523C /* iБухгалтерия.app */,
-				DDED16D413A3290E003E523C /* iБухгалтерияTests.octest */,
+				DDED16AA13A3290D003E523C /* Бухгалтерия.app */,
+				DDED16D413A3290E003E523C /* БухгалтерияTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -475,6 +480,10 @@
 				DD251BA413A496A800DBA93B /* Reachability.m */,
 				DD251BA613A4975D00DBA93B /* XMLParser.h */,
 				DD251BA713A4975D00DBA93B /* XMLParser.m */,
+				8C980B7513D84E5B0011ACFA /* AboutCell.h */,
+				8C980B7613D84E5B0011ACFA /* AboutCell.m */,
+				DD2C33BF13D2997400B75A86 /* WiFiCell.h */,
+				DD2C33C013D2997400B75A86 /* WiFiCell.m */,
 				DD251BA913A497F200DBA93B /* Item.h */,
 				DD251BAA13A497F200DBA93B /* Item.m */,
 				DDED177A13A48362003E523C /* NewsController.h */,
@@ -513,8 +522,6 @@
 				DDFDD4B613C9595700A1F883 /* MyDetailController.m */,
 				DD2C33AE13D295DD00B75A86 /* SettController.h */,
 				DD2C33AF13D295DE00B75A86 /* SettController.m */,
-				DD2C33BF13D2997400B75A86 /* WiFiCell.h */,
-				DD2C33C013D2997400B75A86 /* WiFiCell.m */,
 				DDCB0EC513D2A74B00D08E3E /* MREntitiesConverter.h */,
 				DDCB0EC613D2A74B00D08E3E /* MREntitiesConverter.m */,
 			);
@@ -524,9 +531,9 @@
 		DDED16B513A3290D003E523C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDED16B613A3290D003E523C /* iБухгалтерия-Info.plist */,
+				DDED16B613A3290D003E523C /* Бухгалтерия-Info.plist */,
 				DDED16B713A3290D003E523C /* InfoPlist.strings */,
-				DDED16BA13A3290D003E523C /* iБухгалтерия-Prefix.pch */,
+				DDED16BA13A3290D003E523C /* Бухгалтерия-Prefix.pch */,
 				DDED16BB13A3290D003E523C /* main.m */,
 				8C95F19213B34D6900B1F5F4 /* favourites.plist */,
 				DDFDD51813C975E000A1F883 /* preload.plist */,
@@ -547,7 +554,7 @@
 		DDED16DB13A3290E003E523C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				DDED16DC13A3290E003E523C /* iБухгалтерияTests-Info.plist */,
+				DDED16DC13A3290E003E523C /* БухгалтерияTests-Info.plist */,
 				DDED16DD13A3290E003E523C /* InfoPlist.strings */,
 				DDED16E013A3290E003E523C /* iБухгалтерияTests-Prefix.pch */,
 			);
@@ -601,6 +608,7 @@
 				DDC06D4713D4C306001B5DAD /* PodCell.xib */,
 				DDC06D4C13D4C976001B5DAD /* FavrCell.xib */,
 				DD2C33C213D29A7C00B75A86 /* WiFiCell.xib */,
+				8C980B7813D84E850011ACFA /* AboutCell.xib */,
 				8CDEB88C13AF0ADD00143F26 /* NewsCell.xib */,
 				DDED16C013A3290D003E523C /* MainWindow.xib */,
 				DDED177C13A48363003E523C /* NewsController.xib */,
@@ -704,9 +712,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DDED16A913A3290D003E523C /* iБухгалтерия */ = {
+		DDED16A913A3290D003E523C /* Бухгалтерия */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "iБухгалтерия" */;
+			buildConfigurationList = DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "Бухгалтерия" */;
 			buildPhases = (
 				DDED16A613A3290D003E523C /* Sources */,
 				DDED16A713A3290D003E523C /* Frameworks */,
@@ -716,14 +724,14 @@
 			);
 			dependencies = (
 			);
-			name = "iБухгалтерия";
+			name = "Бухгалтерия";
 			productName = iBuh;
-			productReference = DDED16AA13A3290D003E523C /* iБухгалтерия.app */;
+			productReference = DDED16AA13A3290D003E523C /* Бухгалтерия.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DDED16D313A3290E003E523C /* iБухгалтерияTests */ = {
+		DDED16D313A3290E003E523C /* БухгалтерияTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "iБухгалтерияTests" */;
+			buildConfigurationList = DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "БухгалтерияTests" */;
 			buildPhases = (
 				DDED16CF13A3290E003E523C /* Sources */,
 				DDED16D013A3290E003E523C /* Frameworks */,
@@ -735,9 +743,9 @@
 			dependencies = (
 				DDED16D913A3290E003E523C /* PBXTargetDependency */,
 			);
-			name = "iБухгалтерияTests";
+			name = "БухгалтерияTests";
 			productName = iBuhTests;
-			productReference = DDED16D413A3290E003E523C /* iБухгалтерияTests.octest */;
+			productReference = DDED16D413A3290E003E523C /* БухгалтерияTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -745,7 +753,7 @@
 /* Begin PBXProject section */
 		DDED16A113A3290C003E523C /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = DDED16A413A3290C003E523C /* Build configuration list for PBXProject "iБухгалтерия" */;
+			buildConfigurationList = DDED16A413A3290C003E523C /* Build configuration list for PBXProject "Бухгалтерия" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -763,8 +771,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				DDED16A913A3290D003E523C /* iБухгалтерия */,
-				DDED16D313A3290E003E523C /* iБухгалтерияTests */,
+				DDED16A913A3290D003E523C /* Бухгалтерия */,
+				DDED16D313A3290E003E523C /* БухгалтерияTests */,
 			);
 		};
 /* End PBXProject section */
@@ -840,6 +848,7 @@
 				DDC06D4E13D4C976001B5DAD /* FavrCell.xib in Resources */,
 				8C9EB21713D59D9300974946 /* top-line-bg.png in Resources */,
 				8C9EB21813D59D9300974946 /* top-line-bg@2x.png in Resources */,
+				8C980B7913D84E850011ACFA /* AboutCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +936,7 @@
 				DDCB0EC713D2A74B00D08E3E /* MREntitiesConverter.m in Sources */,
 				DDC06D4813D4C306001B5DAD /* PodCell.m in Sources */,
 				DDC06D4D13D4C976001B5DAD /* FavrCell.m in Sources */,
+				8C980B7713D84E5B0011ACFA /* AboutCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,7 +953,7 @@
 /* Begin PBXTargetDependency section */
 		DDED16D913A3290E003E523C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DDED16A913A3290D003E523C /* iБухгалтерия */;
+			target = DDED16A913A3290D003E523C /* Бухгалтерия */;
 			targetProxy = DDED16D813A3290E003E523C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1017,14 +1027,14 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iBuh/iБухгалтерия-Prefix.pch";
-				INFOPLIST_FILE = "iBuh/iБухгалтерия-Info.plist";
+				GCC_PREFIX_HEADER = "iBuh/Бухгалтерия-Prefix.pch";
+				INFOPLIST_FILE = "iBuh/Бухгалтерия-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iBuh/SAOAuthTwitterEngine\"",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "iБухгалтерия";
+				PRODUCT_NAME = "Бухгалтерия";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1036,14 +1046,14 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iBuh/iБухгалтерия-Prefix.pch";
-				INFOPLIST_FILE = "iBuh/iБухгалтерия-Info.plist";
+				GCC_PREFIX_HEADER = "iBuh/Бухгалтерия-Prefix.pch";
+				INFOPLIST_FILE = "iBuh/Бухгалтерия-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/iBuh/SAOAuthTwitterEngine\"",
 					"\"$(SRCROOT)\"",
 				);
-				PRODUCT_NAME = "iБухгалтерия";
+				PRODUCT_NAME = "Бухгалтерия";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1060,12 +1070,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBuhTests/iБухгалтерияTests-Prefix.pch";
-				INFOPLIST_FILE = "iBuhTests/iБухгалтерияTests-Info.plist";
+				INFOPLIST_FILE = "iBuhTests/БухгалтерияTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 				);
-				PRODUCT_NAME = "iБухгалтерияTests";
+				PRODUCT_NAME = "БухгалтерияTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1082,12 +1092,12 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iBuhTests/iБухгалтерияTests-Prefix.pch";
-				INFOPLIST_FILE = "iBuhTests/iБухгалтерияTests-Info.plist";
+				INFOPLIST_FILE = "iBuhTests/БухгалтерияTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
 				);
-				PRODUCT_NAME = "iБухгалтерияTests";
+				PRODUCT_NAME = "БухгалтерияTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -1096,7 +1106,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DDED16A413A3290C003E523C /* Build configuration list for PBXProject "iБухгалтерия" */ = {
+		DDED16A413A3290C003E523C /* Build configuration list for PBXProject "Бухгалтерия" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DDED16E513A3290E003E523C /* Debug */,
@@ -1105,7 +1115,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "iБухгалтерия" */ = {
+		DDED16E713A3290E003E523C /* Build configuration list for PBXNativeTarget "Бухгалтерия" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DDED16E813A3290E003E523C /* Debug */,
@@ -1114,7 +1124,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "iБухгалтерияTests" */ = {
+		DDED16EA13A3290E003E523C /* Build configuration list for PBXNativeTarget "БухгалтерияTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DDED16EB13A3290E003E523C /* Debug */,

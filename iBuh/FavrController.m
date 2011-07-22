@@ -154,7 +154,8 @@
     // Configure the cell...
     Item* item = [[Common instance] getFavNewsAt:indexPath.row];
     ((FavrCell*)cell).title.text = item.title;
-    ((FavrCell*)cell).rubric.text = item.rubric;
+    ((FavrCell*)cell).rubric.text = (item.type == TYPE_NEWS)?item.rubric:@"";
+    ((FavrCell*)cell).arrow.hidden = !(item.type == TYPE_NEWS);
     
     return cell;
 }

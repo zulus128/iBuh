@@ -170,13 +170,24 @@
             }
         }
         // Configure the cell...
+
         Item* item = [[Common instance] getQAAt:indexPath.row];
-        //((QACell*)cell).queststring = item.description;
-        //[((QACell*)cell) refresh];
         ((QACell*)cell).title.text = item.title;
         ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
-        ((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
-//        ((QACell*)cell).webview.hidden = YES;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss zzz";
+        NSDate *gmtDate = [formatter dateFromString:item.date];
+        formatter.dateFormat = @"dd.MM";
+        NSString* s = [formatter stringFromDate:gmtDate];
+        [formatter release];
+        
+        //[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"]; 
+
+        //NSLog(@"1 - %@", item.date);
+        //NSLog(@"2 - %@", [gmtDate description]);
+        
+        ((QACell*)cell).time.text = s;//[item.date substringWithRange:NSMakeRange(17, 5)];
     }
     
     return cell;
@@ -257,15 +268,16 @@
 	}else {
         
         [[Common instance] clearQAs];
-        [self addQAs:QAMENU_URL];
+        
+        if([self addQAs:QAMENU_URL])
+            [[Common instance] saveQAsPreload];
 		
-        [[Common instance] saveQAsPreload];
 	}
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)addQAs: (NSString*) url {
+- (BOOL)addQAs: (NSString*) url {
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:url]];
@@ -274,6 +286,20 @@
     NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //        [error release];
+    if (responseData == nil) {
+        // Check for problems
+        if (error != nil) {
+            
+            UIAlertView* dialog = [[UIAlertView alloc] init];
+            [dialog setTitle:@"Ошибка Интернет-подключения"];
+            [dialog setMessage:[error localizedDescription]];
+            [dialog addButtonWithTitle:@"OK"];
+            [dialog show];
+            [dialog release];
+            return NO;
+        }
+    }
+
     NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -295,9 +321,11 @@
             
             //NSLog(@"Error! Possibly xml version is not new");
             NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            return NO;
+            
         }
     }
-    
+    return YES;   
 }
 
 @end

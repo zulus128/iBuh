@@ -18,7 +18,7 @@
 
 - (void)refresh: (BOOL)hand;
 - (void)refr;
-- (void)addNews: (NSString*) url;
+- (BOOL)addNews: (NSString*) url;
 - (void)addPreloadedNews;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;

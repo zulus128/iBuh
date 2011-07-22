@@ -9,6 +9,7 @@
 #import "SettController.h"
 #import "WiFiCell.h"
 #import "Common.h"
+#import "AboutCell.h"
 
 @implementation SettController
 
@@ -119,29 +120,45 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.section < 2) 
-        return 80;
+        return 88;
     else
         return 44;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString *CellIdentifier = @"AboutCell";
     static NSString *CellIdentifier1 = @"WiFiCell";
     
     UITableViewCell *cell;
     
     if(indexPath.section < 2) {
         
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
+        cell = (AboutCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+            NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"AboutCell" owner:nil options:nil];
+            for (id currentObject in topLevelObjects) {
+                
+                if ([currentObject isKindOfClass:[AboutCell class]]) {
+                    
+                    cell = (AboutCell*) currentObject;
+                    break;
+                }
+            } 
         }
-    
         // Configure the cell...
                 
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+        
+        if(indexPath.section == 0) {
+            
+            ((AboutCell*)cell).tv.text = @"Приложение Бухгалтерия - это удобный и оперативный доступ к самой важной информации в сфере учета и налогообложения. При поддержке: портала buhgalteria.ru, журналов <<Расчет>> и <<Практическая бухгалтерия>>. Пишите нам: webeditor@buhgalteria.ru";
+
+        } else {
+
+            ((AboutCell*)cell).tv.text = @"Компания Мослайт специализируется на проектировании, разработке и дальнейшем сопровождении приложений для мобильных устройств, работающих на платформах  Apple iOS,  Google Android и Windows phone 7. www.moslight.com support@moslight.com +7 495 772 16 75";
+            
+        }
     }
     else {
 

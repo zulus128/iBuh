@@ -12,7 +12,7 @@
 #import <MessageUI/MessageUI.h>
 #import "MyDetailController.h"
 
-@interface QADetailController : MyDetailController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate > {
+@interface QADetailController : MyDetailController < UIActionSheetDelegate, FBSessionDelegate, FBDialogDelegate, MFMailComposeViewControllerDelegate, UIWebViewDelegate > {
     
     int fontsize;
     UISegmentedControl *segmentedControl;
@@ -23,6 +23,7 @@
 @property (nonatomic, retain) IBOutlet UIWebView* q;
 @property (nonatomic, retain) IBOutlet UIWebView* a;
 //@property (nonatomic, retain) Item* citem;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem* favButton;
 
 - (IBAction)fontplus: (id)sender;
 - (IBAction)fontminus: (id)sender;
@@ -31,5 +32,8 @@
 - (void) refrFont;
 - (void) update;
 - (void) segmentAction:(id)sender;
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 
 @end

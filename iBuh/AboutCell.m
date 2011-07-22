@@ -1,20 +1,17 @@
 //
-//  NewsCell.m
-//  iBuh
+//  AboutCell.m
+//  Бухгалтерия
 //
-//  Created by вадим on 6/14/11.
+//  Created by naceka on 21.07.11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "FavrCell.h"
+#import "AboutCell.h"
 
 
-@implementation FavrCell
+@implementation AboutCell
 
-//@synthesize time = _time;
-@synthesize title = _title;
-@synthesize rubric = _rubric;
-@synthesize arrow = _arrow;
+@synthesize tv;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,13 +29,8 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc {
-    
-//    [_time release];
-    [_title release];
-    [_rubric release];
-    [_arrow release];
-    
+- (void)dealloc
+{
     [super dealloc];
 }
 

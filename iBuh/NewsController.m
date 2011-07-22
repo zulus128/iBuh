@@ -416,10 +416,6 @@
         [self addPreloadedNews];
         
         Item* item = [[Common instance] getNewsAt:0];
-//        self.titl.text = item.title;
-//        self.rubric.text = item.rubric;
-//        self.image.image = [Common loadImage];
-//        [Common instance].img = self.image.image;
         self.topcell.title.text = item.title;
         self.topcell.rubric.text = item.rubric;
         self.topcell.image.image = [Common loadImage];
@@ -430,26 +426,52 @@
 	}else {
         
         [[Common instance] clearNews];
-        [self addNews:TOPMENU_URL];
-        [self addNews:MENU_URL];
-        [self.tableView reloadData];
-
-        [[Common instance] saveNewsPreload];
-
-        if([[Common instance] getNewsCount]) {
+        if(![self addNews:TOPMENU_URL]) {
+            
+            [self addPreloadedNews];
             
             Item* item = [[Common instance] getNewsAt:0];
-//            self.titl.text = item.title;
-//            self.rubric.text = item.rubric;
-//            self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
-//            [Common instance].img = self.image.image;
             self.topcell.title.text = item.title;
             self.topcell.rubric.text = item.rubric;
-            self.topcell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+            self.topcell.image.image = [Common loadImage];
             [Common instance].img = self.topcell.image.image;
             
-            [Common saveImage:self.topcell.image.image];
+            [self.tableView reloadData];
+            hand = NO;
+
         }
+        else    
+            if(![self addNews:MENU_URL]) {
+        
+                [self addPreloadedNews];
+                
+                Item* item = [[Common instance] getNewsAt:0];
+                self.topcell.title.text = item.title;
+                self.topcell.rubric.text = item.rubric;
+                self.topcell.image.image = [Common loadImage];
+                [Common instance].img = self.topcell.image.image;
+                
+                [self.tableView reloadData];
+                hand = NO;
+
+            }
+            else {
+        
+                [self.tableView reloadData];
+                [[Common instance] saveNewsPreload];
+
+                if([[Common instance] getNewsCount]) {
+            
+                    Item* item = [[Common instance] getNewsAt:0];
+                    self.topcell.title.text = item.title;
+                    self.topcell.rubric.text = item.rubric;
+                    self.topcell.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: item.image]]];
+                    [Common instance].img = self.topcell.image.image;
+            
+                    [Common saveImage:self.topcell.image.image];
+                }
+            }
+    
         
         if (hand) {
             
@@ -481,7 +503,7 @@
 }
 
 
-- (void)addNews: (NSString*) url {
+- (BOOL)addNews: (NSString*) url {
     
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
     [request setURL:[NSURL URLWithString:url]];
@@ -490,6 +512,19 @@
     NSError *error = nil;//[[NSError alloc] init];
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     //        [error release];
+    if (responseData == nil) {
+        // Check for problems
+        if (error != nil) {
+            
+            UIAlertView* dialog = [[UIAlertView alloc] init];
+            [dialog setTitle:@"Ошибка Интернет-подключения"];
+            [dialog setMessage:[error localizedDescription]];
+            [dialog addButtonWithTitle:@"OK"];
+            [dialog show];
+            [dialog release];
+            return NO;
+        }
+    }
     NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
@@ -511,9 +546,11 @@
             
             //NSLog(@"Error! Possibly xml version is not new");
             NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            return NO;
         }
     }
 
+    return YES;
 }
 
 
