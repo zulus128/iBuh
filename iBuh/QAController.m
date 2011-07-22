@@ -176,7 +176,11 @@
         ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+        [formatter setLocale:usLocale];
+        [usLocale release];
         formatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss zzz";
+        [formatter setTimeZone:[NSTimeZone systemTimeZone]];
         NSDate *gmtDate = [formatter dateFromString:item.date];
         formatter.dateFormat = @"dd.MM";
         NSString* s = [formatter stringFromDate:gmtDate];
@@ -184,53 +188,14 @@
         
         //[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"]; 
 
-        //NSLog(@"1 - %@", item.date);
-        //NSLog(@"2 - %@", [gmtDate description]);
+        NSLog(@"1 - %@", item.date);
+        NSLog(@"2 - %@", [gmtDate description]);
         
         ((QACell*)cell).time.text = s;//[item.date substringWithRange:NSMakeRange(17, 5)];
     }
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

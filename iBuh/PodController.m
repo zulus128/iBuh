@@ -147,8 +147,8 @@
         Item* item = [[Common instance] getPodcastAt:indexPath.row];
         //NSLog(@"descr = %@",item.description);
         //NSLog(@"title = %@",item.title);
-        ((PodCell*)cell).descr.text = item.description;
-        ((PodCell*)cell).title.text = item.title;
+        ((PodCell*)cell).title.text = item.description;
+        ((PodCell*)cell).descr.text = item.title;
 
     }
     
