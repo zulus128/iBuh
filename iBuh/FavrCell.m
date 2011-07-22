@@ -14,6 +14,7 @@
 //@synthesize time = _time;
 @synthesize title = _title;
 @synthesize rubric = _rubric;
+@synthesize arrow = _arrow;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -36,6 +37,7 @@
 //    [_time release];
     [_title release];
     [_rubric release];
+    [_arrow release];
     
     [super dealloc];
 }

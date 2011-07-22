@@ -6,6 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+//[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"]; 
+
+
 #import <Foundation/Foundation.h>
 #import "Item.h"
 

@@ -170,16 +170,24 @@
             }
         }
         // Configure the cell...
+
         Item* item = [[Common instance] getQAAt:indexPath.row];
-        //((QACell*)cell).queststring = item.description;
-        //[((QACell*)cell) refresh];
         ((QACell*)cell).title.text = item.title;
         ((QACell*)cell).quest.text = [converter convertEntiesInString: item.description];
-        //((QACell*)cell).time.text = [NSString stringWithFormat:@"%@, %@", [item.date substringWithRange:NSMakeRange(5, 6)], [item.date substringWithRange:NSMakeRange(17, 5)]];
-        ((QACell*)cell).time.text = [item.date substringWithRange:NSMakeRange(17, 5)];
-//        ((QACell*)cell).rubric.text = item.rubric;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"EEE, dd MMM yyyy HH:mm:ss zzz";
+        NSDate *gmtDate = [formatter dateFromString:item.date];
+        formatter.dateFormat = @"dd.MM";
+        NSString* s = [formatter stringFromDate:gmtDate];
+        [formatter release];
+        
+        //[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"]; 
 
-//        ((QACell*)cell).webview.hidden = YES;
+        //NSLog(@"1 - %@", item.date);
+        //NSLog(@"2 - %@", [gmtDate description]);
+        
+        ((QACell*)cell).time.text = s;//[item.date substringWithRange:NSMakeRange(17, 5)];
     }
     
     return cell;
