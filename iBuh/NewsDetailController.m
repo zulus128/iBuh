@@ -353,7 +353,7 @@
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller  
           didFinishWithResult:(MFMailComposeResult)result 
-                        error:(NSError*)error;
+                        error:(NSError*)error
 {
     if (result == MFMailComposeResultSent) {
         NSLog(@"It's away!");
