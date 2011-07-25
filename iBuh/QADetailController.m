@@ -68,6 +68,9 @@
     self.titl.text = citem.title;
     //    self.rubric.text = self.citem.rubric;
     
+    self.a.hidden = YES;
+    self.q.hidden = YES;
+
     NSString* contentHTML = [NSString stringWithFormat:@"<html> \n"
                              "<head> \n"
                              "<style type=\"text/css\"> \n"
@@ -87,6 +90,7 @@
                    "<body align=""justify"">%@</body> \n"
                    "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
     [self.a loadHTMLString: contentHTML baseURL:nil];
+    
 
 }
 
@@ -94,6 +98,7 @@
     
     //NSLog(@"finishLoad");
     [self refrFont];
+    webView.hidden = NO;
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -235,7 +240,7 @@
             [controller setSubject:citem.title];
             //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Link: %@", citem.description, citem.full_text, citem.link];
+            NSString* str = [NSString stringWithFormat:@"Мобильное приложение Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br /> %@<br /> Ссылка на источник: %@", citem.description, citem.full_text, citem.link];
             
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -262,7 +267,7 @@
             
             SBJSON *jsonWriter = [[SBJSON new] autorelease];
             
-            NSString* str = [NSString stringWithFormat:@"From Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
+            NSString* str = [NSString stringWithFormat:@"Мобильное приложение Бухгалтерия:<br />Вопрос:<br /> %@<br />Ответ:<br />%@", citem.description, citem.full_text];
             NSDictionary* attachment = [NSDictionary dictionaryWithObjectsAndKeys:                
                                         citem.title, @"name",
                                         //self.citem.title, @"caption",
@@ -338,27 +343,26 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
 	fontsize = [userDefaults integerForKey:@"qafont"];
     
-	int entireSize = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
-	int scrollPosition = [[self.a stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
+    int entireSize = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int scrollPosition = [[self.q stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
 	NSString *jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
-                          fontsize];
-    [self.a stringByEvaluatingJavaScriptFromString:jsString];
-    [jsString release];
-	int entireSize1 = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
-	int scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
-	[self.a stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
-
-    entireSize = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
-	scrollPosition = [[self.q stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
-	jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", 
-                          fontsize - 10];
+                fontsize - 10];
     [self.q stringByEvaluatingJavaScriptFromString:jsString];
     [jsString release];
-	entireSize1 = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
-	scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
+	int entireSize1 = [[self.q stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	int scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
 	[self.q stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
+    
+	entireSize = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	scrollPosition = [[self.a stringByEvaluatingJavaScriptFromString:@"window.pageYOffset"] intValue];
+	jsString = [[NSString alloc] initWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%d%%'", fontsize];
+    [self.a stringByEvaluatingJavaScriptFromString:jsString];
+    [jsString release];
+	entireSize1 = [[self.a stringByEvaluatingJavaScriptFromString:@"document.documentElement.clientHeight"] intValue];
+	scrollPosition1 = (double) entireSize1 * scrollPosition / entireSize; 
+	[self.a stringByEvaluatingJavaScriptFromString: [NSString  stringWithFormat:@"window.scrollTo(0,%d);", scrollPosition1]];
 
-	
+
 }
 
 @end

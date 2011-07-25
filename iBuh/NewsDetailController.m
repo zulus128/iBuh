@@ -96,6 +96,7 @@
                              "<body align=""justify"">%@</body> \n"
                              "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
     [self.fulltext loadHTMLString: contentHTML baseURL:nil];
+    self.fulltext.hidden = YES;
     
 //    if((/*citem.image == nil*/self.number < 0) || (![citem.image length])) {
     if(![citem.image length]) {
@@ -259,7 +260,7 @@
             [controller setSubject:citem.title];
 //            [controller setSubject:@" "];
             
-            NSString* str = [NSString stringWithFormat:@"%@ %@ Link: %@", @"From Бухгалтерия: ", citem.full_text, citem.link];
+            NSString* str = [NSString stringWithFormat:@"%@ %@ Ссылка на источник: %@", @"Мобильное приложение Бухгалтерия: ", citem.full_text, citem.link];
 
             [controller setMessageBody:str isHTML:YES]; 
             [self presentModalViewController:controller animated:YES];
@@ -421,7 +422,8 @@
     
 	//[aIndicator stopAnimating];
     
-	
+    self.fulltext.hidden = NO;
+
 }
 
 @end
