@@ -41,9 +41,9 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];  
 	NSString* cr = [userDefaults stringForKey:@"email"];
     
-    if(!cr.length)
-        self.window.rootViewController = self.startController;
-    else
+    //if(!cr.length)
+    //    self.window.rootViewController = self.startController;
+    //else
         self.window.rootViewController = self.tabBarController;
     
 //    self.tabBarController
