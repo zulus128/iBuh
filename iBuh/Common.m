@@ -7,6 +7,7 @@
 //
 
 #import "Common.h"
+#import "XMLParser.h"
 
 @implementation UINavigationBar (UINavigationBarCategory)
 
@@ -33,6 +34,10 @@
 
 @synthesize facebook;
 @synthesize img = _img;
+
+@synthesize bannerLink = _bannerLink;
+@synthesize bannerSmall = _bannerSmall;
+@synthesize bannerBig = _bannerBig;
 
 + (Common*) instance  {
 	
@@ -121,6 +126,10 @@
     [_prelfilePath release];
     [_aTabBarBackground release];
     [_img release];
+    
+    [_bannerLink release];
+    [_bannerSmall release];
+    [_bannerBig release];
     
 	[super dealloc];
 }
@@ -467,6 +476,79 @@
 	
 	[[NSUserDefaults standardUserDefaults] setBool:b forKey:@"onlyWiFi"];
     
+}
+
+- (void) refreshBanner {
+    
+    NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+    [request setURL:[NSURL URLWithString:BANNER_URL]];
+    
+    NSHTTPURLResponse* urlResponse = nil;
+    NSError *error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    if (responseData == nil) {
+        if (error != nil) {
+            
+            //UIAlertView* dialog = [[UIAlertView alloc] init];
+            //[dialog setTitle:@"Ошибка Интернет-подключения"];
+            //[dialog setMessage:[error localizedDescription]];
+            //[dialog addButtonWithTitle:@"OK"];
+            //[dialog show];
+            //[dialog release];
+            return;// NO;
+        }
+    }
+
+        NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
+        myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
+        NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
+        XMLParser* parser = [[XMLParser alloc] initXMLParser:TYPE_BANNERS];
+        [xmlParser setDelegate:parser];    
+    
+        BOOL success = [xmlParser parse];	
+        
+        if(success) {
+
+            UIImage* isb = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bannerSmall]]];
+//            NSLog(@"banner = %@", isb);
+            if(isb) {
+                
+                NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                NSString* docpath = [sp objectAtIndex: 0];
+                NSString *sbFilePath = [NSString stringWithFormat:@"%@/banner.png",docpath];
+                NSData *data1 = [NSData dataWithData:UIImagePNGRepresentation(isb)];
+                [data1 writeToFile:sbFilePath atomically:YES];
+
+                UIImage* ibb = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.bannerBig]]];
+                NSString *bbFilePath = [NSString stringWithFormat:@"%@/banner@2x.png",docpath];
+                data1 = [NSData dataWithData:UIImagePNGRepresentation(ibb)];
+                [data1 writeToFile:bbFilePath atomically:YES];
+                
+                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"bannerExists"];
+                
+                NSLog(@"Banners - No Errors");
+            }
+            else{
+
+                [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"bannerExists"];
+                NSLog(@"Banners - No image on server");
+                
+            }
+        }
+        else {
+            
+            NSLog(@"Banner - Parser error: %@", [[xmlParser parserError] localizedDescription]);
+        }
+  
+}
+
+- (UIImage*) getBanner {
+    
+    NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* docpath = [sp objectAtIndex: 0];
+    NSString *bFilePath = [NSString stringWithFormat:@"%@/banner.png",docpath];
+    return [UIImage imageWithData:[NSData dataWithContentsOfFile:bFilePath]];
 }
 
 @end

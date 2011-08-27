@@ -33,4 +33,6 @@
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView* indi;
 @property (nonatomic, retain) IBOutlet UIView* lView;
 
+@property (nonatomic, retain) IBOutlet UIImageView* bannerView;
+
 @end

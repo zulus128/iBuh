@@ -48,7 +48,7 @@
 					<object class="IBUITableView" id="657899511">
 						<reference key="NSNextResponder" ref="805211722"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 140}, {320, 321.98}}</string>
+						<string key="NSFrame">{{0, 140}, {320, 278}}</string>
 						<reference key="NSSuperview" ref="805211722"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="79787325"/>
@@ -187,10 +187,20 @@
 						<string key="NSFrame">{{143, 169}, {37, 37}}</string>
 						<reference key="NSSuperview" ref="805211722"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="363003288"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIStyle">0</int>
+					</object>
+					<object class="IBUIImageView" id="363003288">
+						<reference key="NSNextResponder" ref="805211722"/>
+						<int key="NSvFlags">292</int>
+						<string key="NSFrame">{{0, 418}, {320, 44}}</string>
+						<reference key="NSSuperview" ref="805211722"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<bool key="IBUIUserInteractionEnabled">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
 				</object>
 				<string key="NSFrameSize">{320, 460}</string>
@@ -266,6 +276,14 @@
 					</object>
 					<int key="connectionID">46</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">bannerView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="363003288"/>
+					</object>
+					<int key="connectionID">48</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -300,6 +318,7 @@
 							<reference ref="247242908"/>
 							<reference ref="289609437"/>
 							<reference ref="79787325"/>
+							<reference ref="363003288"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -346,6 +365,11 @@
 						<reference key="object" ref="79787325"/>
 						<reference key="parent" ref="805211722"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">47</int>
+						<reference key="object" ref="363003288"/>
+						<reference key="parent" ref="805211722"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -363,11 +387,13 @@
 					<string>37.IBPluginDependency</string>
 					<string>39.IBPluginDependency</string>
 					<string>44.IBPluginDependency</string>
+					<string>47.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>NewsController</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -391,7 +417,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">46</int>
+			<int key="maxID">48</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -403,6 +429,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bannerView</string>
 							<string>indi</string>
 							<string>lView</string>
 							<string>tableView</string>
@@ -410,6 +437,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UIImageView</string>
 							<string>UIActivityIndicatorView</string>
 							<string>UIView</string>
 							<string>UITableView</string>
@@ -420,6 +448,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>bannerView</string>
 							<string>indi</string>
 							<string>lView</string>
 							<string>tableView</string>
@@ -427,6 +456,10 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">bannerView</string>
+								<string key="candidateClassName">UIImageView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">indi</string>
 								<string key="candidateClassName">UIActivityIndicatorView</string>

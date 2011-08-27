@@ -27,6 +27,9 @@
 	attributes:(NSDictionary *)attributeDict {
 	
   //  NSLog(@"Start Element");
+   
+    if(itype == TYPE_BANNERS)
+        return;
     
 	if([elementName isEqualToString:ITEM_TAG]) {
 
@@ -58,6 +61,16 @@
 						   [NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
 
+    if (itype == TYPE_BANNERS) {
+        
+        if([elementName isEqualToString:LINKBANNER_TAG])
+            [Common instance].bannerLink = trimedStr;
+        if([elementName isEqualToString:SMALLBANNER_TAG])
+            [Common instance].bannerSmall = trimedStr;
+        if([elementName isEqualToString:BIGBANNER_TAG])
+            [Common instance].bannerBig = trimedStr;
+    }
+    else
     if([elementName isEqualToString:ITEM_TAG]) {
 			
         switch (itype) {

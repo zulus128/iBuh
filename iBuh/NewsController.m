@@ -29,6 +29,8 @@
 @synthesize  indi = _indi;
 @synthesize lView = _lView;
 
+@synthesize bannerView = _bannerView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -47,6 +49,8 @@
     
     [_indi release];
     [_lView release];
+    
+    [_bannerView release];
     
     [super dealloc];
 }
@@ -133,6 +137,11 @@
     
     self.lView.layer.cornerRadius = 10.0f;
     
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
+
+        self.bannerView.image = [[Common instance] getBanner];
+    }
+
     hand = NO;
     [self refresh1];
     
@@ -186,9 +195,7 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-
+- (void)viewDidDisappear:(BOOL)animated {
 
     [super viewDidDisappear:animated];
     
@@ -200,26 +207,23 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-/*- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 
-    //NSLog(@"check!");
-    NewsDetailController* detailViewController = [[NewsDetailController alloc] initWithNibName:@"NewsDetailController" bundle:nil];
-//    Item* item = [[Common instance] getNewsAt:0];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"])
+        return;
     
-    self.hidesBottomBarWhenPushed = YES;
+    UITouch *touch=[[event allTouches]anyObject];
+    CGPoint location=[touch locationInView:touch.view];
+
+    //NSLog(@"loc y = %f", location.y);
+    if(location.y < 320)
+        return;
     
-    // Pass the selected object to the new view controller.
-//    detailViewController.citem = item;
-    detailViewController.number = 0;
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    NSLog(@"go banner!");
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[Common instance].bannerLink]];
 
-    detailViewController.image.hidden = NO;
-
-    self.hidesBottomBarWhenPushed = NO;
-
-    [detailViewController release];
-
-}*/
+}
 
 #pragma mark - Table view data source
 
@@ -509,7 +513,7 @@
     [self.indi stopAnimating];
     [self.lView setHidden:YES];
 
-
+    [[Common instance] refreshBanner];
 }
 
 - (void)addPreloadedNews {
@@ -544,32 +548,36 @@
             return NO;
         }
     }
+
+    BOOL success = YES;
+    
+    for (int i = 0; i < 5; i++) {
+        
     NSString *myStr = [[NSString alloc] initWithData:responseData encoding:NSWindowsCP1251StringEncoding];
     myStr = [myStr stringByReplacingOccurrencesOfString:@"encoding=\"windows-1251\"" withString:@""];
     NSData* aData = [myStr dataUsingEncoding:NSUTF8StringEncoding];
     NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:aData];
     XMLParser* parser = [[XMLParser alloc] initXMLParser:TYPE_NEWS];
     [xmlParser setDelegate:parser];    
-    
-    for (int i = 0; i < 5; i++) {
         
-        BOOL success = [xmlParser parse];	
+        success = [xmlParser parse];	
         
         if(success) {
             
-            NSLog(@"No Errors");
+            NSLog(@"News - No Errors");
 //            [self.tableView reloadData];
             break;
         }
         else {
             
             //NSLog(@"Error! Possibly xml version is not new");
-            NSLog(@"Parser error: %@", [[xmlParser parserError] localizedDescription]);
-            return NO;
+            NSLog(@"News - Parser error: %@", [[xmlParser parserError] localizedDescription]);
+            success = NO;
+            //return NO;
         }
     }
 
-    return YES;
+    return success;
 }
 
 

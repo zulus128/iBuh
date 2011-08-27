@@ -23,6 +23,8 @@
 
 #define EMAIL_URL @"http://www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
+#define BANNER_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonebanner.php"
+
 #define ITEM_TAG @"item"
 #define TITLE_TAG @"title"
 #define LINK_TAG @"link"
@@ -32,6 +34,9 @@
 #define DATE_TAG @"pubDate"
 #define IMAGE_TAG @"enclosure"
 #define DESCRIPTION_TAG @"description"
+#define SMALLBANNER_TAG @"smallb"
+#define BIGBANNER_TAG @"bigb"
+#define LINKBANNER_TAG @"clink"
 
 #define START_FONT 100
 #define STEP_FONT 10
@@ -42,7 +47,8 @@ enum item_types {
     
     TYPE_NEWS,
     TYPE_QAS,
-    TYPE_PCS
+    TYPE_PCS,
+    TYPE_BANNERS
 };
 
 @interface UINavigationBar (UINavigationBarCategory)
@@ -61,10 +67,13 @@ enum item_types {
 
 @property (nonatomic, retain) NSString* filePath;
 @property (nonatomic, retain) NSString* prelfilePath;
-
 @property (nonatomic, retain) Facebook *facebook;
 @property (nonatomic, retain) UIImageView *aTabBarBackground;
 @property (nonatomic, retain) IBOutlet UIImage* img;
+
+@property (nonatomic, retain) NSString* bannerLink;
+@property (nonatomic, retain) NSString* bannerSmall;
+@property (nonatomic, retain) NSString* bannerBig;
 
 + (Common*)instance;
 
@@ -102,5 +111,7 @@ enum item_types {
 - (BOOL) isOnlyWiFi;
 - (void) setOnlyWiFi: (BOOL)b;
 
+- (void) refreshBanner;
+- (UIImage*) getBanner;
 
 @end
