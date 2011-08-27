@@ -157,8 +157,7 @@
 						<reference key="NSNextKeyView" ref="292781594"/>
 						<reference key="IBUIBackgroundColor" ref="1001438058"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<int key="IBUIDataDetectorTypes">1</int>
-						<bool key="IBUIDetectsPhoneNumbers">YES</bool>
+						<int key="IBUIDataDetectorTypes">2</int>
 					</object>
 					<object class="IBUIImageView" id="203820384">
 						<reference key="NSNextResponder" ref="191373211"/>

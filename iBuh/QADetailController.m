@@ -77,7 +77,7 @@
                              "body {font-family: \"%@\"; font-size: %@; font-style:oblique;}\n"
                              "</style> \n"
                              "</head> \n"
-                             "<body align=""justify"">%@</body> \n"
+                             "<body align=""left"">%@</body> \n"
                              "</html>", @"helvetica", [NSNumber numberWithInt:12], citem.description];
     [self.q loadHTMLString: contentHTML baseURL:nil];
     
@@ -87,7 +87,7 @@
                    "body {font-family: \"%@\"; font-size: %@;}\n"
                    "</style> \n"
                    "</head> \n"
-                   "<body align=""justify"">%@</body> \n"
+                   "<body align=""left"">%@</body> \n"
                    "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
     [self.a loadHTMLString: contentHTML baseURL:nil];
     

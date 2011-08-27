@@ -93,8 +93,10 @@
                              "body {font-family: \"%@\"; font-size: %@;}\n"
                              "</style> \n"
                              "</head> \n"
-                             "<body align=""justify"">%@</body> \n"
+                             "<body align=""left"">%@</body> \n"
                              "</html>", @"helvetica", [NSNumber numberWithInt:15], citem.full_text];
+//    "<body align=""justify"">%@</body> \n"
+
     [self.fulltext loadHTMLString: contentHTML baseURL:nil];
     self.fulltext.hidden = YES;
     

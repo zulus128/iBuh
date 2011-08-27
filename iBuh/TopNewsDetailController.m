@@ -72,7 +72,7 @@
                              "body {font-family: \"%@\"; font-size: %@;}\n"
                              "</style> \n"
                              "</head> \n"
-                             "<body align=""justify"">%@</body> \n"
+                             "<body align=""left"">%@</body> \n"
                              "</html>", @"helvetica", [NSNumber numberWithInt:15], self.citem.full_text];
     [self.fulltext loadHTMLString: contentHTML baseURL:nil];
     
