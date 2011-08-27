@@ -21,16 +21,11 @@
 @implementation NewsController
 
 @synthesize samplecell = _samplecell;
-//@synthesize delimsamplecell = _delimsamplecell;
 @synthesize tableView = _tableView;
-
-//@synthesize image = _image;
-//@synthesize titl = _titl;
-//@synthesize rubric = _rubric;
-
 @synthesize topcell = _topcell;
-
 @synthesize time = _time;
+
+@synthesize  indi = _indi;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,17 +39,11 @@
 - (void)dealloc {
     
     [_samplecell release];
-//    [_delimsamplecell release];
-    
     [_tableView release];
-    
-//    [_image release];
-//    [_titl release];
-//    [_rubric release];
-    
     [_topcell release];
-    
     [_time release];
+    
+    [_indi release];
     
     [super dealloc];
 }
@@ -72,7 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -131,7 +120,8 @@
     //self.topcell.selected = YES;
     //self.topcell.multipleTouchEnabled = YES;
     
-    [self refresh:NO];
+    hand = NO;
+    [self refresh1];
     
 //    self.hidesBottomBarWhenPushed = NO;
 }
@@ -172,6 +162,7 @@
     UIBarButtonItem* bi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refr)] autorelease];
     self.navigationItem.rightBarButtonItem = bi; 
     
+  //   [self refresh:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -230,6 +221,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    NSLog(@"count = %d", [[Common instance] getNewsCount] - 1);
     return [[Common instance] getNewsCount] - 1;
 }
 
@@ -395,12 +387,20 @@
     [self refresh:YES];
 }
 
-- (void)refresh: (BOOL)hand {
+- (void)refresh: (BOOL)hnd {
+
+    hand = hnd;
+    [self.indi setHidden:NO];
+    [self.indi startAnimating];
+    [self performSelector:@selector(refresh1) withObject:nil afterDelay:0.0];
+  //  [self refresh1:self];
+}
+
+- (void)refresh1 {
     
-    NSLog(@"refresh");
+    NSLog(@"refresh hand = %d", hand);
     
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
+   // [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
     BOOL b = [[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus];    
     if (([[Common instance] isOnlyWiFi] && (b != ReachableViaWiFi))
@@ -458,6 +458,8 @@
             else {
         
                 [self.tableView reloadData];
+                //[sender reloadData];
+                //[_tableView reloadData];
                 [[Common instance] saveNewsPreload];
 
                 if([[Common instance] getNewsCount]) {
@@ -489,8 +491,9 @@
     
 	}
     
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
+//	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self.indi stopAnimating];
+
 }
 
 - (void)addPreloadedNews {

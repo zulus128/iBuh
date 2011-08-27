@@ -13,23 +13,23 @@
 @class TopNewsCell;
 
 @interface NewsController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
-    
+ 
+    BOOL hand;
 }
 
 - (void)refresh: (BOOL)hand;
+- (void)refresh1;
+
 - (void)refr;
 - (BOOL)addNews: (NSString*) url;
 - (void)addPreloadedNews;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
-//@property (nonatomic, retain) UITableViewCell* delimsamplecell;
-@property (nonatomic, retain) UITableView* tableView;
-
-//@property (nonatomic, retain) IBOutlet UIImageView* image;
-//@property (nonatomic, retain) IBOutlet UILabel* titl;
-//@property (nonatomic, retain) IBOutlet UILabel* rubric;
-
+@property (nonatomic, retain) IBOutlet UITableView* tableView;
 @property (nonatomic, retain) IBOutlet UILabel* time;
 @property (nonatomic, retain) TopNewsCell* topcell;
+
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView* indi;
+@property (nonatomic, retain) IBOutlet UIView* loadView;
 
 @end
