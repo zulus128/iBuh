@@ -17,6 +17,7 @@
 #import "NewsDetailController.h"
 //#import "TopNewsDetailController.h"
 #import "TopNewsCell.h"
+#import <QuartzCore/CALayer.h>
 
 @implementation NewsController
 
@@ -26,6 +27,7 @@
 @synthesize time = _time;
 
 @synthesize  indi = _indi;
+@synthesize lView = _lView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +46,7 @@
     [_time release];
     
     [_indi release];
+    [_lView release];
     
     [super dealloc];
 }
@@ -119,6 +122,16 @@
     self.topcell.nc = self;
     //self.topcell.selected = YES;
     //self.topcell.multipleTouchEnabled = YES;
+    
+    
+    
+//    _hudView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+//    _hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+ //   _hudView.clipsToBounds = YES;
+    //_hudView.layer.cornerRadius = 10.0;
+//    [self.view addSubview:_hudView];
+    
+    self.lView.layer.cornerRadius = 10.0f;
     
     hand = NO;
     [self refresh1];
@@ -390,6 +403,7 @@
 - (void)refresh: (BOOL)hnd {
 
     hand = hnd;
+    [self.lView setHidden:NO];
     [self.indi setHidden:NO];
     [self.indi startAnimating];
     [self performSelector:@selector(refresh1) withObject:nil afterDelay:0.0];
@@ -493,6 +507,8 @@
     
 //	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self.indi stopAnimating];
+    [self.lView setHidden:YES];
+
 
 }
 

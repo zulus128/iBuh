@@ -15,6 +15,7 @@
 @interface NewsController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
  
     BOOL hand;
+//    UIView* _hudView;
 }
 
 - (void)refresh: (BOOL)hand;
@@ -30,6 +31,6 @@
 @property (nonatomic, retain) TopNewsCell* topcell;
 
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView* indi;
-@property (nonatomic, retain) IBOutlet UIView* loadView;
+@property (nonatomic, retain) IBOutlet UIView* lView;
 
 @end
