@@ -136,15 +136,7 @@
 //    [self.view addSubview:_hudView];
     
     self.lView.layer.cornerRadius = 10.0f;
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
 
-        self.bannerView.image = [[Common instance] getBanner];
-    }
-
-    hand = NO;
-    [self refresh1];
-    
 //    self.hidesBottomBarWhenPushed = NO;
 }
 
@@ -185,6 +177,9 @@
     self.navigationItem.rightBarButtonItem = bi; 
     
   //   [self refresh:NO];
+    
+    hand = NO;
+    [self refresh1];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -418,6 +413,7 @@
     
     NSLog(@"refresh hand = %d", hand);
     
+    ppp = !ppp;
    // [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
     BOOL b = [[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus];    
@@ -514,6 +510,26 @@
     [self.lView setHidden:YES];
 
     [[Common instance] refreshBanner];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
+//    if (ppp) {
+        
+        self.bannerView.hidden = NO;
+        self.bannerView.image = [[Common instance] getBanner];
+        CGRect f = self.bannerView.frame;
+        f.origin.y = 323;
+        self.bannerView.frame = f;
+        f = CGRectMake(0, 140, 320, 183);
+        self.tableView.frame = f;
+    }
+    else {
+        
+        self.bannerView.hidden = YES;
+        CGRect f = CGRectMake(0, 140, 320, 227);
+        self.tableView.frame = f;
+        
+    }
+
 }
 
 - (void)addPreloadedNews {

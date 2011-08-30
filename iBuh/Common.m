@@ -547,8 +547,12 @@
     
     NSArray* sp = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* docpath = [sp objectAtIndex: 0];
-    NSString *bFilePath = [NSString stringWithFormat:@"%@/banner.png",docpath];
-    return [UIImage imageWithData:[NSData dataWithContentsOfFile:bFilePath]];
+    NSString *bFilePath = [NSString stringWithFormat:([UIScreen mainScreen].scale > 1.99f)?@"%@/banner@2x.png":@"%@/banner.png",docpath];
+    UIImage* i = [UIImage imageWithData:[NSData dataWithContentsOfFile:bFilePath]];
+//    UIImage* i = [UIImage imageNamed: bFilePath];
+    NSLog(@"filename = %@", bFilePath);
+    NSLog(@"banner image: %@ width = %f", i, i.size.width);
+    return i;
 }
 
 @end

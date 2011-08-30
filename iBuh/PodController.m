@@ -15,10 +15,21 @@
 @implementation PodController
 
 @synthesize samplecell = _samplecell;
+@synthesize bannerView = _bannerView;
+@synthesize tableView = _tableView;
 
-- (id)initWithStyle:(UITableViewStyle)style
+/*- (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}*/
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -28,6 +39,8 @@
 - (void)dealloc {
     
     [_samplecell release];
+    [_bannerView release];
+    [_tableView release];
     
     [super dealloc];
 }
@@ -65,7 +78,7 @@
         }
     }
     
-    [self refresh];
+ //   [self refresh];
 }
 
 - (void)viewDidUnload
@@ -86,6 +99,8 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+        [self refresh];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -104,6 +119,24 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"])
+        return;
+    
+    UITouch *touch=[[event allTouches]anyObject];
+    CGPoint location=[touch locationInView:touch.view];
+    
+    //NSLog(@"loc y = %f", location.y);
+    if(location.y < 320)
+        return;
+    
+    NSLog(@"go banner!");
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[Common instance].bannerLink]];
+    
 }
 
 #pragma mark - Table view data source
@@ -236,6 +269,29 @@
         if([self addPodcasts:PODCAST_URL])
             [[Common instance] savePodcastsPreload];
 	}
+    
+    [[Common instance] refreshBanner];
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
+    //          if (!ppp) {
+        
+        self.bannerView.hidden = NO;
+        self.bannerView.image = [[Common instance] getBanner];
+        CGRect f = self.bannerView.frame;
+        f.origin.y = 323;
+        self.bannerView.frame = f;
+        f = CGRectMake(0, 0, 320, 323);
+        self.tableView.frame = f;
+    }
+    else {
+        
+        self.bannerView.hidden = YES;
+        CGRect f = CGRectMake(0, 0, 320, 367);
+        self.tableView.frame = f;
+        
+    }
+
+    ppp = !ppp;
     
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }

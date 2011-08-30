@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MREntitiesConverter.h"
 
-@interface QAController : UITableViewController {
+@interface QAController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     
     MREntitiesConverter* converter;
+    BOOL ppp;
 }
 
 - (BOOL)addQAs: (NSString*) url;
@@ -19,5 +20,7 @@
 - (void)addQuestion:(NSObject*)sender;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
+@property (nonatomic, retain) IBOutlet UITableView* tableView;
+@property (nonatomic, retain) IBOutlet UIImageView* bannerView;
 
 @end

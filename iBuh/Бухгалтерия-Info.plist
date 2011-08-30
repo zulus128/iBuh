@@ -16,7 +16,7 @@
 		<string>114.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>ru.buhgalteria.buhgalteria</string>
+	<string>com.vkassin.ibuh</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

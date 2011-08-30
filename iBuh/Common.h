@@ -8,6 +8,7 @@
 
 //[dateFormat setDateFormat: @"yyyy-MM-dd HH:mm:ss zzz"]; 
 
+//ru.buhgalteria.buhgalteria
 
 #import <Foundation/Foundation.h>
 #import "Item.h"

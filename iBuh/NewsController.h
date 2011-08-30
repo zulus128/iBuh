@@ -15,6 +15,8 @@
 @interface NewsController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
  
     BOOL hand;
+    
+    BOOL ppp;
 //    UIView* _hudView;
 }
 
