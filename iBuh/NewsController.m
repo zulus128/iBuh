@@ -12,10 +12,8 @@
 #import "XMLParser.h"
 #import "NewsCell.h"
 #import "TopNewsCell.h"
-//#import "DelimNewsCell.h"
 #import "Item.h"
 #import "NewsDetailController.h"
-//#import "TopNewsDetailController.h"
 #import "TopNewsCell.h"
 #import <QuartzCore/CALayer.h>
 

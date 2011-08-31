@@ -16,9 +16,10 @@
 @synthesize rubric = _rubric;
 @synthesize fulltext = _fulltext;
 @synthesize favButton = _favButton;
-//@synthesize citem = _citem;
 @synthesize image = _image;
 @synthesize arrow = _arrow;
+
+@synthesize bannerView = _bannerView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,9 +41,10 @@
     [_rubric release];
     [_fulltext release];
     [_favButton release];
-//    [_citem release];
     [_image release];
     [_arrow release];
+
+    [_bannerView release];
     
     [super dealloc];
 }
@@ -118,6 +120,8 @@
 
         //        self.image.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString: self.citem.image]]];
     }
+    
+    [self validTable];
 
 }
 
@@ -426,6 +430,49 @@
     
     self.fulltext.hidden = NO;
 
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"])
+        return;
+    
+    UITouch *touch=[[event allTouches]anyObject];
+    CGPoint location=[touch locationInView:touch.view];
+    
+    //NSLog(@"loc y = %f", location.y);
+    if(location.y < 320)
+        return;
+    
+    NSLog(@"go banner!");
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[Common instance].bannerLink]];
+    
+}
+
+- (void) validTable {
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
+   //         if (ppp) {
+        
+        self.bannerView.hidden = NO;
+        self.bannerView.image = [[Common instance] getBanner];
+        CGRect f = self.bannerView.frame;
+        f.origin.y = 328;
+        self.bannerView.frame = f;
+        f = CGRectMake(0, 85, 320, 245);
+        self.fulltext.frame = f;
+    }
+    else {
+        
+        self.bannerView.hidden = YES;
+        CGRect f = CGRectMake(0, 85, 320, 289);
+        self.fulltext.frame = f;
+        
+    }
+    
+    ppp=!ppp;
+    
 }
 
 @end
