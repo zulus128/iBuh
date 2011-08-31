@@ -365,9 +365,9 @@
     
     NSLog(@"refresh hand = %d", hand);
     
-    ppp = !ppp;
    // [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	
+	    ppp = !ppp;
+    
     BOOL b = [[Reachability reachabilityWithHostName:MENU_URL_FOR_REACH] currentReachabilityStatus];    
     if (([[Common instance] isOnlyWiFi] && (b != ReachableViaWiFi))
         || (![[Common instance] isOnlyWiFi] && (b == NotReachable))) {
@@ -462,13 +462,13 @@
     [self.lView setHidden:YES];
 
     [[Common instance] refreshBanner];
-    
+    [self validTable];
 }
 
 - (void) validTable {
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
-        //    if (ppp) {
+    //        if (ppp) {
         
         self.bannerView.hidden = NO;
         self.bannerView.image = [[Common instance] getBanner];
