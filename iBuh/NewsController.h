@@ -23,9 +23,10 @@
 - (void)refresh: (BOOL)hand;
 - (void)refresh1;
 
-- (void)refr;
-- (BOOL)addNews: (NSString*) url;
-- (void)addPreloadedNews;
+- (void) refr;
+- (BOOL) addNews: (NSString*) url;
+- (void) addPreloadedNews;
+- (void) validTable;
 
 @property (nonatomic, retain) UITableViewCell* samplecell;
 @property (nonatomic, retain) IBOutlet UITableView* tableView;

@@ -75,20 +75,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //-----------
- /*   UILabel *titleView = (UILabel *)self.navigationItem.titleView;
-    if (!titleView) {
-        titleView = [[UILabel alloc] initWithFrame:CGRectZero];
-        titleView.backgroundColor = [UIColor clearColor];
-        titleView.font = [UIFont boldSystemFontOfSize:20.0];
-        titleView.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.0];
-        titleView.textColor = [UIColor blackColor];
-        self.navigationItem.titleView = titleView;
-        [titleView release];
-    }
-    titleView.text = self.navigationItem.title;
-    [titleView sizeToFit];*/
-    //-----------
     NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"NewsCell" owner:nil options:nil];
     for (id currentObject in topLevelObjects) {
         
@@ -99,16 +85,6 @@
         }
     }
 
-/*    topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"DelimNewsCell" owner:nil options:nil];
-    for (id currentObject in topLevelObjects) {
-        
-        if ([currentObject isKindOfClass:[DelimNewsCell class]]) {
-            
-            self.delimsamplecell = (DelimNewsCell*) currentObject;
-            break;
-        }
-    }
-  */  
      topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TopNewsCell" owner:nil options:nil];
      for (id currentObject in topLevelObjects) {
     
@@ -124,20 +100,12 @@
     r.origin.y = 31;
     self.topcell.frame = r;
     self.topcell.nc = self;
-    //self.topcell.selected = YES;
-    //self.topcell.multipleTouchEnabled = YES;
-    
-    
-    
-//    _hudView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-//    _hudView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
- //   _hudView.clipsToBounds = YES;
-    //_hudView.layer.cornerRadius = 10.0;
-//    [self.view addSubview:_hudView];
     
     self.lView.layer.cornerRadius = 10.0f;
 
-//    self.hidesBottomBarWhenPushed = NO;
+    hand = NO;
+    [self refresh1];
+
 }
 
 - (void)viewDidUnload
@@ -152,8 +120,7 @@
     [super viewWillAppear:animated];
   
 //    NSLog(@"viewWillAppear");
-    
-    
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -162,24 +129,11 @@
 
     UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
     [self.navigationController.navigationBar setBackgroundImage:image];
-
-/*    UIImage *myImage = [UIImage imageNamed:@"02-redo.png"];
-    UIButton *myButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [myButton setImage:myImage forState:UIControlStateNormal];
-    myButton.showsTouchWhenHighlighted = YES;
-    myButton.frame = CGRectMake(0.0, 0.0, myImage.size.width, myImage.size.height);
-    [myButton addTarget:self action:@selector(refr) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *bi = [[UIBarButtonItem alloc] initWithCustomView:myButton];
-    self.navigationItem.rightBarButtonItem = bi;
-    [bi release];
-*/
+    
     UIBarButtonItem* bi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refr)] autorelease];
     self.navigationItem.rightBarButtonItem = bi; 
     
-  //   [self refresh:NO];
-    
-    hand = NO;
-    [self refresh1];
+    [self validTable];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -511,8 +465,12 @@
 
     [[Common instance] refreshBanner];
     
+}
+
+- (void) validTable {
+    
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"bannerExists"]) {
-//    if (ppp) {
+        //    if (ppp) {
         
         self.bannerView.hidden = NO;
         self.bannerView.image = [[Common instance] getBanner];
