@@ -480,7 +480,12 @@
 
 - (void) refreshBanner {
     
+    [Common instance].bannerSmall = @"no";
+    [Common instance].bannerBig = @"no";
+    
+    ppp=!ppp;
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+//    [request setURL:[NSURL URLWithString:ppp?BANNER_URL:NOBANNER_URL]];
     [request setURL:[NSURL URLWithString:BANNER_URL]];
     
     NSHTTPURLResponse* urlResponse = nil;

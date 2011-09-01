@@ -25,6 +25,7 @@
 #define EMAIL_URL @"http://www.buhgalteria.ru/iphoneapp/mailget.php?email=%@"
 
 #define BANNER_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonebanner.php"
+#define NOBANNER_URL @"http://www.buhgalteria.ru/rss/iphoneapp/iphonenobanner.php"
 
 #define ITEM_TAG @"item"
 #define TITLE_TAG @"title"
@@ -64,6 +65,7 @@ enum item_types {
     NSMutableDictionary* favs;
     NSMutableDictionary* prels;
     int correction;
+    BOOL ppp;
 }
 
 @property (nonatomic, retain) NSString* filePath;
