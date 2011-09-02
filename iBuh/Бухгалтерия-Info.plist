@@ -16,7 +16,7 @@
 		<string>114.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.vkassin.ibuh</string>
+	<string>ru.buhgalteria.buhgalteria</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -37,7 +37,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSMainNibFile</key>

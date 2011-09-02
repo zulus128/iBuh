@@ -990,8 +990,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Berator ltd/";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -999,8 +999,8 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "4D68FD63-76CE-40CB-AE6E-AA01B852A4E9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D68FD63-76CE-40CB-AE6E-AA01B852A4E9";
+				PROVISIONING_PROFILE = "86C64D15-5603-4D68-BDF9-4323D3037B11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -1050,7 +1050,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1060,7 +1060,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D68FD63-76CE-40CB-AE6E-AA01B852A4E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1069,8 +1069,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: VADIM KASSIN (744XFE3JS8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Berator ltd/";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1078,8 +1078,8 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "4D68FD63-76CE-40CB-AE6E-AA01B852A4E9";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4D68FD63-76CE-40CB-AE6E-AA01B852A4E9";
+				PROVISIONING_PROFILE = "86C64D15-5603-4D68-BDF9-4323D3037B11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
