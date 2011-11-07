@@ -65,6 +65,11 @@
     
 //    [self.navigationController.navigationBar setBackgroundImage:NULL];
     
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        //iOS 5 new UINavigationBar custom background
+        [self.navigationController.navigationBar setBackgroundImage:NULL forBarMetrics: UIBarMetricsDefault];
+    }
+    
     segmentedControl.hidden = (self.number < 0);
     self.favButton.enabled = (self.number >= 0);
 //    NSLog(@"number=%i", self.number);

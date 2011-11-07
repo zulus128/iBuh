@@ -125,8 +125,27 @@
     
     [super viewDidAppear:animated];
 
-    UIImage *image = [UIImage imageNamed: @"top-logo-sample.png"];
-    [self.navigationController.navigationBar setBackgroundImage:image];
+    UIImage *image = [UIImage imageNamed:@"top-logo-sample.png"];
+    
+    if([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+        //iOS 5 new UINavigationBar custom background
+        [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics: UIBarMetricsDefault];
+    } 
+//    else{
+//        UIImageView *imgView = [[[UIImageView alloc] initWithImage:image] autorelease];
+//        [imgView setUserInteractionEnabled:NO];
+////        [imgView setTag:TOOLBAR_TAG];
+//        [self.navigationController.navigationBar insertSubview:imgView atIndex:0];
+//    }
+    
+        UIImage *image1 = [UIImage imageNamed: @"top-logo-sample.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image1];
+        
+//    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"top-logo-sample.png"]];
+////    [self.navigationController.navigationBar insertSubview:iv atIndex:0];
+//    [self.navigationController.navigationBar addSubview:iv];
+//    [self.navigationController.navigationBar sendSubviewToBack:iv];
+//    [iv release];
     
     UIBarButtonItem* bi = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refr)] autorelease];
     self.navigationItem.rightBarButtonItem = bi; 
