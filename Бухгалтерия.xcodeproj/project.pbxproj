@@ -989,7 +989,10 @@
 		8CA4FD0313DD64EC00527934 /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Berator ltd/";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -999,8 +1002,8 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "86C64D15-5603-4D68-BDF9-4323D3037B11";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
+				PROVISIONING_PROFILE = "B6087497-5B65-4091-911A-ACAFD8A4F049";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6087497-5B65-4091-911A-ACAFD8A4F049";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -1049,7 +1052,10 @@
 		DDED16E513A3290E003E523C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1060,7 +1066,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6087497-5B65-4091-911A-ACAFD8A4F049";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1068,7 +1074,10 @@
 		DDED16E613A3290E003E523C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					"$(ARCHS_STANDARD_32_BIT)",
+					armv6,
+				);
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Berator ltd/";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Berator ltd/";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1078,8 +1087,8 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "86C64D15-5603-4D68-BDF9-4323D3037B11";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "86C64D15-5603-4D68-BDF9-4323D3037B11";
+				PROVISIONING_PROFILE = "B6087497-5B65-4091-911A-ACAFD8A4F049";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B6087497-5B65-4091-911A-ACAFD8A4F049";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
